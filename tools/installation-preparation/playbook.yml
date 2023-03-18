@@ -1,0 +1,12 @@
+- name: Prepare NixOS Installation
+  hosts: code
+  become: true
+  tasks:
+    - name: Partition disks
+      ansible.builtin.include_tasks: tasks/00-disk-partition.yml
+    - name: Create BTRFS subvolumes
+      ansible.builtin.include_tasks: tasks/01-create-subvolumes.yml
+    - name: Mount patitions
+      ansible.builtin.include_tasks: tasks/02-create-mountpoints.yml
+    - name: Generate encryption keys
+      ansible.builtin.include_tasks: tasks/03-generate-encryption-keys.yml

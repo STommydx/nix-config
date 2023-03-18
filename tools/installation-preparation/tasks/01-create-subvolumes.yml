@@ -1,0 +1,37 @@
+- name: Ensure /mnt unmounted
+  ansible.posix.mount:
+    path: "{{ item }}"
+    state: unmounted
+  loop:
+    # - /mnt/data
+    - /mnt/home
+    - /mnt/nix
+    - /mnt/boot
+    - /mnt
+- name: Mount root partition
+  ansible.posix.mount:
+    path: /mnt
+    src: /dev/sda2
+    fstype: btrfs
+    state: ephemeral
+# no well-known btrfs ansible module exists, fallback to ansible.builtin.command
+- name: Create root volume
+  ansible.builtin.command:
+    cmd: btrfs subvolume create /mnt/@
+    creates: /mnt/@
+# - name: Create data volume
+#   ansible.builtin.command:
+#     cmd: btrfs subvolume create /mnt/@data
+#     creates: /mnt/@data
+- name: Create home volume
+  ansible.builtin.command:
+    cmd: btrfs subvolume create /mnt/@home
+    creates: /mnt/@home
+- name: Create nix volume
+  ansible.builtin.command:
+    cmd: btrfs subvolume create /mnt/@nix
+    creates: /mnt/@nix
+- name: Unmount root partition
+  ansible.posix.mount:
+    path: /mnt
+    state: unmounted

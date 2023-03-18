@@ -1,0 +1,44 @@
+- name: Mount root partition
+  ansible.posix.mount:
+    path: /mnt
+    src: /dev/sda2
+    fstype: btrfs
+    opts: compress=zstd:1,subvol=@
+    state: ephemeral
+- name: Create mountpoints directory
+  ansible.builtin.file:
+    path: /mnt/{{ item }}
+    state: directory
+    mode: '0755'
+  loop:
+    - boot
+    # - data
+    - home
+    - nix
+- name: Mount boot partition
+  ansible.posix.mount:
+    path: /mnt/boot
+    src: /dev/sda1
+    fstype: vfat
+    state: ephemeral
+# - name: Mount data partition
+#   ansible.posix.mount:
+#     path: /mnt/data
+#     src: /dev/sda2
+#     fstype: btrfs
+#     opts: compress=zstd:1,subvol=@data
+#     state: ephemeral
+- name: Mount home partition
+  ansible.posix.mount:
+    path: /mnt/home
+    src: /dev/sda2
+    fstype: btrfs
+    opts: compress=zstd:1,subvol=@home
+    state: ephemeral
+- name: Mount nix partition
+  ansible.posix.mount:
+    path: /mnt/nix
+    src: /dev/sda2
+    fstype: btrfs
+    opts: compress=zstd:1,subvol=@nix,noatime
+    state: ephemeral

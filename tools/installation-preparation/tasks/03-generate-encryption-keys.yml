@@ -1,0 +1,9 @@
+- name: Create directory for age key
+  ansible.builtin.file:
+    path: /mnt/etc/sops-nix
+    state: directory
+    mode: '0700'
+- name: Create age encryption key
+  ansible.builtin.shell:
+    cmd: age-keygen > /mnt/etc/sops-nix/key.txt && chmod 600 /mnt/etc/sops-nix/key.txt
+    creates: /mnt/etc/sops-nix/key.txt
