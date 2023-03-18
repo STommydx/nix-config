@@ -40,4 +40,5 @@ configs. The idea is to keep config structure reusable without complicated and h
 3. Add SSH keys to authorized_keys
 4. Run Ansible scripts in `tools` directory to prepare installation
 5. Add public key of `/mnt/etc/sops-nix/key.txt` to `.sops.yaml` and update keys
-6. Clone repo and `nixos-install --flake ".#host"`
+6. Run `nixos-generate-config --root /mnt --show-hardware-config` and copy result to `hosts/$HOSTNAME/hardware-configuration.nix`
+7. Clone repo and `nixos-install --flake ".#host"`
