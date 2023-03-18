@@ -18,11 +18,13 @@
     gnome-console
   ];
   environment.systemPackages = with pkgs; [
+    appimage-run
     bottles
     discord
     firefox
     goverlay
     heroic
+    jetbrains-toolbox
     mangohud
     moonlight-qt
     mpv
@@ -131,5 +133,9 @@
     desktopManager.gnome.enable = true;
   };
 
+  # temporary workaround for https://github.com/NixOS/nixpkgs/issues/180175
+  # NetworkManager-wait-online.service fails system activation if enabled
+  systemd.services.NetworkManager-wait-online.enable = false;
+  
   xdg.portal.enable = true;
 }
