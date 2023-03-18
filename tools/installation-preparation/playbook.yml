@@ -1,5 +1,5 @@
 - name: Prepare NixOS Installation
-  hosts: code
+  hosts: desktopdx
   become: true
   tasks:
     - name: Partition disks

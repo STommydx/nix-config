@@ -1,5 +1,5 @@
 all:
   hosts:
-    code:
-      ansible_host: 10.102.85.41
+    desktopdx:
+      ansible_host: 10.100.251.23
       ansible_user: nixos

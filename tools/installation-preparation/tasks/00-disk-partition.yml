@@ -6,7 +6,7 @@
     part_start: 1MiB
     part_end: 512MiB
     fs_type: fat32
-    flags: [ esp ]
+    flags: [esp]
     name: efi-boot
     state: present
 - name: Format boot partition
