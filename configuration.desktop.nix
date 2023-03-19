@@ -50,6 +50,7 @@
     vscode
     whatsapp-for-linux
     wl-clipboard
+    xournalpp
     yubikey-manager
     yuzu-mainline
     zoom
