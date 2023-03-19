@@ -23,6 +23,7 @@
     bottles
     discord
     firefox
+    gnome.gnome-tweaks
     goverlay
     heroic
     jetbrains-toolbox
