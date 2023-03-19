@@ -6,7 +6,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+
   fileSystems = {
     "/data".options = [ "compress=zstd:1" ];
   };
