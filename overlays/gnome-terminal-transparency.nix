@@ -18,7 +18,7 @@ self: super:
 
       patches = [
         (super.fetchpatch {
-          url = "https://aur.archlinux.org/cgit/aur.git/plain/transparency.patch?h=gnome-terminal-transparency";
+          url = "https://aur.archlinux.org/cgit/aur.git/plain/transparency.patch?h=gnome-terminal-transparency&id=13c036ee706670f5db701c6e99229c1e60321aa6";
           sha256 = "NvuTE8l05Sf+CeqBXAgvVJgqBEhU/3+RzCITJWeDaB8=";
         })
       ];
