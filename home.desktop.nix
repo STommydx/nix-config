@@ -67,8 +67,10 @@ with lib.hm.gvariant;
       locations = "[<(uint32 2, <('Hong Kong', 'VHHH', true, [(0.38979019379430269, 1.9928751117510946)], [(0.38949931722116538, 1.9928751117510946)])>)>]";
     };
     "org/gnome/terminal/legacy/profiles:/:842ec37e-9d77-4e26-86c5-41fc3bca62c5" = {
+      background-transparency-percent = 20;
       default-size-columns = 120;
       default-size-rows = 36;
+      use-transparent-background = true;
     };
   };
 
@@ -92,7 +94,7 @@ with lib.hm.gvariant;
       ];
       env = {
         # https://wiki.archlinux.org/title/Alacritty#Terminal_functionality_unavailable_in_remote_shells
-        TERM = "xterm-256color"; 
+        TERM = "xterm-256color";
       };
       windows = {
         dimensions = {
@@ -109,7 +111,7 @@ with lib.hm.gvariant;
     profile."842ec37e-9d77-4e26-86c5-41fc3bca62c5" = {
       default = true;
       visibleName = "Default";
-      transparencyPercent = 20;
+      # transparencyPercent = 20; # this option does not work with colors = null
     };
   };
   programs.mangohud = {

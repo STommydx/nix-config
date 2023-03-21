@@ -73,6 +73,8 @@
     ubuntu_font_family
   ];
 
+  nixpkgs.overlays = [ (import ./overlays/gnome-terminal-transparency.nix) ];
+
   programs._1password-gui.enable = true;
   programs.adb.enable = true;
   programs.steam = {
