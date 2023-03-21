@@ -44,6 +44,7 @@
     tdesktop
     transmission
     usbutils
+    ventoy-bin
     via
     vial
     vlc
