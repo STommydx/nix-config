@@ -84,7 +84,11 @@
   programs.gamemode.enable = true;
   programs.gnome-terminal.enable = true;
 
-  qt.platformTheme = "gnome";
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 
   security.pam.u2f = {
     enable = true;

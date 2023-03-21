@@ -179,7 +179,11 @@ with lib.hm.gvariant;
     pbpaste = "wl-paste";
   };
 
-  qt.platformTheme = "gnome";
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style.name = "adwaita-dark";
+  };
 
   services.gnome-keyring.enable = true;
 
