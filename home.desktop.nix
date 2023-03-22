@@ -85,6 +85,10 @@ with lib.hm.gvariant;
       gsconnect
     ]
   );
+  
+  home.sessionPath = [
+    "${config.xdg.dataHome}/JetBrains/Toolbox/scripts"
+  ];
 
   programs.alacritty = {
     enable = true;

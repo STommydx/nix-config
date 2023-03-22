@@ -50,7 +50,10 @@
     };
     delta.enable = true;
   };
-  programs.go.enable = true;
+  programs.go = {
+    enable = true;
+    goPath = lib.removePrefix config.home.homeDirectory "${config.xdg.dataHome}/go";
+  };
   programs.gpg = {
     enable = true;
     homedir = "${config.xdg.dataHome}/gnupg";
