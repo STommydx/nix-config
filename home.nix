@@ -32,6 +32,16 @@
   programs.gh.enable = true;
   programs.git = {
     enable = true;
+    aliases = {
+      # Alias recommendations from various sites
+      # https://www.atlassian.com/git/tutorials/git-alias
+      # https://betterprogramming.pub/8-amazing-aliases-to-make-you-more-productive-with-git-3be35d1b7e51
+      alias = "config --get-regexp ^alias\\."; # show all available alias
+      br = "branch";
+      ci = "commit";
+      co = "checkout";
+      st = "status";
+    };
     userName = "Tommy Li";
     userEmail = "dev@stdx.space";
     signing = {
