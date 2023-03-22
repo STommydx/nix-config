@@ -27,6 +27,7 @@
   programs.exa = {
     enable = true;
     enableAliases = true;
+    extraOptions = [ "-g" ];
   };
   programs.fzf.enable = true;
   programs.gh.enable = true;
