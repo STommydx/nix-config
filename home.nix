@@ -63,6 +63,14 @@
       enable = true;
       style = "night";
     };
+    extraConfigLua = ''
+      require('neoscroll').setup()
+      require("scrollbar").setup()
+    '';
+    extraPlugins = with pkgs.vimPlugins; [
+      neoscroll-nvim
+      nvim-scrollbar
+    ];
     maps = {
       visual."<C-c>".action = ''"+y'';
       visual."<C-x>".action = ''"+d'';
