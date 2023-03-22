@@ -128,7 +128,7 @@
   };
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = lib.removePrefix config.home.homeDirectory "${config.xdg.configHome}/zsh";
     history.path = "${config.xdg.stateHome}/zsh/history";
     enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
