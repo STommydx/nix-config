@@ -14,6 +14,7 @@ with lib.hm.gvariant;
       clock-show-seconds = true;
       clock-show-weekday = true;
       color-scheme = "prefer-dark";
+      cursor-theme = "breeze_cursors";
       font-antialiasing = "grayscale";
       font-hinting = "slight";
       gtk-theme = "Adwaita-dark";
