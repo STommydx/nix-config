@@ -21,6 +21,20 @@
     efi.canTouchEfiVariables = true;
   };
   boot.plymouth.enable = true;
+  
+  environment.systemPackages = with pkgs; [
+    virt-manager
+  ];
 
   networking.hostName = "desktopdx";
+  
+  users.users.stommydx.extraGroups = [ "libvirtd" "vboxusers" ];
+
+  virtualisation.libvirtd = {
+    enable = true;
+  };
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableExtensionPack = true;
+  };
 }
