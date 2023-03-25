@@ -22,6 +22,7 @@
     appimage-run
     bottles
     discord
+    element-desktop
     firefox
     gnome.gnome-tweaks
     goverlay
