@@ -246,6 +246,11 @@ with lib.hm.gvariant;
 
   services.gnome-keyring.enable = true;
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null;
+  };
+
   xdg.configFile."alacritty/themes/tokyo-night.yaml".source = ./dotfiles/alacritty/tokyo-night.yaml;
   xdg.configFile."vscode-neovim/init.lua".text = ''
     require("Comment").setup{}

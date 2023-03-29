@@ -78,6 +78,7 @@
 
   programs._1password-gui.enable = true;
   programs.adb.enable = true;
+  programs.hyprland.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

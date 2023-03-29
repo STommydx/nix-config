@@ -13,6 +13,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -30,7 +35,7 @@
     };
   };
 
-  outputs = { self, darwin, home-manager, sops-nix, nixos-generators, nixpkgs, nixvim }:
+  outputs = { self, darwin, home-manager, hyprland, sops-nix, nixos-generators, nixpkgs, nixvim }:
     let
       system = "x86_64-linux";
     in
@@ -48,10 +53,12 @@
               home-manager.users.stommydx = {
                 imports = [
                   ./home.desktop.nix
+                  hyprland.homeManagerModules.default
                   nixvim.homeManagerModules.nixvim
                 ];
               };
             }
+            hyprland.nixosModules.default
             sops-nix.nixosModules.sops
           ];
         };
