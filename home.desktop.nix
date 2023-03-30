@@ -23,18 +23,41 @@ with lib.hm.gvariant;
     "org/gnome/desktop/session" = {
       idle-delay = mkUint32 0;
     };
+    "org/gnome/desktop/wm/keybindings" = {
+      maximize = [];
+      move-to-workspace-1 = ["<Shift><Super>1"];
+      move-to-workspace-2 = ["<Shift><Super>2"];
+      move-to-workspace-3 = ["<Shift><Super>3"];
+      move-to-workspace-4 = ["<Shift><Super>4"];
+      switch-to-workspace-1 = ["<Super>1"]; 
+      switch-to-workspace-2 = ["<Super>2"]; 
+      switch-to-workspace-3 = ["<Super>3"]; 
+      switch-to-workspace-4 = ["<Super>4"]; 
+    };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "close,minimize:appmenu";
     };
     "org/gnome/mutter" = {
       check-alive-timeout = mkUint32 30000;
     };
+    "org/gnome/mutter/keybindings" = {
+      toggle-tiled-left = [];
+      toggle-tiled-right = [];
+    };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = [ "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "dash-to-dock@micxgx.gmail.com" "arcmenu@arcmenu.com" "blur-my-shell@aunetx" "appindicatorsupport@rgcjonas.gmail.com" ];
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "arcmenu@arcmenu.com"
+        "blur-my-shell@aunetx"
+        "dash-to-dock@micxgx.gmail.com"
+        "gsconnect@andyholmes.github.io"
+        "pop-shell@system76.com"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+      ];
       favorite-apps = [
         "firefox.desktop"
         "org.gnome.Terminal.desktop"
@@ -63,6 +86,10 @@ with lib.hm.gvariant;
       show-mounts = false;
       show-trash = false;
     };
+    "org/gnome/shell/extensions/pop-shell" = {
+      smart-gaps = true;
+      tile-by-default = true;
+    };
     "org/gnome/shell/weather" = {
       automatic-location = true;
       locations = "[<(uint32 2, <('Hong Kong', 'VHHH', true, [(0.38979019379430269, 1.9928751117510946)], [(0.38949931722116538, 1.9928751117510946)])>)>]";
@@ -84,9 +111,10 @@ with lib.hm.gvariant;
       blur-my-shell
       dash-to-dock
       gsconnect
+      pop-shell
     ]
   );
-  
+
   home.sessionPath = [
     "${config.xdg.dataHome}/JetBrains/Toolbox/scripts"
   ];
