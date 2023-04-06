@@ -137,6 +137,7 @@
   services.printing.enable = true;
   services.saned.enable = true;
   services.udisks2.enable = true;
+  services.udev.packages = with pkgs; [ vial ];
   services.xserver = {
     enable = true;
     xkbVariant = "colemak";
