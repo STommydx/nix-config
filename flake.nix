@@ -57,7 +57,16 @@
         };
       };
       darwinConfigurations = { };
-      homeConfigurations = { };
+      homeConfigurations = {
+        syoi = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./home.nix
+            ./hosts/syoi/home.nix
+            nixvim.homeManagerModules.nixvim
+          ];
+        };
+      };
       packages.x86_64-linux = {
         iso = nixos-generators.nixosGenerate {
           inherit system;

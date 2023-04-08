@@ -10,6 +10,7 @@ My Nix configuration to provision Nix-powered machines and images.
 ## Hosts
 
 - `desktopdx` (bare-metal NixOS): main PC desktop, for gaming and development
+- `syoi` (Home Manager only): remote code-server at code.syoi.org
 
 ## Configuation Files
 
@@ -42,3 +43,8 @@ configs. The idea is to keep config structure reusable without complicated and h
 5. Add public key of `/mnt/etc/sops-nix/key.txt` to `.sops.yaml` and update keys
 6. Run `nixos-generate-config --root /mnt --show-hardware-config` and copy result to `hosts/$HOSTNAME/hardware-configuration.nix`
 7. Clone repo and `nixos-install --flake ".#host"`
+
+### Home-manager Only
+
+1. Follow Nix and Home Manager installation if they are not yet installed
+2. Clone repo and `home-manager switch --flake ".#host"`
