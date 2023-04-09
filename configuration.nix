@@ -76,6 +76,8 @@
   programs.npm.enable = true;
   programs.thefuck.enable = true;
 
+  services.btrfs.autoScrub.enable = true;
+
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     age = {
