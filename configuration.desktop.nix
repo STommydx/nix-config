@@ -25,6 +25,7 @@
     element-desktop
     firefox
     gnome.gnome-tweaks
+    google-chrome
     goverlay
     heroic
     jetbrains-toolbox
