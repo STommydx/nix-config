@@ -58,21 +58,35 @@
     zoom
   ];
 
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "DroidSansMono"
-        "JetBrainsMono"
-        "Meslo"
-        "SourceCodePro"
-        "Ubuntu"
-      ];
-    })
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    ubuntu_font_family
-  ];
+  fonts = {
+    fontDir.enable = true;
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [ "Noto Sans Mono" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
+    fonts = with pkgs; [
+      (nerdfonts.override {
+        fonts = [
+          "DroidSansMono"
+          "JetBrainsMono"
+          "Meslo"
+          "Noto"
+          "SourceCodePro"
+          "Ubuntu"
+        ];
+      })
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+      ubuntu_font_family
+    ];
+  };
 
   nixpkgs.overlays = [ (import ./overlays/gnome-terminal-transparency.nix) ];
 

@@ -128,6 +128,8 @@ with lib.hm.gvariant;
     };
   };
 
+  fonts.fontconfig.enable = true;
+
   home.file.".face".source = ./assets/propic.jpg;
 
   home.packages = with pkgs; (
