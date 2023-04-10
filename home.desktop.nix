@@ -248,6 +248,9 @@ with lib.hm.gvariant;
 
   services.gnome-keyring.enable = true;
 
+  # manage autostart config
+  xdg.configFile."autostart/solaar.desktop".source = pkgs.solaar + "/share/applications/solaar.desktop";
+
   xdg.configFile."alacritty/themes/tokyo-night.yaml".source = ./dotfiles/alacritty/tokyo-night.yaml;
   xdg.configFile."vscode-neovim/init.lua".text = ''
     require("Comment").setup{}
