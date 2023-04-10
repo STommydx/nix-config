@@ -89,7 +89,10 @@
     ];
   };
 
-  nixpkgs.overlays = [ (import ./overlays/gnome-terminal-transparency.nix) ];
+  nixpkgs.overlays = [
+    (import ./overlays/gnome-terminal-transparency.nix)
+    (import ./overlays/solaar-systray.nix)
+  ];
 
   programs._1password-gui.enable = true;
   programs.adb.enable = true;
