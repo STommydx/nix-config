@@ -73,6 +73,7 @@
     extraPlugins = with pkgs.vimPlugins; [
       neoscroll-nvim
       nvim-scrollbar
+      vim-illuminate
     ];
     maps = {
       visual."<C-c>".action = ''"+y'';
@@ -101,10 +102,13 @@
         };
       };
       nix.enable = true;
+      noice.enable = true;
+      notify.enable = true;
       nvim-autopairs.enable = true;
       nvim-tree.enable = true;
       todo-comments.enable = true;
       treesitter.enable = true;
+      trouble.enable = true;
     };
     viAlias = true;
     vimAlias = true;
