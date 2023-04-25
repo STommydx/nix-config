@@ -40,6 +40,7 @@
     exa
     ffmpeg
     gcc
+    gdb
     gping
     gh
     httpie
