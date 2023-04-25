@@ -29,6 +29,7 @@
     goverlay
     heroic
     jetbrains-toolbox
+    libreoffice
     mangohud
     moonlight-qt
     mpv
