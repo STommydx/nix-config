@@ -41,7 +41,6 @@
     postman
     remmina
     signal-desktop
-    slack
     solaar
     spotify
     tdesktop
