@@ -37,6 +37,7 @@
     pam_u2f
     papirus-icon-theme
     pinta
+    piper
     prismlauncher
     postman
     remmina
@@ -153,6 +154,7 @@
     wireplumber.enable = true;
   };
   services.printing.enable = true;
+  services.ratbagd.enable = true;
   services.saned.enable = true;
   services.udisks2.enable = true;
   services.udev.packages = with pkgs; [ vial ];
