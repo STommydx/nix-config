@@ -31,7 +31,7 @@
     jetbrains-toolbox
     libreoffice
     mangohud
-    # moonlight-qt  # temporarily disabled due to https://github.com/NixOS/nixpkgs/issues/228828
+    moonlight-qt
     mpv
     obs-studio
     pam_u2f
