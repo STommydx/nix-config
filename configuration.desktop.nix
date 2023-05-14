@@ -45,7 +45,7 @@
     solaar
     spotify
     tdesktop
-    transmission
+    transmission-gtk
     usbutils
     ventoy
     via
