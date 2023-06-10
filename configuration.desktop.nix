@@ -41,6 +41,7 @@
     prismlauncher
     postman
     remmina
+    scrcpy
     signal-desktop
     solaar
     spotify
