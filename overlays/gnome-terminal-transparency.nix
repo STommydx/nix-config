@@ -7,19 +7,19 @@ self: super:
   gnome = super.gnome.overrideScope' (gself: gsuper: {
     gnome-terminal = gsuper.gnome-terminal.overrideAttrs (old: rec {
       # downgrade to support AUR patch
-      version = "3.46.8";
+      version = "3.48.1";
       src = super.fetchFromGitLab {
         domain = "gitlab.gnome.org";
         owner = "GNOME";
         repo = "gnome-terminal";
         rev = version;
-        sha256 = "P3n1fksUxrwoM8ZCVAXWnNaNhK+9Tkl9DM9zmA0U6ks=";
+        sha256 = "sha256-1t48JRESjAQubOmyK+QOhlp57iE5Ml0cqgy/2wjrLjE=";
       };
 
       patches = [
         (super.fetchpatch {
-          url = "https://aur.archlinux.org/cgit/aur.git/plain/transparency.patch?h=gnome-terminal-transparency&id=13c036ee706670f5db701c6e99229c1e60321aa6";
-          sha256 = "NvuTE8l05Sf+CeqBXAgvVJgqBEhU/3+RzCITJWeDaB8=";
+          url = "https://aur.archlinux.org/cgit/aur.git/plain/transparency.patch?h=gnome-terminal-transparency&id=abddafca02e4a353db2780b0d3c3eceaedaccebc";
+          sha256 = "sha256-noCHCoM9e/ZuoFQlSDUEXSNk9irYPS0MeyVpVJQOQWk=";
         })
       ];
     });
