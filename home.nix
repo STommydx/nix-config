@@ -134,9 +134,9 @@
     enable = true;
     dotDir = lib.removePrefix config.home.homeDirectory "${config.xdg.configHome}/zsh";
     history.path = "${config.xdg.stateHome}/zsh/history";
-    enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
     historySubstringSearch.enable = true;
+    syntaxHighlighting.enable = true;
     plugins = [
       {
         name = "powerlevel10k";
