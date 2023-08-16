@@ -28,6 +28,24 @@
 
   networking.hostName = "desktopdx";
 
+  services.restic.backups = {
+    datastore = {
+      environmentFile = config.sops.secrets.minio_credentials.path;
+      passwordFile = config.sops.secrets.restic_password.path;
+      paths = [
+        "/data/datastore"
+      ];
+      pruneOpts = [
+        "--keep-within 30d"
+      ];
+      repository = "s3:https://artifacts.stdx.space/restic";
+      timerConfig = {
+        OnCalendar = "Mon,Wed,Sat";
+        Persistent = true;
+      };
+    };
+  };
+
   users.users.stommydx.extraGroups = [ "libvirtd" "vboxusers" ];
 
   virtualisation.libvirtd = {
