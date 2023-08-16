@@ -56,6 +56,7 @@
       ipython
       pandas
     ]))
+    restic
     rustc
     terraform
     tldr
@@ -91,6 +92,8 @@
       password = {
         neededForUsers = true;
       };
+      minio_credentials = { };
+      restic_password = { };
     };
   };
 
