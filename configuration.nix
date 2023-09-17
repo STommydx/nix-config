@@ -17,7 +17,7 @@
     extraGroups = [ "wheel" "storage" "docker" "networkmanager" ];
     packages = with pkgs; [ nixpkgs-fmt ];
     shell = pkgs.zsh;
-    passwordFile = config.sops.secrets.password.path;
+    hashedPasswordFile = config.sops.secrets.password.path;
   };
   users.groups.storage = { };
 
@@ -37,7 +37,7 @@
     dasel
     delta
     duf
-    exa
+    eza
     ffmpeg
     gcc
     gdb

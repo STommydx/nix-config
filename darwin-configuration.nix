@@ -44,7 +44,7 @@
     dasel
     delta
     duf
-    exa
+    eza
     ffmpeg
     gcc
     gping
