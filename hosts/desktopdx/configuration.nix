@@ -65,6 +65,9 @@
     };
   };
 
+  # I hate this but I have to do it
+  time.timeZone = lib.mkForce "America/Toronto";
+
   users.users.stommydx.extraGroups = [ "libvirtd" "vboxusers" ];
 
   virtualisation.libvirtd = {
