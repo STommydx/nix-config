@@ -73,4 +73,9 @@
   virtualisation.libvirtd = {
     enable = true;
   };
+
+  # allow for outdated electron used in heroic
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-24.8.6"
+  ];
 }

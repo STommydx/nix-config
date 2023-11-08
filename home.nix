@@ -75,10 +75,18 @@
       nvim-scrollbar
       vim-illuminate
     ];
-    maps = {
-      visual."<C-c>".action = ''"+y'';
-      visual."<C-x>".action = ''"+d'';
-    };
+    keymaps = [
+      {
+        mode = "v";
+        key = "<C-c>";
+        action = ''"+y'';
+      }
+      {
+        mode = "v";
+        key = "<C-x>";
+        action = ''"+d'';
+      }
+    ];
     options = {
       number = true;
     };

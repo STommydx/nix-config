@@ -39,7 +39,7 @@
     pinta
     piper
     prismlauncher
-    postman
+    # postman temp disabled due to https://github.com/NixOS/nixpkgs/issues/259147
     remmina
     scrcpy
     signal-desktop
