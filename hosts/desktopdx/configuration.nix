@@ -26,6 +26,8 @@
     virt-manager
   ];
 
+  hardware.cpu.amd.updateMicrocode = true;
+
   networking.hostName = "desktopdx";
 
   services.restic.backups = {
