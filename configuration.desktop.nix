@@ -7,6 +7,7 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
   hardware.bluetooth.enable = true;
+  hardware.xpadneo.enable = true;
   hardware.logitech.wireless = {
     enable = true;
     enableGraphical = true;
@@ -34,6 +35,7 @@
     moonlight-qt
     mpv
     obs-studio
+    osu-lazer-bin
     pam_u2f
     papirus-icon-theme
     pinta
