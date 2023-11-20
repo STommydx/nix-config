@@ -227,13 +227,17 @@ with lib.hm.gvariant;
           autoFold = true;
         };
       };
+      "extensions.experimental.affinity" = {
+        "asvetliakov.vscode-neovim" = 1; # recommended settings from extension author
+      };
       "git.confirmSync" = false;
       "remote.autoForwardPorts" = false;
       "terminal.integrated.fontFamily" = "MesloLGM Nerd Font Mono, DroidSansMono Nerd Font Mono, monospace";
       "vscode-neovim.neovimInitVimPaths.linux" = "${config.home.homeDirectory}/${config.xdg.configFile."vscode-neovim/init.lua".target}";
       "vscode-neovim.mouseSelectionStartVisualMode" = true;
       "workbench.colorTheme" = "Tokyo Night";
-      "yaml.customTags" = [  # default settings added by extension
+      "yaml.customTags" = [
+        # default settings added by extension
         "!And"
         "!And sequence"
         "!If"
