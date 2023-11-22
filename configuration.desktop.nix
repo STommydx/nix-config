@@ -31,6 +31,7 @@
     heroic
     jetbrains-toolbox
     libreoffice
+    lm_sensors
     mangohud
     moonlight-qt
     mpv
