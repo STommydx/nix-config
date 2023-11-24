@@ -12,6 +12,7 @@
     enable = true;
     enableGraphical = true;
   };
+  hardware.new-lg4ff.enable = true;
   hardware.pulseaudio.enable = false; # prevent pipewire conficting pulseaudio
   hardware.steam-hardware.enable = true;
 
@@ -37,6 +38,7 @@
     mpv
     obs-studio
     osu-lazer-bin
+    oversteer
     pam_u2f
     papirus-icon-theme
     pinta
