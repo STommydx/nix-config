@@ -106,7 +106,11 @@
           clangd.enable = true;
           gopls.enable = true;
           rnix-lsp.enable = true;
-          rust-analyzer.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+          };
         };
       };
       nix.enable = true;
