@@ -48,6 +48,14 @@
       options = [ "subvol=@nix" ];
     };
 
+  fileSystems."/media/windisk" =
+    {
+      device = "/dev/disk/by-uuid/A8F2789CF2787104";
+      fsType = "lowntfs-3g";
+      # options recommendend in https://github.com/ValveSoftware/Proton/wiki/Using-a-NTFS-disk-with-Linux-and-Windows
+      options = [ "uid=1000,gid=1000,rw,user,exec,umask=000" ];
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

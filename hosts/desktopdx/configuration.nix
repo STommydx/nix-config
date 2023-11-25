@@ -22,6 +22,7 @@
     # efi.canTouchEfiVariables = true;
   };
   boot.plymouth.enable = true;
+  boot.supportedFilesystems = [ "ntfs" ]; # enable ntfs support for windows partition mounting
 
   environment.systemPackages = with pkgs; [
     virt-manager
