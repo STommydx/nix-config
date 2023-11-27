@@ -23,6 +23,7 @@
     alacritty
     appimage-run
     bottles
+    dconf2nix
     discord
     element-desktop
     firefox
