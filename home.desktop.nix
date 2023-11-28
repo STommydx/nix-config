@@ -76,6 +76,7 @@ with lib.hm.gvariant;
         "firefox.desktop"
         "org.gnome.Terminal.desktop"
         "org.gnome.Nautilus.desktop"
+        "org.telegram.desktop.desktop"
         "signal-desktop.desktop"
         "discord.desktop"
         "spotify.desktop"
