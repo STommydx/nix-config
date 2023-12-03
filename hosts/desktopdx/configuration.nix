@@ -69,7 +69,13 @@
     };
   };
 
-  # I hate this but I have to do it
+  # Add rule for using rocm in deep learning libraries
+  # https://nixos.wiki/wiki/AMD_GPU
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+  ];
+
+  # I hate this but I have to do it :C
   time.timeZone = lib.mkForce "America/Toronto";
 
   users.users.stommydx.extraGroups = [ "libvirtd" "vboxusers" ];
