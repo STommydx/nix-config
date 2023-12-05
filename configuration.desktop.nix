@@ -151,6 +151,7 @@
   '';
 
   services.dbus.packages = [ pkgs.gcr ]; # for gpg agent setup with gnome
+  services.fprintd.enable = true;
   services.flatpak.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
   services.pipewire = {
