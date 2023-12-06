@@ -31,6 +31,7 @@
     google-chrome
     goverlay
     heroic
+    insomnia
     jetbrains-toolbox
     libreoffice
     lm_sensors
