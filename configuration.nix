@@ -75,6 +75,7 @@
 
   programs._1password.enable = true;
   programs.java.enable = true;
+  programs.mosh.enable = true;
   programs.npm.enable = true;
   programs.thefuck.enable = true;
 
