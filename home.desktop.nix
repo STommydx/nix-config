@@ -87,6 +87,7 @@ with lib.hm.gvariant;
       menu-layout = "Redmond";
       menu-button-appearance = "Icon_Text";
       menu-button-icon = "Distro_Icon";
+      show-activities-button = true; # for a nice workspace indicator in GNOME 45+
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = false;
