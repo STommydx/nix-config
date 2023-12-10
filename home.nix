@@ -19,6 +19,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  home.sessionPath = [
+    "${config.xdg.dataHome}/go/bin"
+  ];
+
   programs.bat.enable = true;
   programs.direnv = {
     enable = true;
