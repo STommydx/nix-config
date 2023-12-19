@@ -53,6 +53,11 @@
       key = "577E858EDCFECA83";
     };
     delta.enable = true;
+    extraConfig = {
+      push = {
+        autoSetupRemote = "true";
+      };
+    };
   };
   programs.go = {
     enable = true;
