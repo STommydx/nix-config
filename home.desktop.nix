@@ -221,6 +221,7 @@ with lib.hm.gvariant;
       tomoki1207.pdf
     ];
     userSettings = {
+      "editor.inlineSuggest.suppressSuggestions" = true; # weird option added by extension
       "editor.rulers" = [ 120 ];
       "explicitFolding.rules" = {
         "*" = {
