@@ -16,6 +16,15 @@
   hardware.pulseaudio.enable = false; # prevent pipewire conficting pulseaudio
   hardware.steam-hardware.enable = true;
 
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      mozc
+      table
+      table-chinese
+    ];
+  };
+
   environment.gnome.excludePackages = with pkgs; [
     gnome-console
   ];
