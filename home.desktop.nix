@@ -8,7 +8,7 @@ with lib.hm.gvariant;
 
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "us+colemak" ]) (mkTuple [ "xkb" "us" ]) ];
+      sources = [ (mkTuple [ "xkb" "us+colemak" ]) (mkTuple [ "xkb" "us" ]) (mkTuple [ "ibus" "table:jyutping" ]) (mkTuple [ "ibus" "mozc-jp" ]) ];
     };
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
