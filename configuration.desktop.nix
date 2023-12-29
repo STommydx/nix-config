@@ -30,6 +30,7 @@
   ];
   environment.systemPackages = with pkgs; [
     alacritty
+    anki
     appimage-run
     bottles
     dconf2nix
