@@ -63,6 +63,7 @@
     vault
     wander
     youtube-dl
+    yq
   ];
 
   networking.firewall.enable = false;
