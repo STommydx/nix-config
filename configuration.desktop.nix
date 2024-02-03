@@ -179,7 +179,7 @@
   services.udev.packages = with pkgs; [ vial ];
   services.xserver = {
     enable = true;
-    xkbVariant = "colemak";
+    xkb.variant = "colemak";
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
