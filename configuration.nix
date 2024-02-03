@@ -60,6 +60,7 @@
     rustc
     terraform
     tldr
+    trickle
     vault
     wander
     youtube-dl
