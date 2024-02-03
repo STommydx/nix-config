@@ -19,7 +19,7 @@
   i18n.inputMethod = {
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [
-      mozc
+      # mozc disabled due to https://github.com/NixOS/nixpkgs/pull/281674
       table
       table-chinese
     ];
