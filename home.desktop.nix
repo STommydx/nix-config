@@ -17,7 +17,7 @@ with lib.hm.gvariant;
       cursor-theme = "breeze_cursors";
       font-antialiasing = "grayscale";
       font-hinting = "slight";
-      gtk-theme = "Adwaita-dark";
+      gtk-theme = "Adwaita";
       icon-theme = "Papirus-Dark";
     };
     "org/gnome/desktop/session" = {
