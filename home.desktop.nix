@@ -153,7 +153,7 @@ with lib.hm.gvariant;
     enable = true;
     settings = {
       import = [
-        "~/${config.xdg.configFile."alacritty/themes/tokyo-night.yaml".target}"
+        "~/${config.xdg.configFile."alacritty/themes/tokyo-night.toml".target}"
       ];
       env = {
         # https://wiki.archlinux.org/title/Alacritty#Terminal_functionality_unavailable_in_remote_shells
@@ -287,7 +287,7 @@ with lib.hm.gvariant;
   # manage autostart config
   xdg.configFile."autostart/solaar.desktop".source = pkgs.solaar + "/share/applications/solaar.desktop";
 
-  xdg.configFile."alacritty/themes/tokyo-night.yaml".source = ./dotfiles/alacritty/tokyo-night.yaml;
+  xdg.configFile."alacritty/themes/tokyo-night.toml".source = ./dotfiles/alacritty/tokyo-night.toml;
   xdg.configFile."vscode-neovim/init.lua".text = ''
     require("Comment").setup{}
     vim.keymap.set("v", "<C-c>", "\"+y", {noremap=true})
