@@ -69,8 +69,8 @@ with lib.hm.gvariant;
         "blur-my-shell@aunetx"
         "dash-to-dock@micxgx.gmail.com"
         "gsconnect@andyholmes.github.io"
-        "pop-shell@system76.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "forge@jmmaranan.com"
       ];
       favorite-apps = [
         "firefox.desktop"
@@ -140,8 +140,8 @@ with lib.hm.gvariant;
       arcmenu
       blur-my-shell
       dash-to-dock
+      forge
       gsconnect
-      pop-shell
     ]
   );
 
