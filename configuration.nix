@@ -29,6 +29,7 @@
     black
     cargo
     cfssl
+    clang-tools
     cloudflared
     cmake
     consul
@@ -51,6 +52,7 @@
     nomad
     packer
     pandoc
+    pre-commit
     protobuf
     (python3.withPackages (pythonPkgs: with pythonPkgs; [
       ipython
