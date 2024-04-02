@@ -30,7 +30,8 @@
   };
   programs.eza = {
     enable = true;
-    enableAliases = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
     extraOptions = [ "-g" ];
   };
   programs.fzf.enable = true;
@@ -96,7 +97,7 @@
         action = ''"+d'';
       }
     ];
-    options = {
+    opts = {
       number = true;
     };
     plugins = {
@@ -104,7 +105,7 @@
         enable = true;
         separatorStyle = "slant";
       };
-      comment-nvim.enable = true;
+      comment.enable = true;
       coq-nvim.enable = true;
       gitsigns.enable = true;
       lualine.enable = true;
@@ -155,7 +156,7 @@
     enable = true;
     dotDir = lib.removePrefix config.home.homeDirectory "${config.xdg.configHome}/zsh";
     history.path = "${config.xdg.stateHome}/zsh/history";
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     historySubstringSearch.enable = true;
     syntaxHighlighting.enable = true;
     plugins = [
@@ -174,7 +175,7 @@
 
   services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
-    pinentryFlavor = "curses";
+    pinentryPackage = pkgs.pinentry-curses;
   };
 
   xdg.enable = true;

@@ -74,7 +74,7 @@
     wl-clipboard
     xournalpp
     yubikey-manager
-    yuzu-mainline
+    # yuzu-mainline
     zoom
   ];
 
@@ -162,7 +162,7 @@
   '';
 
   services.dbus.packages = [ pkgs.gcr ]; # for gpg agent setup with gnome
-  services.fprintd.enable = true;
+  # services.fprintd.enable = true; # temporarily disabled due to build failure
   services.flatpak.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
   services.pipewire = {
