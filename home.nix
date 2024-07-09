@@ -47,6 +47,9 @@
       ci = "commit";
       co = "checkout";
       st = "status";
+      # support cantonese!
+      teoi = "push"; # home row ftw! :D
+      laai = "pull";
     };
     userName = "Tommy Li";
     userEmail = "dev@stdx.space";
