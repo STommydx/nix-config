@@ -76,6 +76,7 @@
               home-manager.users.stommydx = {
                 imports = [
                   ./home.nix
+                  ./hosts/winpcdx/home.nix
                   nixvim.homeManagerModules.nixvim
                 ];
               };
