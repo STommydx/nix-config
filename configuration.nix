@@ -95,6 +95,10 @@
     };
   };
 
+  # temporary workaround for https://github.com/NixOS/nixpkgs/issues/180175
+  # NetworkManager-wait-online.service fails system activation if enabled
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   virtualisation.docker = {
     enable = true;
   };
