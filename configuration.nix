@@ -74,7 +74,9 @@
   programs.java.enable = true;
   programs.mosh.enable = true;
   programs.npm.enable = true;
-  programs.thefuck.enable = true;
+  # temporarily disable thefuck before fix merged to unstable
+  # https://github.com/NixOS/nixpkgs/pull/325875
+  programs.thefuck.enable = false;
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
