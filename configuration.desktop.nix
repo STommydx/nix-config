@@ -37,7 +37,7 @@
     discord
     element-desktop
     firefox
-    gnome.gnome-tweaks
+    gnome-tweaks
     google-chrome
     goverlay
     heroic
@@ -63,7 +63,7 @@
     solaar
     spotify
     tdesktop
-    transmission-gtk
+    transmission_4-gtk
     usbutils
     ventoy
     via
@@ -131,9 +131,11 @@
   security.pam.u2f = {
     enable = true;
     control = "sufficient";
-    cue = true;
-    appId = "pam://auth.stdx.space";
-    origin = "pam://auth.stdx.space";
+    settings = {
+      cue = true;
+      appId = "pam://auth.stdx.space";
+      origin = "pam://auth.stdx.space";
+    };
   };
   security.polkit.extraConfig = ''
     // mounting without password for `storage` group

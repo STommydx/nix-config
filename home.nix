@@ -77,7 +77,7 @@
     enable = true;
     colorschemes.tokyonight = {
       enable = true;
-      style = "night";
+      settings.style = "night";
     };
     extraConfigLua = ''
       require('neoscroll').setup()

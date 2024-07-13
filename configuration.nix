@@ -37,7 +37,6 @@
     gdb
     gping
     gh
-    httpie
     iperf
     lazygit
     lolcat
@@ -58,7 +57,8 @@
     trickle
     vault
     wander
-    youtube-dl
+    xh
+    yt-dlp
     yq
   ];
 
