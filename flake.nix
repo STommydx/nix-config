@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +40,7 @@
     };
   };
 
-  outputs = { self, darwin, nixos-wsl, home-manager, sops-nix, nixos-generators, nixpkgs, nixvim }:
+  outputs = { self, darwin, nixos-wsl, home-manager, nix-index-database, sops-nix, nixos-generators, nixpkgs, nixvim }:
     let
       system = "x86_64-linux";
     in
@@ -57,6 +62,7 @@
                 ];
               };
             }
+            nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
           ];
         };
@@ -81,6 +87,7 @@
                 ];
               };
             }
+            nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
           ];
         };
@@ -92,6 +99,7 @@
           modules = [
             ./home.nix
             ./hosts/syoi/home.nix
+            nix-index-database.hmModules.nix-index
             nixvim.homeManagerModules.nixvim
           ];
         };
