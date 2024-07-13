@@ -73,7 +73,10 @@
 
   # Enable nix-ld
   # For running unpatched binaries such as VS Code remote SSH plugin server
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
 
   services.resolved = {
     enable = true;

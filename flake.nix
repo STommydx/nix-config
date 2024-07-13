@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +35,7 @@
     };
   };
 
-  outputs = { self, darwin, home-manager, sops-nix, nixos-generators, nixpkgs, nixvim }:
+  outputs = { self, darwin, nixos-wsl, home-manager, sops-nix, nixos-generators, nixpkgs, nixvim }:
     let
       system = "x86_64-linux";
     in
@@ -48,6 +53,29 @@
               home-manager.users.stommydx = {
                 imports = [
                   ./home.desktop.nix
+                  nixvim.homeManagerModules.nixvim
+                ];
+              };
+            }
+            sops-nix.nixosModules.sops
+          ];
+        };
+        winpcdx = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            nixos-wsl.nixosModules.default
+            ./configuration.nix
+            ./hosts/winpcdx/configuration.nix
+            {
+              wsl.enable = true;
+            }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.stommydx = {
+                imports = [
+                  ./home.nix
                   nixvim.homeManagerModules.nixvim
                 ];
               };

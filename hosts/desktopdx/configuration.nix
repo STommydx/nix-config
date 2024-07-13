@@ -7,10 +7,6 @@
       ./hardware-configuration.nix
     ];
 
-  fileSystems = {
-    "/data".options = [ "compress=zstd:1" ];
-  };
-
   boot.loader = {
     grub = {
       enable = true;
@@ -28,10 +24,19 @@
     virt-manager
   ];
 
+  # nixos-generate-config doesn't detect mount options automatically
+  fileSystems = {
+    "/".options = [ "compress=zstd:1" ];
+    "/home".options = [ "compress=zstd:1" ];
+    "/nix".options = [ "compress=zstd:1" "noatime" ];
+    "/data".options = [ "compress=zstd:1" ];
+  };
+
   hardware.cpu.amd.updateMicrocode = true;
 
   networking.hostName = "desktopdx";
 
+  services.btrfs.autoScrub.enable = true;
   services.restic.backups = {
     datastore = {
       environmentFile = config.sops.secrets.minio_credentials.path;
@@ -77,6 +82,9 @@
 
   users.users.stommydx.extraGroups = [ "libvirtd" "vboxusers" ];
 
+  virtualisation.docker = {
+    storageDriver = "btrfs";
+  };
   virtualisation.libvirtd = {
     enable = true;
   };

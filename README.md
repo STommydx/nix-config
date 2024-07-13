@@ -44,6 +44,16 @@ configs. The idea is to keep config structure reusable without complicated and h
 6. Run `nixos-generate-config --root /mnt --show-hardware-config` and copy result to `hosts/$HOSTNAME/hardware-configuration.nix`
 7. Clone repo and `nixos-install --flake ".#host"`
 
+### WSL Hosts (with secrets)
+
+Currently building from tarball is not tested.
+
+1. Download and install [NixOS-WSL](https://nix-community.github.io/NixOS-WSL/install.html)
+2. Setup Nix flakes by enabling flags and install git in `/etc/nixos/configuration.nix`
+3. Install `age` and generate an age key at `/etc/sops-nix/key.txt`
+4. Add public key of generated age key to `.sops.yaml` and update keys
+5. Switch to configuration as usual with `nixos-build switch --flake ".#host"`
+
 ### Home-manager Only
 
 1. Follow Nix and Home Manager installation if they are not yet installed

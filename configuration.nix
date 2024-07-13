@@ -4,13 +4,6 @@
 
   imports = [ ./configuration.minimal.nix ];
 
-  # nixos-generate-config doesn't detect mount options automatically
-  fileSystems = {
-    "/".options = [ "compress=zstd:1" ];
-    "/home".options = [ "compress=zstd:1" ];
-    "/nix".options = [ "compress=zstd:1" "noatime" ];
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stommydx = {
     isNormalUser = true;
@@ -83,8 +76,6 @@
   programs.npm.enable = true;
   programs.thefuck.enable = true;
 
-  services.btrfs.autoScrub.enable = true;
-
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     age = {
@@ -104,7 +95,6 @@
 
   virtualisation.docker = {
     enable = true;
-    storageDriver = "btrfs";
   };
 
   zramSwap.enable = true;
