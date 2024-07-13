@@ -2,7 +2,8 @@
 
 {
   programs.zsh.shellAliases = {
-    pbcopy = "powershell.exe -noprofile Get-Clipboard";
-    pbpaste = "clip.exe";
+    # wsl pbcopy alias by https://lloydrochester.com/post/unix/wsl-pbcopy-pbpaste/
+    pbcopy = "tee <&0 | clip.exe";
+    pbpaste = "powershell.exe Get-Clipboard | sed 's/\\r$//' | sed -z '$ s/\\n$//'";
   };
 }
