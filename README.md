@@ -54,6 +54,9 @@ Currently building from tarball is not tested.
 4. Add public key of generated age key to `.sops.yaml` and update keys
 5. Switch to configuration as usual with `nixos-build switch --flake ".#host"`
 
+Note: You should make sure `dotfiles/p10k.conf.d/.p10k.zsh` is in `LF` instead
+of `CRLF` checked out by Git for Windows.
+
 ### Home-manager Only
 
 1. Follow Nix and Home Manager installation if they are not yet installed
