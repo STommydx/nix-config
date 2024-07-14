@@ -92,7 +92,24 @@
           ];
         };
       };
-      darwinConfigurations = { };
+      darwinConfigurations = {
+        macbookdx = darwin.lib.darwinSystem {
+          modules = [
+            ./hosts/macbookdx/configuration.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.stommydx = {
+                imports = [
+                  ./home.nix
+                  nixvim.homeManagerModules.nixvim
+                ];
+              };
+            }
+          ];
+        };
+      };
       homeConfigurations = {
         syoi = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
