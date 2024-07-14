@@ -5,6 +5,8 @@
     shell = pkgs.zsh;
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile. To search by name, run:
   environment.systemPackages =
     [ pkgs.vim
@@ -40,5 +42,9 @@
     screencapture.location = "~/Desktop/Screenshot";
     trackpad.Clicking = true;
     trackpad.TrackpadThreeFingerDrag = true;
+  };
+
+  homebrew = {
+    enable = true;
   };
 }

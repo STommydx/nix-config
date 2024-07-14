@@ -103,6 +103,7 @@
               home-manager.users.stommydx = {
                 imports = [
                   ./home.nix
+                  ./hosts/macbookdx/home.nix
                   nixvim.homeManagerModules.nixvim
                 ];
               };
