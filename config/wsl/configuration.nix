@@ -1,9 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
-  wsl.defaultUser = "stommydx";
+  imports = [
+    ../linux/configuration.nix
+  ];
 
-  networking.hostName = "winpcdx";
+  wsl.defaultUser = "stommydx";
 
   # resolv.conf is managed by WSL (wsl.wslConf.network.generateResolvConf)
   services.resolved.enable = lib.mkForce false;

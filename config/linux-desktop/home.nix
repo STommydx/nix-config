@@ -4,7 +4,7 @@ with lib.hm.gvariant;
 
 {
 
-  imports = [ ./home.nix ];
+  imports = [ ../linux/home.nix ];
 
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {

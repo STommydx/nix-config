@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [
+    ../../home.nix
+  ];
   programs.ssh = {
     enable = true;
     matchBlocks = {

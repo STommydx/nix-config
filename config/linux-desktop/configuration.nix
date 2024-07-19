@@ -2,7 +2,7 @@
 
 {
 
-  imports = [ ./configuration.nix ];
+  imports = [ ../linux/configuration.nix ];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 

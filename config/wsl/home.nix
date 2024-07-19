@@ -1,6 +1,9 @@
 { config, pkg, lib, ... }:
 
 {
+  imports = [
+    ../shared/home.nix
+  ];
   programs.zsh.shellAliases = {
     # wsl pbcopy alias by https://lloydrochester.com/post/unix/wsl-pbcopy-pbpaste/
     pbcopy = "tee <&0 | clip.exe";

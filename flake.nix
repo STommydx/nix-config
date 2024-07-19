@@ -49,15 +49,14 @@
         desktopdx = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./configuration.desktop.nix
-            ./hosts/desktopdx/configuration.nix
+            ./config/linux-desktop/hosts/desktopdx/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.stommydx = {
                 imports = [
-                  ./home.desktop.nix
+                  ./config/linux-desktop/home.nix
                   nixvim.homeManagerModules.nixvim
                 ];
               };
@@ -70,8 +69,7 @@
           inherit system;
           modules = [
             nixos-wsl.nixosModules.default
-            ./configuration.nix
-            ./hosts/winpcdx/configuration.nix
+            ./config/wsl/hosts/winpcdx/configuration.nix
             {
               wsl.enable = true;
             }
@@ -81,8 +79,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.stommydx = {
                 imports = [
-                  ./home.nix
-                  ./hosts/winpcdx/home.nix
+                  ./config/wsl/home.nix
                   nixvim.homeManagerModules.nixvim
                 ];
               };
@@ -95,15 +92,14 @@
       darwinConfigurations = {
         macbookdx = darwin.lib.darwinSystem {
           modules = [
-            ./hosts/macbookdx/configuration.nix
+            ./config/mac/hosts/macbookdx/configuration.nix
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.stommydx = {
                 imports = [
-                  ./home.nix
-                  ./hosts/macbookdx/home.nix
+                  ./config/mac/home.nix
                   nixvim.homeManagerModules.nixvim
                 ];
               };
@@ -115,8 +111,7 @@
         syoi = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
-            ./home.nix
-            ./hosts/syoi/home.nix
+            ./config/linux/hosts/syoi/home.nix
             nix-index-database.hmModules.nix-index
             nixvim.homeManagerModules.nixvim
           ];
@@ -126,7 +121,7 @@
         iso = nixos-generators.nixosGenerate {
           inherit system;
           modules = [
-            ./configuration.minimal.nix
+            ./config/linux/configuration.minimal.nix
           ];
           format = "install-iso";
         };

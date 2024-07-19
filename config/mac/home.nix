@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [
+    ../shared/home.nix
+  ];
   programs.zsh.initExtra = ''
     eval "$(/opt/homebrew/bin/brew shellenv)"
   '';
