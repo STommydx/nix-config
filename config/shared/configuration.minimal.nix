@@ -36,7 +36,6 @@
     };
   };
 
-  programs.nix-index.enable = true;
   programs.tmux.enable = true;
   programs.zsh.enable = true;
 }

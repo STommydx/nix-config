@@ -28,6 +28,7 @@
     eza
     ffmpeg
     gcc
+    gnupg
     go
     gping
     gh
@@ -38,6 +39,7 @@
     nomad
     packer
     pandoc
+    pipenv
     pre-commit
     protobuf
     (python3.withPackages (pythonPkgs: with pythonPkgs; [
@@ -55,4 +57,6 @@
     yq
   ];
 
+  programs.nix-index.enable = true;
+  programs.nix-index-database.comma.enable = true;
 }

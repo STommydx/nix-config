@@ -15,6 +15,8 @@
     jdk
     mas
     mosh
+    unixtools.watch
+    yubikey-manager
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -45,6 +47,39 @@
   homebrew = {
     enable = true;
     onActivation.autoUpdate = true;
+    onActivation.cleanup = "zap";
+    casks = [
+      "1password"
+      "adobe-acrobat-reader"
+      "blackhole-16ch"
+      "discord"
+      "docker"
+      "firefox"
+      "insomnia"
+      "iterm2"
+      "keka"
+      "macfuse"
+      "microsoft-remote-desktop"
+      "rectangle"
+      "signal"
+      "spotify"
+      "stats"
+      "steam"
+      "telegram"
+      "unnaturalscrollwheels"
+      "vial"
+      "visual-studio-code"
+      "vlc"
+      "xournal-plus-plus"
+      "yubico-yubikey-manager"
+      "zoom"
+    ];
+    masApps = {
+      "Hidden Bar" = 1452453066;
+      "Tailscale" = 1475387142;
+      "WireGuard" = 1451685025;
+      "WhatsApp Messenger" = 310633997;
+    };
   };
 
   nix = {

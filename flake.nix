@@ -101,6 +101,7 @@
                 ];
               };
             }
+            nix-index-database.darwinModules.nix-index
           ];
         };
       };
