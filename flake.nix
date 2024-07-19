@@ -70,9 +70,6 @@
           modules = [
             nixos-wsl.nixosModules.default
             ./config/wsl/hosts/winpcdx/configuration.nix
-            {
-              wsl.enable = true;
-            }
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
