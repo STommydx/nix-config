@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
   imports = [
-    ../shared/configuration.minimal.nix
+    ../shared/configuration.nix
   ];
 
   users.users.stommydx = {
@@ -10,10 +10,12 @@
   };
 
   # List packages installed in system profile. To search by name, run:
-  environment.systemPackages =
-    [
-      pkgs.nixpkgs-fmt
-    ];
+  environment.systemPackages = with pkgs; [
+    _1password
+    jdk
+    mas
+    mosh
+  ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -42,6 +44,7 @@
 
   homebrew = {
     enable = true;
+    onActivation.autoUpdate = true;
   };
 
   nix = {

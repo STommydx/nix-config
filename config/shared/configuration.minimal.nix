@@ -16,7 +16,6 @@
     jq
     netcat
     p7zip
-    python3
     rclone
     sops
     sshfs
