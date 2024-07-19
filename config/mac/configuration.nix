@@ -21,7 +21,18 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
+  nix = {
+    package = pkgs.nix;
+    gc = {
+      interval = [
+        {
+          Hour = 0;
+          Minute = 0;
+          Weekday = 7;
+        }
+      ];
+    };
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
@@ -30,19 +41,23 @@
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  # MacOS Specific Configurations
-  security.pam.enableSudoTouchIdAuth = true;
-  system.defaults = {
-    CustomUserPreferences = { };
-    NSGlobalDomain.InitialKeyRepeat = 25;
-    NSGlobalDomain.KeyRepeat = 2;
-    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-    dock.autohide = true;
-    dock.tilesize = 48;
-    screencapture.location = "~/Desktop/Screenshot";
-    trackpad.Clicking = true;
-    trackpad.TrackpadThreeFingerDrag = true;
-  };
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "DroidSansMono"
+        "JetBrainsMono"
+        "Meslo"
+        "Noto"
+        "SourceCodePro"
+        "Ubuntu"
+      ];
+    })
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-emoji
+    ubuntu_font_family
+  ];
 
   homebrew = {
     enable = true;
@@ -82,15 +97,17 @@
     };
   };
 
-  nix = {
-    gc = {
-      interval = [
-        {
-          Hour = 0;
-          Minute = 0;
-          Weekday = 7;
-        }
-      ];
-    };
+  security.pam.enableSudoTouchIdAuth = true;
+  system.defaults = {
+    CustomUserPreferences = { };
+    NSGlobalDomain.InitialKeyRepeat = 25;
+    NSGlobalDomain.KeyRepeat = 2;
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+    dock.autohide = true;
+    dock.tilesize = 48;
+    screencapture.location = "~/Desktop/Screenshot";
+    trackpad.Clicking = true;
+    trackpad.TrackpadThreeFingerDrag = true;
   };
+
 }
