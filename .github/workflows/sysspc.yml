@@ -13,6 +13,7 @@ jobs:
         remove-haskell: 'true'
         remove-codeql: 'true'
         remove-docker-images: 'true'
+        root-reserve-mb: 65536
     - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v20
       with:
