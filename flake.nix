@@ -85,6 +85,26 @@
             sops-nix.nixosModules.sops
           ];
         };
+        sysspcdx = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            nixos-wsl.nixosModules.default
+            ./config/wsl/hosts/sysspcdx/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.stommydx = {
+                imports = [
+                  ./config/wsl/home.nix
+                  nixvim.homeManagerModules.nixvim
+                ];
+              };
+            }
+            nix-index-database.nixosModules.nix-index
+            sops-nix.nixosModules.sops
+          ];
+        };
       };
       darwinConfigurations = {
         macbookdx = darwin.lib.darwinSystem {
