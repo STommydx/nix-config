@@ -14,5 +14,5 @@ jobs:
     - name: Release Tarball
       uses: softprops/action-gh-release@v2
       with:
-        files:
-          - nixos-wsl.tar.gz
+        files: |
+          nixos-wsl.tar.gz
