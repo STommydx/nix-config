@@ -5,10 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: cachix/install-nix-action@v20
-      with:
-        github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
@@ -17,6 +13,10 @@ jobs:
         remove-haskell: 'true'
         remove-codeql: 'true'
         remove-docker-images: 'true'
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v20
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build Nix Configuration
       run: nix build .#nixosConfigurations.sysspcdx.config.system.build.tarballBuilder
     - name: Run Tarball Builder
