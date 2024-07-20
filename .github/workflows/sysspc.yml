@@ -9,6 +9,14 @@ jobs:
     - uses: cachix/install-nix-action@v20
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Maximize build space
+      uses: easimon/maximize-build-space@master
+      with:
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
     - name: Build Nix Configuration
       run: nix build .#nixosConfigurations.sysspcdx.config.system.build.tarballBuilder
     - name: Run Tarball Builder
