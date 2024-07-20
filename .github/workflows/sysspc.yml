@@ -4,6 +4,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - name: Maximize build space
       run: |
@@ -18,8 +20,7 @@ jobs:
       run: nix build .#nixosConfigurations.sysspcdx.config.system.build.tarballBuilder
     - name: Run Tarball Builder
       run: sudo result/bin/nixos-wsl-tarball-builder
-    - name: Release Tarball
-      uses: softprops/action-gh-release@v2
+    - uses: actions/upload-artifact@v4
       with:
-        files: |
-          nixos-wsl.tar.gz
+        name: nixos-wsl
+        path: nixos-wsl.tar.gz
