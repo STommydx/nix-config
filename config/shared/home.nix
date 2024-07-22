@@ -119,7 +119,7 @@
           bashls.enable = true;
           clangd.enable = true;
           gopls.enable = true;
-          rnix-lsp.enable = true;
+          nixd.enable = true;
           rust-analyzer = {
             enable = true;
             installCargo = true;
