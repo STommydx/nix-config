@@ -79,6 +79,7 @@
       enable = true;
       settings.style = "night";
     };
+    defaultEditor = true;
     extraConfigLua = ''
       require('neoscroll').setup()
       require("scrollbar").setup()
