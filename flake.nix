@@ -105,6 +105,13 @@
             sops-nix.nixosModules.sops
           ];
         };
+        bastiondx = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            "${nixpkgs}/nixos/modules/virtualisation/proxmox-lxc.nix"
+            ./config/linux/hosts/bastiondx/configuration.nix
+          ];
+        };
       };
       darwinConfigurations = {
         macbookdx = darwin.lib.darwinSystem {
@@ -142,6 +149,13 @@
             ./config/linux/configuration.minimal.nix
           ];
           format = "install-iso";
+        };
+        bastiondx = nixos-generators.nixosGenerate {
+          inherit system;
+          modules = [
+            ./config/linux/hosts/bastiondx/configuration.nix
+          ];
+          format = "proxmox-lxc";
         };
       };
     };

@@ -10,9 +10,15 @@ My Nix configuration to provision Nix-powered machines and images.
 ## Hosts
 
 - `desktopdx` (bare-metal NixOS): main PC desktop, for gaming and development
+- `macbookdx` (Mac): Macbook Air, for development and casual entertainment
+- `winpcdx` (WSL): WSL environment in Windows PC
+- `bastiondx` (Proxmox LXC): bastion host, as Tailscale exit node and DNS AdBlocker
 - `syoi` (Home Manager only): remote code-server at code.syoi.org
+- `sysspcdx` (WSL Tarball): WSL Tarball building for importing to PCs in SYSS 
 
 ## Configuation Files
+
+TODO: Update section for updated folder structure
 
 The configuration is organized as multiple profiles (minimal, standard and desktop) and additional host-specific
 configs. The idea is to keep config structure reusable without complicated and hard-to-trace tree structures.
@@ -56,6 +62,15 @@ Currently building from tarball is not tested.
 
 Note: You should make sure `dotfiles/p10k.conf.d/.p10k.zsh` is in `LF` instead
 of `CRLF` checked out by Git for Windows.
+
+### Proxmox LXC Containers
+
+1. Build tarball by `nix build .#container`
+2. Upload tarball to Proxmox
+3. Create LXC container with tarball template
+4. Mark down IP and change root password if necessary. See instructions [here](https://www.reddit.com/r/NixOS/comments/1aw9k9v/default_username_password_for_nixos_lxc_on_proxmox/) and [here](https://nixos.wiki/wiki/Proxmox_Linux_Container#Entering_into_container_by_pct_enter). Note that users configurations are not built into the tarball
+5. Apply configuration with `nixos-build switch --flake ".#container"`. Note that this apply is expected to fail
+6. Reboot and reapply configuration
 
 ### Home-manager Only
 
