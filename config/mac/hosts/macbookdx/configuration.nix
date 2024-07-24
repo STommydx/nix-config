@@ -21,12 +21,14 @@
       "ory/tap/kratos"
     ];
     casks = [
+      "atomicjar/tap/testcontainers-desktop"
       "flutter"
       "microsoft-edge"
       "osu"
       "zed"
     ];
     taps = [
+      "atomicjar/tap"
       "ory/tap"
     ];
   };
