@@ -72,6 +72,7 @@
       "firefox"
       "insomnia"
       "iterm2"
+      "jordanbaird-ice"
       "keka"
       "macfuse"
       "microsoft-remote-desktop"
@@ -90,7 +91,7 @@
       "zoom"
     ];
     masApps = {
-      "Hidden Bar" = 1452453066;
+      # "Hidden Bar" = 1452453066;
       "Tailscale" = 1475387142;
       "WireGuard" = 1451685025;
       "WhatsApp Messenger" = 310633997;
