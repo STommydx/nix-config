@@ -29,6 +29,7 @@
     vimAlias = true;
     defaultEditor = true;
   };
+  programs.starship.enable = true;
   programs.tmux = {
     enable = true;
     terminal = "screen-256color";
@@ -36,7 +37,6 @@
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
-    ohMyZsh.enable = true;
     autosuggestions.enable = true;
   };
 

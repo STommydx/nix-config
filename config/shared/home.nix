@@ -147,6 +147,23 @@
       };
     };
   };
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    settings = {
+      format = "$os$all";
+      line_break = {
+        disabled = true;
+      };
+      status = {
+        disabled = false;
+      };
+      os = {
+        disabled = false;
+      };
+    };
+  };
   programs.tmux = {
     enable = true;
     mouse = true;
@@ -163,18 +180,6 @@
     autosuggestion.enable = true;
     historySubstringSearch.enable = true;
     syntaxHighlighting.enable = true;
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = ./dotfiles/p10k.conf.d;
-        file = ".p10k.zsh";
-      }
-    ];
   };
 
   services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
