@@ -32,7 +32,8 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    extraOptions = [ "-g" ];
+    extraOptions = [ "-g" "--classify=auto" ];
+    icons = true;
   };
   programs.fzf.enable = true;
   programs.gh.enable = true;
