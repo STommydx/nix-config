@@ -153,10 +153,19 @@
     enableZshIntegration = true;
     settings = {
       format = "$os$all";
+      right_format = "$status$cmd_duration$time";
+      directory = {
+        before_repo_root_style = "dimmed cyan";
+        repo_root_style = "bold cyan";
+        fish_style_pwd_dir_length = 2;
+      };
       line_break = {
         disabled = true;
       };
       status = {
+        disabled = false;
+      };
+      time = {
         disabled = false;
       };
       os = {
