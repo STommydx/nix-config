@@ -12,6 +12,7 @@
   # List packages installed in system profile. To search by name, run:
   environment.systemPackages = with pkgs; [
     _1password
+    docker-client
     jdk
     mas
     mosh
@@ -68,7 +69,6 @@
       "adobe-acrobat-reader"
       "blackhole-16ch"
       "discord"
-      "docker"
       "firefox"
       "insomnia"
       "iterm2"
@@ -76,6 +76,7 @@
       "keka"
       "macfuse"
       "microsoft-remote-desktop"
+      "orbstack"
       "rectangle"
       "signal"
       "spotify"
