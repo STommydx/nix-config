@@ -52,6 +52,10 @@
       teoi = "push"; # home row ftw! :D
       laai = "pull";
     };
+    ignores = [
+      ".env"
+      ".env.*"
+    ];
     userName = "Tommy Li";
     userEmail = "dev@stdx.space";
     signing = {

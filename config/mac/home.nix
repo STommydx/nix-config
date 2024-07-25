@@ -4,6 +4,9 @@
   imports = [
     ../shared/home.nix
   ];
+  programs.git.ignores = [
+    ".DS_Store"
+  ];
   programs.zsh.initExtra = ''
     eval "$(/opt/homebrew/bin/brew shellenv)"
   '';
