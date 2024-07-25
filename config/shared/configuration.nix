@@ -36,6 +36,8 @@
     lazygit
     lolcat
     neofetch
+    nodejs
+    nodePackages.pnpm
     nomad
     packer
     pandoc
