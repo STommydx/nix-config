@@ -154,8 +154,6 @@
   };
   programs.starship = {
     enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
     settings = {
       format = "$os$all";
       right_format = "$status$cmd_duration$time";
@@ -178,6 +176,7 @@
       };
     };
   };
+  programs.thefuck.enable = true;
   programs.tmux = {
     enable = true;
     mouse = true;
