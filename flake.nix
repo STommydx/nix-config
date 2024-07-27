@@ -141,6 +141,14 @@
             nixvim.homeManagerModules.nixvim
           ];
         };
+        devdx = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./config/linux/home.nix
+            nix-index-database.hmModules.nix-index
+            nixvim.homeManagerModules.nixvim
+          ];
+        };
       };
       packages.x86_64-linux = {
         iso = nixos-generators.nixosGenerate {
