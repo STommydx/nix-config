@@ -50,8 +50,8 @@
     ]))
     restic
     rustc
+    tealdeer # tldr in Rust, respect XDG specs
     terraform
-    tldr
     vault
     wander
     xh
