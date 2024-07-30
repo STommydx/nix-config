@@ -42,11 +42,10 @@
   };
   programs.eza = {
     enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
     extraOptions = [ "-g" "--classify=auto" ];
     icons = true;
   };
+  programs.fd.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
   programs.git = {
