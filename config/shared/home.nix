@@ -220,6 +220,6 @@
     logs-dir=${config.xdg.stateHome}/npm/logs
   '';
   xdg.configFile."wgetrc".text = ''
-    hsts-file \= ${config.xdg.cacheHome}/wget-hsts
+    hsts-file=${config.xdg.cacheHome}/wget-hsts
   '';
 }
