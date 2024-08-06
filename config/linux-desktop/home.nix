@@ -92,7 +92,7 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = false;
       click-action = "minimize-or-previews";
-      custom-theme-shrink = true;
+      custom-theme-shrink = false;
       dash-max-icon-size = 40;
       dock-position = "BOTTOM";
       intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
