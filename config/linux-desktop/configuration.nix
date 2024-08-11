@@ -17,7 +17,7 @@
   hardware.steam-hardware.enable = true;
 
   i18n.inputMethod = {
-    enable = true; 
+    enable = true;
     type = "ibus";
     ibus.engines = with pkgs.ibus-engines; [
       mozc
@@ -163,6 +163,44 @@
       }
     });
   '';
+
+  stylix = {
+    enable = true;
+    image = ./assets/tokyo-night-programmer.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    polarity = "dark";
+    cursor = {
+      package = pkgs.kdePackages.breeze;
+      name = "breeze_cursors";
+      size = 24;
+    };
+    fonts = {
+      serif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+
+      monospace = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans Mono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+
+      sizes = {
+        applications = 11;
+        terminal = 11;
+      };
+    };
+  };
 
   services.dbus.packages = [ pkgs.gcr ]; # for gpg agent setup with gnome
   # services.fprintd.enable = true; # temporarily disabled due to build failure

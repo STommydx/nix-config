@@ -38,9 +38,14 @@
       url = github:pta2002/nixvim;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, darwin, nixos-wsl, home-manager, nix-index-database, sops-nix, nixos-generators, nixpkgs, nixvim }:
+  outputs = { self, darwin, nixos-wsl, home-manager, nix-index-database, sops-nix, nixos-generators, nixpkgs, nixvim, stylix }:
     let
       system = "x86_64-linux";
     in
@@ -63,6 +68,7 @@
             }
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
+            stylix.nixosModules.stylix
           ];
         };
         winpcdx = nixpkgs.lib.nixosSystem {
