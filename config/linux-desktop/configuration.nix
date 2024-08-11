@@ -101,6 +101,7 @@
           "Ubuntu"
         ];
       })
+      meslo-lg
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
@@ -167,7 +168,8 @@
   stylix = {
     enable = true;
     image = ./assets/tokyo-night-programmer.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
     polarity = "dark";
     cursor = {
       package = pkgs.kdePackages.breeze;
@@ -199,6 +201,9 @@
         applications = 11;
         terminal = 11;
       };
+    };
+    opacity = {
+      terminal = 0.8;
     };
   };
 

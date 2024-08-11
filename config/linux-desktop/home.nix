@@ -13,8 +13,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
       clock-show-weekday = true;
-      color-scheme = "prefer-dark";
-      cursor-theme = "breeze_cursors";
+      # color-scheme = "prefer-dark";
+      # cursor-theme = "breeze_cursors";
       font-antialiasing = "grayscale";
       font-hinting = "slight";
       # gtk-theme = "Adwaita";
@@ -235,7 +235,7 @@ with lib.hm.gvariant;
       };
       "git.confirmSync" = false;
       "remote.autoForwardPorts" = false;
-      "terminal.integrated.fontFamily" = "MesloLGM Nerd Font Mono, DroidSansMono Nerd Font Mono, monospace";
+      "terminal.integrated.fontFamily" = "MesloLGM Nerd Font, DroidSansMono Nerd Font, monospace";
       "vscode-neovim.neovimInitVimPaths.linux" = "${config.home.homeDirectory}/${config.xdg.configFile."vscode-neovim/init.lua".target}";
       "vscode-neovim.mouseSelectionStartVisualMode" = true;
       "workbench.colorTheme" = "Tokyo Night";
@@ -286,6 +286,17 @@ with lib.hm.gvariant;
 
   stylix = {
     enable = true;
+    fonts = {
+      monospace = {
+        name = "MesloLGM Nerd Font";
+        package = (pkgs.nerdfonts.override
+          {
+            fonts = [
+              "Meslo"
+            ];
+          });
+      };
+    };
     targets.firefox.enable = false;
     targets.vscode.enable = false;
     targets.nixvim.enable = false;

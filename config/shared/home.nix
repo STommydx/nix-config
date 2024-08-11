@@ -184,6 +184,13 @@
       };
       os = {
         disabled = false;
+        symbols = {
+          Android = "[](fg:#48B157)  ";
+          Fedora = "[](fg:#3C6EB4)  ";
+          Macos = "[](fg:#A2AAAD)  ";
+          NixOS = "[](fg:#5277C3)  ";
+          Ubuntu = "[](fg:#E95420)  ";
+        };
       };
     };
   };
