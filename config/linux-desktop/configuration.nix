@@ -76,7 +76,7 @@
     xournalpp
     yubikey-manager
     # yuzu-mainline
-    zoom
+    zoom-us
   ];
 
   fonts = {
