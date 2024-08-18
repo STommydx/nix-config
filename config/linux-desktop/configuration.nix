@@ -101,11 +101,16 @@
           "Ubuntu"
         ];
       })
+      fira
       meslo-lg
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
+      open-sans
+      source-sans
+      source-serif
+      roboto
       ubuntu_font_family
     ];
   };

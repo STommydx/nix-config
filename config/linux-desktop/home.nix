@@ -287,6 +287,14 @@ with lib.hm.gvariant;
   stylix = {
     enable = true;
     fonts = {
+      serif = {
+        name = "Source Serif 4";
+        package = pkgs.source-serif;
+      };
+      sansSerif = {
+        name = "Source Sans 3";
+        package = pkgs.source-sans;
+      };
       monospace = {
         name = "MesloLGM Nerd Font";
         package = (pkgs.nerdfonts.override
