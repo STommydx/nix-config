@@ -123,7 +123,7 @@
     plugins = {
       bufferline = {
         enable = true;
-        separatorStyle = "slant";
+        settings.options.separatorStyle = "slant";
       };
       comment.enable = true;
       coq-nvim.enable = true;
