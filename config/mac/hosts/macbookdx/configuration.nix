@@ -7,12 +7,19 @@
   networking.hostName = "macbookdx";
 
   environment.systemPackages = with pkgs; [
+    cfssl
+    consul
+    consul-template
     grpcurl
     goreleaser
     minio-client
+    nomad
+    packer
     qpdf
     scrcpy
     temporal-cli
+    vault
+    wander
   ];
 
   homebrew = {

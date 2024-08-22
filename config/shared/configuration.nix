@@ -15,12 +15,9 @@
     bat
     black
     cargo
-    cfssl
     clang-tools
     cloudflared
     cmake
-    consul
-    consul-template
     ctop
     dasel
     delta
@@ -33,13 +30,12 @@
     gping
     gh
     iperf
+    just
     lazygit
     lolcat
     neofetch
     nodejs
     nodePackages.pnpm
-    nomad
-    packer
     pandoc
     pipenv
     pre-commit
@@ -52,8 +48,6 @@
     rustc
     tealdeer # tldr in Rust, respect XDG specs
     terraform
-    vault
-    wander
     xh
     yt-dlp
     yq

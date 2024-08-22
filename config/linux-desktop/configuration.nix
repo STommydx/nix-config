@@ -12,7 +12,7 @@
     enable = true;
     enableGraphical = true;
   };
-  hardware.new-lg4ff.enable = true;
+  # hardware.new-lg4ff.enable = true;
   hardware.pulseaudio.enable = false; # prevent pipewire conficting pulseaudio
   hardware.steam-hardware.enable = true;
 
@@ -31,12 +31,10 @@
   ];
   environment.systemPackages = with pkgs; [
     alacritty
-    anki
     appimage-run
-    bottles
     dconf2nix
     discord
-    element-desktop
+    # element-desktop
     firefox
     gnome-tweaks
     google-chrome
@@ -51,13 +49,12 @@
     mpv
     obs-studio
     osu-lazer-bin
-    oversteer
+    # oversteer
     pam_u2f
     papirus-icon-theme
     pinta
     piper
     prismlauncher
-    # postman temp disabled due to https://github.com/NixOS/nixpkgs/issues/259147
     remmina
     scrcpy
     signal-desktop
@@ -76,6 +73,7 @@
     xournalpp
     yubikey-manager
     # yuzu-mainline
+    zed-editor
     zoom-us
   ];
 
