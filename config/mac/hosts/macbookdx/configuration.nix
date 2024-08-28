@@ -8,22 +8,22 @@
 
   environment.systemPackages = with pkgs; [
     cfssl
-    consul
-    consul-template
     grpcurl
     goreleaser
     minio-client
-    nomad
-    packer
     qpdf
     scrcpy
     temporal-cli
-    vault
     wander
   ];
 
   homebrew = {
     brews = [
+      "hashicorp/tap/consul"
+      "hashicorp/tap/consul-template"
+      "hashicorp/tap/nomad"
+      "hashicorp/tap/packer"
+      "hashicorp/tap/vault"
       "ory/tap/hydra"
       "ory/tap/kratos"
     ];
@@ -36,6 +36,7 @@
     ];
     taps = [
       "atomicjar/tap"
+      "hashicorp/tap"
       "ory/tap"
     ];
   };
