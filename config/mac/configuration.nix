@@ -87,7 +87,7 @@
       "vial"
       "visual-studio-code"
       "vlc"
-      "xournal-plus-plus"
+      "xournal++"
       "yubico-yubikey-manager"
       "zoom"
     ];
