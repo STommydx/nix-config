@@ -37,7 +37,7 @@
     nodejs
     nodePackages.pnpm
     pandoc
-    pipenv
+    pipx
     pre-commit
     protobuf
     (python3.withPackages (pythonPkgs: with pythonPkgs; [
