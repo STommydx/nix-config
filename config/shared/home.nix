@@ -155,6 +155,7 @@
       todo-comments.enable = true;
       treesitter.enable = true;
       trouble.enable = true;
+      web-devicons.enable = true;
     };
     viAlias = true;
     vimAlias = true;
