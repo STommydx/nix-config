@@ -81,6 +81,8 @@
       push = {
         autoSetupRemote = "true";
       };
+      # https://youtu.be/aolI_Rz0ZqY?t=901
+      rerere.enabled = true;
     };
   };
   programs.go = {
