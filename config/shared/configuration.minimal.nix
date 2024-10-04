@@ -32,6 +32,7 @@
     };
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      # This may cause random build failures but solvable upon retry. See https://github.com/NixOS/nix/issues/7273
       auto-optimise-store = true;
     };
   };
