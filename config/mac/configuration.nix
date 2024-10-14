@@ -75,7 +75,6 @@
       "jordanbaird-ice"
       "keka"
       "macfuse"
-      "microsoft-remote-desktop"
       "orbstack"
       "rectangle"
       "signal"
@@ -96,6 +95,7 @@
       "Tailscale" = 1475387142;
       "WireGuard" = 1451685025;
       "WhatsApp Messenger" = 310633997;
+      "Windows App" = 1295203466;
     };
   };
 
