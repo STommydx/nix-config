@@ -75,6 +75,7 @@
       "jordanbaird-ice"
       "keka"
       "macfuse"
+      "maccy"
       "orbstack"
       "rectangle"
       "signal"
