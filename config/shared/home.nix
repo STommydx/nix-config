@@ -44,7 +44,7 @@
   programs.eza = {
     enable = true;
     extraOptions = [ "-g" "--classify=auto" ];
-    icons = true;
+    icons = "auto";
   };
   programs.fd.enable = true;
   programs.fzf.enable = true;
@@ -142,7 +142,7 @@
           clangd.enable = true;
           gopls.enable = true;
           nixd.enable = true;
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             installCargo = true;
             installRustc = true;
