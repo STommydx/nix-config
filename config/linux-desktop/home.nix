@@ -95,7 +95,7 @@ with lib.hm.gvariant;
       custom-theme-shrink = false;
       dash-max-icon-size = 40;
       dock-position = "BOTTOM";
-      intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
+      intellihide-mode = "ALL_WINDOWS";
       running-indicator-dominant-color = true;
       running-indicator-style = "CILIORA";
       show-favorites = true;
