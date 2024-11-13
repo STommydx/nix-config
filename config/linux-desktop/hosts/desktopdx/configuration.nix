@@ -22,6 +22,7 @@
   boot.supportedFilesystems = [ "ntfs" ]; # enable ntfs support for windows partition mounting
 
   environment.systemPackages = with pkgs; [
+    blender
     virt-manager
   ];
 
