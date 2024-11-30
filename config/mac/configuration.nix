@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
   imports = [
     ../shared/configuration.nix
@@ -6,7 +6,7 @@
 
   users.users.stommydx = {
     home = "/Users/stommydx";
-    shell = pkgs.zsh;
+    # shell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search by name, run:
@@ -33,6 +33,8 @@
         }
       ];
     };
+    settings.auto-optimise-store = lib.mkForce false;
+    optimise.automatic = true;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
@@ -83,6 +85,7 @@
       "stats"
       "steam"
       "telegram"
+      "transmission"
       "unnaturalscrollwheels"
       "vial"
       "visual-studio-code"
