@@ -214,6 +214,7 @@
   # services.fprintd.enable = true; # temporarily disabled due to build failure
   services.flatpak.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
+  services.gnome.gnome-remote-desktop.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
