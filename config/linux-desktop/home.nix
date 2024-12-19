@@ -297,12 +297,7 @@ with lib.hm.gvariant;
       };
       monospace = {
         name = "MesloLGM Nerd Font";
-        package = (pkgs.nerdfonts.override
-          {
-            fonts = [
-              "Meslo"
-            ];
-          });
+        package = pkgs.nerd-fonts.meslo-lg;
       };
     };
     targets.firefox.enable = false;

@@ -89,18 +89,15 @@
       };
     };
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "DroidSansMono"
-          "JetBrainsMono"
-          "Meslo"
-          "Noto"
-          "SourceCodePro"
-          "Ubuntu"
-        ];
-      })
       fira
       meslo-lg
+      nerd-fonts._0xproto
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.meslo-lg
+      nerd-fonts.noto
+      nerd-fonts.ubuntu-sans
+      nerd-fonts.zed-mono
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
