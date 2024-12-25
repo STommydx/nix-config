@@ -71,6 +71,26 @@
             stylix.nixosModules.stylix
           ];
         };
+        workpcdx = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./config/linux-desktop/hosts/workpcdx/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.stommydx = {
+                imports = [
+                  ./config/linux-desktop/home.nix
+                  nixvim.homeManagerModules.nixvim
+                ];
+              };
+            }
+            nix-index-database.nixosModules.nix-index
+            sops-nix.nixosModules.sops
+            stylix.nixosModules.stylix
+          ];
+        };
         winpcdx = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
