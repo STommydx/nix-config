@@ -149,6 +149,12 @@ with lib.hm.gvariant;
     "${config.xdg.dataHome}/JetBrains/Toolbox/scripts"
   ];
 
+  home.shellAliases = {
+    zed = "zeditor";
+    pbcopy = "wl-copy";
+    pbpaste = "wl-paste";
+  };
+
   programs.alacritty = {
     enable = true;
     settings = {
@@ -270,10 +276,6 @@ with lib.hm.gvariant;
         "!Split sequence"
       ];
     };
-  };
-  programs.zsh.shellAliases = {
-    pbcopy = "wl-copy";
-    pbpaste = "wl-paste";
   };
 
   qt = {
