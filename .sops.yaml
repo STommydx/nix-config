@@ -1,7 +1,8 @@
 creation_rules:
   - key_groups:
-      - pgp: 
+      - pgp:
           - C9230708DD20DB6A887C9B80577E858EDCFECA83
         age:
           - age1a38gen6ghnghmppjptmxqy3qefg40kv5cyq8z2cmre2wfgzn852qnevrp9 # desktopdx
+          - age174e2jkcfj3plt0egcd2h5amyc8xn2zy5g8jsxz39am6mvcqqgfqsycm64w # workpcdx
           - age1c9l2026mhpl3n9jge9q24g9lny8jpk4uc90mvmnp8mtk5p0cle5svr2luj # winpcdx
