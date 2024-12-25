@@ -37,6 +37,7 @@
     jetbrains-toolbox
     libreoffice
     lm_sensors
+    nixd # make nixd available in zed editor
     mpv
     obs-studio
     pam_u2f
