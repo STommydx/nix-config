@@ -22,8 +22,14 @@
   boot.supportedFilesystems = [ "ntfs" ]; # enable ntfs support for windows partition mounting
 
   environment.systemPackages = with pkgs; [
-    blender
+    heroic
+    mangohud
+    osu-lazer-bin
+    # oversteer
+    piper
+    prismlauncher
     virt-manager
+    # yuzu-mainline
   ];
 
   # nixos-generate-config doesn't detect mount options automatically
@@ -35,10 +41,24 @@
   };
 
   hardware.cpu.amd.updateMicrocode = true;
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+  # hardware.new-lg4ff.enable = true;
+  hardware.steam-hardware.enable = true;
+  hardware.xpadneo.enable = true;
 
   networking.hostName = "desktopdx";
 
+  programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+  };
+
   services.btrfs.autoScrub.enable = true;
+  services.ratbagd.enable = true; # for configuring gaming devices, use with piper
   services.restic.backups = {
     datastore = {
       environmentFile = config.sops.secrets.minio_credentials.path;
@@ -90,9 +110,4 @@
   virtualisation.libvirtd = {
     enable = true;
   };
-
-  # allow for outdated electron used in heroic
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6"
-  ];
 }

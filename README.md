@@ -10,11 +10,12 @@ My Nix configuration to provision Nix-powered machines and images.
 ## Hosts
 
 - `desktopdx` (bare-metal NixOS): main PC desktop, for gaming and development
+- `workpcdx` (bare-metal NixOS): work PC desktop
 - `macbookdx` (Mac): Macbook Air, for development and casual entertainment
 - `winpcdx` (WSL): WSL environment in Windows PC
 - `bastiondx` (Proxmox LXC): bastion host, as Tailscale exit node and DNS AdBlocker
 - `syoi` (Home Manager only): remote code-server at code.syoi.org
-- `sysspcdx` (WSL Tarball): WSL Tarball building for importing to PCs in SYSS 
+- `sysspcdx` (WSL Tarball): WSL Tarball building for importing to PCs in SYSS
 
 ## Configuation Files
 

@@ -7,14 +7,7 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
   hardware.bluetooth.enable = true;
-  hardware.xpadneo.enable = true;
-  hardware.logitech.wireless = {
-    enable = true;
-    enableGraphical = true;
-  };
-  # hardware.new-lg4ff.enable = true;
   hardware.pulseaudio.enable = false; # prevent pipewire conficting pulseaudio
-  hardware.steam-hardware.enable = true;
 
   i18n.inputMethod = {
     enable = true;
@@ -32,6 +25,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     appimage-run
+    blender
     dconf2nix
     discord
     # element-desktop
@@ -39,26 +33,18 @@
     gnome-tweaks
     google-chrome
     goverlay
-    heroic
     insomnia
     jetbrains-toolbox
     libreoffice
     lm_sensors
-    mangohud
-    moonlight-qt
     mpv
     obs-studio
-    osu-lazer-bin
-    # oversteer
     pam_u2f
     papirus-icon-theme
     pinta
-    piper
-    prismlauncher
     remmina
     scrcpy
     signal-desktop
-    solaar
     spotify
     tdesktop
     transmission_4-gtk
@@ -72,7 +58,6 @@
     wl-clipboard
     xournalpp
     yubikey-manager
-    # yuzu-mainline
     zed-editor
     zoom-us
   ];
@@ -117,11 +102,6 @@
 
   programs._1password-gui.enable = true;
   programs.adb.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-  };
-  programs.gamemode.enable = true;
   programs.gnome-terminal.enable = true;
 
   qt = {
@@ -220,7 +200,6 @@
     wireplumber.enable = true;
   };
   services.printing.enable = true;
-  services.ratbagd.enable = true;
   services.saned.enable = true;
   services.udisks2.enable = true;
   services.udev.packages = with pkgs; [ vial ];
