@@ -168,6 +168,9 @@
       "ssh.syoi.org" = {
         proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname %h";
       };
+      "git.syoi.org" = {
+        proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname ssh.syoi.org";
+      };
     };
   };
   programs.starship = {
