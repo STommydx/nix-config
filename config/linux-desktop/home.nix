@@ -83,11 +83,19 @@ with lib.hm.gvariant;
       ];
     };
     "org/gnome/shell/extensions/arcmenu" = {
-      distro-icon = 0;
+      arcmenu-hotkey = [ "<Shift>Super_L" ]; # prevent ArcMenu hotkey conflicting with GNOME overview
+      distro-icon = 22; # NixOS icon
       menu-layout = "Redmond";
       menu-button-appearance = "Icon_Text";
       menu-button-icon = "Distro_Icon";
       show-activities-button = true; # for a nice workspace indicator in GNOME 45+
+    };
+    "org/gnome/shell/extensions/forge" = {
+      focus-border-toggle = false;
+      preview-hint-enabled = true;
+      tiling-mode-enabled = true;
+      window-gap-hidden-on-single = true;
+      window-gap-size = mkUint32 4;
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = false;
@@ -101,10 +109,6 @@ with lib.hm.gvariant;
       show-favorites = true;
       show-mounts = false;
       show-trash = false;
-    };
-    "org/gnome/shell/extensions/pop-shell" = {
-      smart-gaps = true;
-      tile-by-default = true;
     };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = [ ];
