@@ -33,7 +33,6 @@
     gnome-tweaks
     gnome-extension-manager
     google-chrome
-    goverlay
     insomnia
     jetbrains-toolbox
     libreoffice
