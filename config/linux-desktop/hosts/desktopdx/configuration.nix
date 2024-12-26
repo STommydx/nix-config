@@ -22,6 +22,7 @@
   boot.supportedFilesystems = [ "ntfs" ]; # enable ntfs support for windows partition mounting
 
   environment.systemPackages = with pkgs; [
+    amdgpu_top
     goverlay
     heroic
     mangohud
@@ -30,6 +31,7 @@
     piper
     prismlauncher
     protonup-qt
+    rocmPackages.rocminfo
     virt-manager
     # yuzu-mainline
   ];
@@ -96,6 +98,11 @@
         Persistent = true;
       };
     };
+  };
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    rocmOverrideGfx = "11.0.0";
   };
 
   # Add rule for using rocm in deep learning libraries
