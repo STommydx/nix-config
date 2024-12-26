@@ -31,6 +31,7 @@
     # element-desktop
     firefox
     gnome-tweaks
+    gnome-extension-manager
     google-chrome
     goverlay
     insomnia
@@ -49,6 +50,7 @@
     spotify
     tdesktop
     transmission_4-gtk
+    trayscale
     usbutils
     ventoy
     via
@@ -190,7 +192,6 @@
 
   services.dbus.packages = [ pkgs.gcr ]; # for gpg agent setup with gnome
   # services.fprintd.enable = true; # temporarily disabled due to build failure
-  services.flatpak.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
   services.gnome.gnome-remote-desktop.enable = true;
   services.pipewire = {

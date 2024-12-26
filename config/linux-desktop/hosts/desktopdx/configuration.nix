@@ -28,6 +28,7 @@
     # oversteer
     piper
     prismlauncher
+    protonup-qt
     virt-manager
     # yuzu-mainline
   ];
