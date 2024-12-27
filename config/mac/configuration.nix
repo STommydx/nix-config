@@ -70,6 +70,7 @@
       "blackhole-16ch"
       "discord"
       "firefox"
+      "ghostty"
       "insomnia"
       "iterm2"
       "jordanbaird-ice"
