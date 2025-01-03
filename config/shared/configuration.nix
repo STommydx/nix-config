@@ -11,7 +11,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    ansible-lint
+    # ansible-lint disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/370517
     bat
     black
     cargo
@@ -36,6 +36,7 @@
     neofetch
     nodejs
     nodePackages.pnpm
+    opentofu
     pandoc
     pipx
     pre-commit
@@ -47,7 +48,6 @@
     restic
     rustc
     tealdeer # tldr in Rust, respect XDG specs
-    terraform
     xh
     yt-dlp
     yq

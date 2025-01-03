@@ -31,7 +31,7 @@
     # element-desktop
     firefox
     gnome-tweaks
-    gnome-extension-manager
+    # gnome-extension-manager disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/368664
     google-chrome
     insomnia
     jetbrains-toolbox
