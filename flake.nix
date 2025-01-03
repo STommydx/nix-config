@@ -35,7 +35,7 @@
     };
 
     nixvim = {
-      url = github:pta2002/nixvim;
+      url = "github:pta2002/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -45,7 +45,7 @@
     };
   };
 
-  outputs = { self, darwin, nixos-wsl, home-manager, nix-index-database, sops-nix, nixos-generators, nixpkgs, nixvim, stylix }:
+  outputs = { darwin, nixos-wsl, home-manager, nix-index-database, sops-nix, nixos-generators, nixpkgs, nixvim, stylix }:
     let
       system = "x86_64-linux";
     in
