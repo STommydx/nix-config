@@ -15,7 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     gdb
-    trickle
   ];
 
   networking.firewall.enable = false;
