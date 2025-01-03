@@ -74,7 +74,7 @@ with lib.hm.gvariant;
       ];
       favorite-apps = [
         "firefox.desktop"
-        "org.gnome.Terminal.desktop"
+        "com.mitchellh.ghostty.desktop"
         "org.gnome.Nautilus.desktop"
         "org.telegram.desktop.desktop"
         "signal-desktop.desktop"
@@ -89,6 +89,11 @@ with lib.hm.gvariant;
       menu-button-appearance = "Icon_Text";
       menu-button-icon = "Distro_Icon";
       show-activities-button = true; # for a nice workspace indicator in GNOME 45+
+    };
+    "org/gnome/shell/extensions/blur-my-shell/applications" = {
+      blur = true;
+      enable-all = false;
+      whitelist = [ "com.mitchellh.ghostty" ];
     };
     "org/gnome/shell/extensions/forge" = {
       focus-border-toggle = false;
@@ -315,6 +320,7 @@ with lib.hm.gvariant;
   xdg.configFile."autostart/solaar.desktop".source = pkgs.solaar + "/share/applications/solaar.desktop";
 
   xdg.configFile."alacritty/themes/tokyo-night.toml".source = ./dotfiles/alacritty/tokyo-night.toml;
+  xdg.configFile."ghostty/config".source = ./dotfiles/ghostty/config;
   xdg.configFile."vscode-neovim/init.lua".text = ''
     require("Comment").setup{}
     vim.keymap.set("v", "<C-c>", "\"+y", {noremap=true})
