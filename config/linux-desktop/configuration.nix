@@ -30,6 +30,7 @@
     discord
     # element-desktop
     firefox
+    ghostty
     gnome-tweaks
     # gnome-extension-manager disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/368664
     google-chrome
