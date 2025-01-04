@@ -1,12 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../configuration.nix
+  ];
 
   boot.loader = {
     grub = {
@@ -40,7 +39,10 @@
   fileSystems = {
     "/".options = [ "compress=zstd:1" ];
     "/home".options = [ "compress=zstd:1" ];
-    "/nix".options = [ "compress=zstd:1" "noatime" ];
+    "/nix".options = [
+      "compress=zstd:1"
+      "noatime"
+    ];
     "/data".options = [ "compress=zstd:1" ];
   };
 
@@ -112,7 +114,10 @@
   #   "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   # ];
 
-  users.users.stommydx.extraGroups = [ "libvirtd" "vboxusers" ];
+  users.users.stommydx.extraGroups = [
+    "libvirtd"
+    "vboxusers"
+  ];
 
   virtualisation.docker = {
     storageDriver = "btrfs";

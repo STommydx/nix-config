@@ -1,8 +1,7 @@
 # Apply GNOME Terminal transparency patch
 # Patch authored by https://aur.archlinux.org/packages/gnome-terminal-transparency
 
-final: prev:
-{
+final: prev: {
   gnome-terminal = prev.gnome-terminal.overrideAttrs (old: rec {
     # downgrade to support AUR patch
     version = "3.52.2";

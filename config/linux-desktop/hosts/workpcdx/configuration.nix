@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../configuration.nix
+  ];
 
   boot.loader = {
     grub = {
@@ -39,7 +43,10 @@
   fileSystems = {
     "/".options = [ "compress=zstd:1" ];
     "/home".options = [ "compress=zstd:1" ];
-    "/nix".options = [ "compress=zstd:1" "noatime" ];
+    "/nix".options = [
+      "compress=zstd:1"
+      "noatime"
+    ];
   };
 
   hardware.cpu.intel.updateMicrocode = true;

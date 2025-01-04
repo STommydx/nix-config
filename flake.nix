@@ -45,7 +45,19 @@
     };
   };
 
-  outputs = { self, darwin, nixos-wsl, home-manager, nix-index-database, sops-nix, nixos-generators, nixpkgs, nixvim, stylix }:
+  outputs =
+    {
+      self,
+      darwin,
+      nixos-wsl,
+      home-manager,
+      nix-index-database,
+      sops-nix,
+      nixos-generators,
+      nixpkgs,
+      nixvim,
+      stylix,
+    }:
     let
       system = "x86_64-linux";
     in
@@ -192,5 +204,6 @@
           format = "proxmox-lxc";
         };
       };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
 }

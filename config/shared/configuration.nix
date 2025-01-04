@@ -6,7 +6,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stommydx = {
-    packages = with pkgs; [ nixpkgs-fmt ];
+    packages = with pkgs; [ nixfmt-rfc-style ];
     shell = pkgs.zsh;
   };
 
@@ -41,10 +41,12 @@
     pipx
     pre-commit
     protobuf
-    (python3.withPackages (pythonPkgs: with pythonPkgs; [
-      ipython
-      pandas
-    ]))
+    (python3.withPackages (
+      pythonPkgs: with pythonPkgs; [
+        ipython
+        pandas
+      ]
+    ))
     restic
     rustc
     tealdeer # tldr in Rust, respect XDG specs

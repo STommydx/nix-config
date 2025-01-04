@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -8,7 +13,12 @@
 
   users.users.stommydx = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "storage" "docker" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "storage"
+      "docker"
+      "networkmanager"
+    ];
     hashedPasswordFile = config.sops.secrets.password.path;
   };
   users.groups.storage = { };

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -43,7 +48,10 @@
   };
   programs.eza = {
     enable = true;
-    extraOptions = [ "-g" "--classify=auto" ];
+    extraOptions = [
+      "-g"
+      "--classify=auto"
+    ];
     icons = "auto";
   };
   programs.fd.enable = true;

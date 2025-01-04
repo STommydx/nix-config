@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 with lib.hm.gvariant;
 
@@ -8,7 +13,24 @@ with lib.hm.gvariant;
 
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "us+colemak" ]) (mkTuple [ "xkb" "us" ]) (mkTuple [ "ibus" "table:jyutping" ]) (mkTuple [ "ibus" "mozc-jp" ]) ];
+      sources = [
+        (mkTuple [
+          "xkb"
+          "us+colemak"
+        ])
+        (mkTuple [
+          "xkb"
+          "us"
+        ])
+        (mkTuple [
+          "ibus"
+          "table:jyutping"
+        ])
+        (mkTuple [
+          "ibus"
+          "mozc-jp"
+        ])
+      ];
     };
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
@@ -143,16 +165,16 @@ with lib.hm.gvariant;
 
   home.file.".face".source = ./assets/propic.jpg;
 
-  home.packages = with pkgs; (
-    with gnomeExtensions; [
+  home.packages =
+    with pkgs;
+    (with gnomeExtensions; [
       appindicator
       arcmenu
       blur-my-shell
       dash-to-dock
       forge
       gsconnect
-    ]
-  );
+    ]);
 
   home.sessionPath = [
     "${config.xdg.dataHome}/JetBrains/Toolbox/scripts"
@@ -251,7 +273,9 @@ with lib.hm.gvariant;
       "git.confirmSync" = false;
       "remote.autoForwardPorts" = false;
       "terminal.integrated.fontFamily" = "MesloLGM Nerd Font, DroidSansMono Nerd Font, monospace";
-      "vscode-neovim.neovimInitVimPaths.linux" = "${config.home.homeDirectory}/${config.xdg.configFile."vscode-neovim/init.lua".target}";
+      "vscode-neovim.neovimInitVimPaths.linux" = "${config.home.homeDirectory}/${
+        config.xdg.configFile."vscode-neovim/init.lua".target
+      }";
       "vscode-neovim.mouseSelectionStartVisualMode" = true;
       "workbench.colorTheme" = "Tokyo Night";
       "yaml.customTags" = [
@@ -317,7 +341,8 @@ with lib.hm.gvariant;
   };
 
   # manage autostart config
-  xdg.configFile."autostart/solaar.desktop".source = pkgs.solaar + "/share/applications/solaar.desktop";
+  xdg.configFile."autostart/solaar.desktop".source =
+    pkgs.solaar + "/share/applications/solaar.desktop";
 
   xdg.configFile."alacritty/themes/tokyo-night.toml".source = ./dotfiles/alacritty/tokyo-night.toml;
   xdg.configFile."ghostty/config".source = ./dotfiles/ghostty/config;

@@ -1,7 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  console = { keyMap = "colemak"; };
+  console = {
+    keyMap = "colemak";
+  };
 
   # Select internationalisation properties.
   i18n = {
