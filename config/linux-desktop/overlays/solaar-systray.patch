@@ -1,9 +1,9 @@
 --- /share/applications/solaar.desktop
 +++ /share/applications/solaar.desktop
-@@ -5,7 +5,7 @@
- Comment[hr]=Upravitelj Logitechovih uređaja povezanih putem Unifying i Nano prijemnika
- Comment[ru]=Управление приёмником Logitech Unifying Receiver
- Comment[es]=Administrador de periféricos de Logitech Receptor Unifying
+@@ -10,7 +10,7 @@
+ Comment[zh_CN]=罗技优联设备管理器
+ Comment[zh_TW]=羅技Unifying 裝置管理器
+ Comment[zh_HK]=羅技Unifying 裝置管理器
 -Exec=solaar
 +Exec=solaar --window=hide --battery-icons=symbolic
  Icon=solaar

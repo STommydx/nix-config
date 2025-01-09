@@ -7,7 +7,6 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
   hardware.bluetooth.enable = true;
-  hardware.pulseaudio.enable = false; # prevent pipewire conficting pulseaudio
 
   i18n.inputMethod = {
     enable = true;
@@ -201,6 +200,7 @@
     pulse.enable = true;
     wireplumber.enable = true;
   };
+  services.pulseaudio.enable = false; # prevent pipewire conficting pulseaudio
   services.printing.enable = true;
   services.saned.enable = true;
   services.udisks2.enable = true;
