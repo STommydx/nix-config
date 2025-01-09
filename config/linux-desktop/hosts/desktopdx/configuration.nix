@@ -23,14 +23,14 @@
   environment.systemPackages = with pkgs; [
     amdgpu_top
     goverlay
-    # heroic disabled temporarily due to https://github.com/NixOS/nixpkgs/pull/368966
+    heroic
     mangohud
     osu-lazer-bin
     # oversteer
     piper
     prismlauncher
     protonup-qt
-    # rocmPackages.rocminfo disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/368672
+    rocmPackages.rocminfo
     virt-manager
     # yuzu-mainline
   ];
@@ -102,17 +102,16 @@
     };
   };
   services.ollama = {
-    # enable = true; disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/368672
+    enable = true;
     acceleration = "rocm";
     rocmOverrideGfx = "11.0.0";
   };
 
   # Add rule for using rocm in deep learning libraries
   # https://nixos.wiki/wiki/AMD_GPU
-  # disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/368672
-  # systemd.tmpfiles.rules = [
-  #   "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  # ];
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+  ];
 
   users.users.stommydx.extraGroups = [
     "libvirtd"

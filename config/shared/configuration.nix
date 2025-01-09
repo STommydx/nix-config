@@ -11,7 +11,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # ansible-lint disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/370517
+    ansible-lint
     bat
     black
     cargo
