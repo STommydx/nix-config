@@ -37,6 +37,7 @@
     jetbrains-toolbox
     libreoffice
     lm_sensors
+    nil # make nil available in zed editor
     nixd # make nixd available in zed editor
     mpv
     obs-studio
