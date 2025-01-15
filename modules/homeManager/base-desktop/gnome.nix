@@ -1,16 +1,10 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ lib, pkgs, ... }:
 
 with lib.hm.gvariant;
 
 {
 
-  imports = [ ../linux/home.nix ];
-
+  # GNOME settings, configured with dconf
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
       sources = [
@@ -161,10 +155,14 @@ with lib.hm.gvariant;
     };
   };
 
-  fonts.fontconfig.enable = true;
+  # Access clipboard from terminal
+  # This is a wayland specific setting
+  home.shellAliases = {
+    pbcopy = "wl-copy";
+    pbpaste = "wl-paste";
+  };
 
-  home.file.".face".source = ./assets/propic.jpg;
-
+  # GNOME extensions installed in user environment
   home.packages =
     with pkgs;
     (with gnomeExtensions; [
@@ -176,36 +174,8 @@ with lib.hm.gvariant;
       gsconnect
     ]);
 
-  home.sessionPath = [
-    "${config.xdg.dataHome}/JetBrains/Toolbox/scripts"
-  ];
-
-  home.shellAliases = {
-    zed = "zeditor";
-    pbcopy = "wl-copy";
-    pbpaste = "wl-paste";
-  };
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      import = [
-        "~/${config.xdg.configFile."alacritty/themes/tokyo-night.toml".target}"
-      ];
-      env = {
-        # https://wiki.archlinux.org/title/Alacritty#Terminal_functionality_unavailable_in_remote_shells
-        TERM = "xterm-256color";
-      };
-      windows = {
-        dimensions = {
-          columns = 120;
-          lines = 36;
-        };
-        opacity = 0.8;
-      };
-    };
-  };
-  programs.firefox.enable = true;
+  # GNOME Terminal configuration
+  # deprecated in favor of ghostty
   programs.gnome-terminal = {
     enable = true;
     profile."842ec37e-9d77-4e26-86c5-41fc3bca62c5" = {
@@ -214,143 +184,15 @@ with lib.hm.gvariant;
       # transparencyPercent = 20; # this option does not work with colors = null
     };
   };
-  programs.mangohud = {
-    enable = true;
-    settings = {
-      gpu_stats = true;
-      gpu_temp = true;
-      gpu_load_change = true;
-      cpu_stats = true;
-      cpu_temp = true;
-      cpu_load_change = true;
-      core_load_change = true;
-      vram = true;
-      ram = true;
-      fps = true;
-      gamemode = true;
-      no_display = true;
-      position = "top-left";
-      toggle_hud = "Shift_R+F12";
-    };
-  };
-  programs.mpv.enable = true;
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      input-overlay
-      obs-pipewire-audio-capture
-      obs-vkcapture
-    ];
-  };
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      asvetliakov.vscode-neovim
-      golang.go
-      hashicorp.terraform
-      jnoortheen.nix-ide
-      ms-azuretools.vscode-docker
-      ms-vscode.cmake-tools
-      ms-vscode.cpptools
-      ms-vscode.makefile-tools
-      ms-vscode-remote.remote-ssh
-      redhat.vscode-yaml
-      tomoki1207.pdf
-    ];
-    userSettings = {
-      "editor.inlineSuggest.suppressSuggestions" = true; # weird option added by extension
-      "editor.rulers" = [ 120 ];
-      "explicitFolding.rules" = {
-        "*" = {
-          begin = "{{{";
-          end = "}}}";
-          autoFold = true;
-        };
-      };
-      "extensions.experimental.affinity" = {
-        "asvetliakov.vscode-neovim" = 1; # recommended settings from extension author
-      };
-      "git.confirmSync" = false;
-      "remote.autoForwardPorts" = false;
-      "terminal.integrated.fontFamily" = "MesloLGM Nerd Font, DroidSansMono Nerd Font, monospace";
-      "vscode-neovim.neovimInitVimPaths.linux" = "${config.home.homeDirectory}/${
-        config.xdg.configFile."vscode-neovim/init.lua".target
-      }";
-      "vscode-neovim.mouseSelectionStartVisualMode" = true;
-      "workbench.colorTheme" = "Tokyo Night";
-      "yaml.customTags" = [
-        # default settings added by extension
-        "!And"
-        "!And sequence"
-        "!If"
-        "!If sequence"
-        "!Not"
-        "!Not sequence"
-        "!Equals"
-        "!Equals sequence"
-        "!Or"
-        "!Or sequence"
-        "!FindInMap"
-        "!FindInMap sequence"
-        "!Base64"
-        "!Join"
-        "!Join sequence"
-        "!Cidr"
-        "!Ref"
-        "!Sub"
-        "!Sub sequence"
-        "!GetAtt"
-        "!GetAZs"
-        "!ImportValue"
-        "!ImportValue sequence"
-        "!Select"
-        "!Select sequence"
-        "!Split"
-        "!Split sequence"
-      ];
-    };
-  };
 
+  # Adwaita theming for Qt applications
   qt = {
     enable = true;
     platformTheme.name = "adwaita";
     style.name = "adwaita-dark";
   };
 
+  # Enable GNOME keyring integration
   services.gnome-keyring.enable = true;
 
-  stylix = {
-    enable = true;
-    fonts = {
-      serif = {
-        name = "Source Serif 4";
-        package = pkgs.source-serif;
-      };
-      sansSerif = {
-        name = "Source Sans 3";
-        package = pkgs.source-sans;
-      };
-      monospace = {
-        name = "MesloLGM Nerd Font";
-        package = pkgs.nerd-fonts.meslo-lg;
-      };
-    };
-    targets.firefox.enable = false;
-    targets.vscode.enable = false;
-    targets.nixvim.enable = false;
-  };
-
-  # manage autostart config
-  xdg.configFile."autostart/solaar.desktop".source =
-    pkgs.solaar + "/share/applications/solaar.desktop";
-
-  xdg.configFile."alacritty/themes/tokyo-night.toml".source = ./dotfiles/alacritty/tokyo-night.toml;
-  xdg.configFile."ghostty/config".source = ./dotfiles/ghostty/config;
-  xdg.configFile."vscode-neovim/init.lua".text = ''
-    require("Comment").setup{}
-    vim.keymap.set("v", "<C-c>", "\"+y", {noremap=true})
-    vim.keymap.set("v", "<C-x>", "\"+d", {noremap=true})
-  '';
-  # pamu2fcfg -o pam://auth.stdx.space -i pam://auth.stdx.space > secrets/u2f_keys
-  xdg.configFile."Yubico/u2f_keys".source = ./secrets/u2f_keys;
 }

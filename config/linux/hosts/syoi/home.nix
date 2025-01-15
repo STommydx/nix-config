@@ -6,9 +6,6 @@
 }:
 
 {
-  imports = [
-    ../../home.nix
-  ];
   programs.ssh = {
     enable = true;
     matchBlocks = {

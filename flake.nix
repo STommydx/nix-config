@@ -57,7 +57,7 @@
       nixpkgs,
       nixvim,
       stylix,
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
     in
@@ -73,7 +73,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.stommydx = {
                 imports = [
-                  ./config/linux-desktop/home.nix
+                  ./profiles/homeManager/alltheway-desktop
                   nixvim.homeManagerModules.nixvim
                 ];
               };
@@ -82,6 +82,7 @@
             sops-nix.nixosModules.sops
             stylix.nixosModules.stylix
           ];
+          specialArgs = { inherit inputs; };
         };
         workpcdx = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -93,7 +94,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.stommydx = {
                 imports = [
-                  ./config/linux-desktop/home.nix
+                  ./profiles/homeManager/devops-desktop
                   nixvim.homeManagerModules.nixvim
                 ];
               };
@@ -102,6 +103,7 @@
             sops-nix.nixosModules.sops
             stylix.nixosModules.stylix
           ];
+          specialArgs = { inherit inputs; };
         };
         winpcdx = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -142,6 +144,7 @@
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
           ];
+          specialArgs = { inherit inputs; };
         };
         bastiondx = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -175,17 +178,20 @@
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
             ./config/linux/hosts/syoi/home.nix
+            ./profiles/homeManager/devops
             nix-index-database.hmModules.nix-index
             nixvim.homeManagerModules.nixvim
           ];
+          specialArgs = { inherit inputs; };
         };
         devdx = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
-            ./config/linux/home.nix
+            ./profiles/homeManager/devops
             nix-index-database.hmModules.nix-index
             nixvim.homeManagerModules.nixvim
           ];
+          specialArgs = { inherit inputs; };
         };
       };
       packages.x86_64-linux = {
