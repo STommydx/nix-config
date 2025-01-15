@@ -63,7 +63,7 @@
     in
     {
       nixosConfigurations = {
-        desktopdx = nixpkgs.lib.nixosSystem {
+        desktopdx = nixpkgs.lib.nixosSystem rec {
           inherit system;
           modules = [
             ./config/linux-desktop/hosts/desktopdx/configuration.nix
@@ -74,9 +74,11 @@
               home-manager.users.stommydx = {
                 imports = [
                   ./profiles/homeManager/alltheway-desktop
-                  nixvim.homeManagerModules.nixvim
                 ];
               };
+              # Special thanks to random guy on reddit!
+              # https://www.reddit.com/r/NixOS/comments/1bqzg78/pass_specialargs_into_extraspecialargs_when_using/
+              home-manager.extraSpecialArgs = specialArgs;
             }
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
@@ -84,7 +86,7 @@
           ];
           specialArgs = { inherit inputs; };
         };
-        workpcdx = nixpkgs.lib.nixosSystem {
+        workpcdx = nixpkgs.lib.nixosSystem rec {
           inherit system;
           modules = [
             ./config/linux-desktop/hosts/workpcdx/configuration.nix
@@ -95,9 +97,9 @@
               home-manager.users.stommydx = {
                 imports = [
                   ./profiles/homeManager/devops-desktop
-                  nixvim.homeManagerModules.nixvim
                 ];
               };
+              home-manager.extraSpecialArgs = specialArgs;
             }
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops

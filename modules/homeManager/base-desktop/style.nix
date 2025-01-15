@@ -1,8 +1,9 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  # TODO: intellegently import stylix only on home manager only configurations
   # imports = [
-    # inputs.stylix.homeManagerModules.stylix
+  #   inputs.stylix.homeManagerModules.stylix
   # ];
 
   stylix = {
