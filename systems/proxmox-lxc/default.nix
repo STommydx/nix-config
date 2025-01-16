@@ -1,6 +1,10 @@
-{ lib, ... }:
+{ modulesPath, lib, ... }:
 
 {
+
+  imports = [
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
+  ];
 
   # disable systemd-resolved as resolv.conf is managed by lxc host
   # services.resolved.enable = lib.mkForce false;
