@@ -182,18 +182,29 @@
             ./config/linux/hosts/syoi/home.nix
             ./profiles/homeManager/devops
             nix-index-database.hmModules.nix-index
-            nixvim.homeManagerModules.nixvim
           ];
-          specialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
         };
         devdx = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
             ./profiles/homeManager/devops
             nix-index-database.hmModules.nix-index
-            nixvim.homeManagerModules.nixvim
           ];
-          specialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
+        };
+        CLEA-DELL-001 = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./profiles/homeManager/devops-desktop
+            nix-index-database.hmModules.nix-index
+            stylix.homeManagerModules.stylix
+            ({lib, ...}: {
+              home.username = lib.mkForce "thomasli";
+              home.homeDirectory = lib.mkForce "/home/thomasli";
+            })
+          ];
+          extraSpecialArgs = { inherit inputs; };
         };
       };
       packages.x86_64-linux = {

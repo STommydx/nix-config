@@ -11,6 +11,8 @@
     "${config.home.homeDirectory}/.local/bin" # add local binaries to PATH
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # ls alternative, colorize output
   programs.eza = {
     enable = true;

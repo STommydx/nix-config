@@ -8,6 +8,14 @@
 
   stylix = {
     enable = true;
+    image = ./assets/tokyo-night-programmer.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
+    polarity = "dark";
+    cursor = {
+      package = pkgs.kdePackages.breeze;
+      name = "breeze_cursors";
+      size = 24;
+    };
     fonts = {
       serif = {
         name = "Source Serif 4";
@@ -21,6 +29,14 @@
         name = "MesloLGM Nerd Font";
         package = pkgs.nerd-fonts.meslo-lg;
       };
+      sizes = {
+        applications = 11;
+        terminal = 11;
+      };
+    };
+
+    opacity = {
+      terminal = 0.8;
     };
 
     # Disable stylix for apps that already have tokyo night theme
