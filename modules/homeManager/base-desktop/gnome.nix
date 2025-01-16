@@ -172,7 +172,9 @@ with lib.hm.gvariant;
       dash-to-dock
       forge
       gsconnect
-    ]) ++ [
+    ])
+    ++ [
+      dconf2nix # for managing dconf settings
       papirus-icon-theme # install icon theme as it might not be installed globally
     ];
 

@@ -49,18 +49,19 @@
     {
       self,
       darwin,
-      nixos-wsl,
       home-manager,
       nix-index-database,
-      sops-nix,
       nixos-generators,
       nixpkgs,
       nixvim,
-      stylix,
+      ...
     }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
+      nixosHosts = [
+        "desktopdx"
+      ];
       homeManagerHosts = [
         "CLEA-DELL-001" # company machine
         "devdx"
@@ -68,100 +69,110 @@
       ];
     in
     {
-      nixosConfigurations = {
-        desktopdx = nixpkgs.lib.nixosSystem rec {
-          inherit system;
-          modules = [
-            ./config/linux-desktop/hosts/desktopdx/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.stommydx = {
-                imports = [
-                  ./profiles/homeManager/alltheway-desktop
-                ];
-              };
-              # Special thanks to random guy on reddit!
-              # https://www.reddit.com/r/NixOS/comments/1bqzg78/pass_specialargs_into_extraspecialargs_when_using/
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-            nix-index-database.nixosModules.nix-index
-            sops-nix.nixosModules.sops
-            stylix.nixosModules.stylix
-          ];
-          specialArgs = { inherit inputs; };
-        };
-        workpcdx = nixpkgs.lib.nixosSystem rec {
-          inherit system;
-          modules = [
-            ./config/linux-desktop/hosts/workpcdx/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.stommydx = {
-                imports = [
-                  ./profiles/homeManager/devops-desktop
-                ];
-              };
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-            nix-index-database.nixosModules.nix-index
-            sops-nix.nixosModules.sops
-            stylix.nixosModules.stylix
-          ];
-          specialArgs = { inherit inputs; };
-        };
-        winpcdx = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            nixos-wsl.nixosModules.default
-            ./config/wsl/hosts/winpcdx/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.stommydx = {
-                imports = [
-                  ./config/wsl/home.nix
-                  nixvim.homeManagerModules.nixvim
-                ];
-              };
-            }
-            nix-index-database.nixosModules.nix-index
-            sops-nix.nixosModules.sops
-          ];
-        };
-        sysspcdx = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            nixos-wsl.nixosModules.default
-            ./config/wsl/hosts/sysspcdx/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.stommydx = {
-                imports = [
-                  ./config/wsl/home.nix
-                  nixvim.homeManagerModules.nixvim
-                ];
-              };
-            }
-            nix-index-database.nixosModules.nix-index
-            sops-nix.nixosModules.sops
-          ];
-          specialArgs = { inherit inputs; };
-        };
-        bastiondx = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            "${nixpkgs}/nixos/modules/virtualisation/proxmox-lxc.nix"
-            ./config/linux/hosts/bastiondx/configuration.nix
-          ];
-        };
-      };
+      nixosConfigurations = builtins.listToAttrs (
+        builtins.map (host: {
+          name = host;
+          value = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [ ./hosts/nixos/${host} ];
+            specialArgs = { inherit inputs; };
+          };
+        }) nixosHosts
+      );
+      # nixosConfigurations = {
+      # desktopdx = nixpkgs.lib.nixosSystem rec {
+      #   inherit system;
+      #   modules = [
+      #     ./config/linux-desktop/hosts/desktopdx/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager.useGlobalPkgs = true;
+      #       home-manager.useUserPackages = true;
+      #       home-manager.users.stommydx = {
+      #         imports = [
+      #           ./profiles/homeManager/alltheway-desktop
+      #         ];
+      #       };
+      #       # Special thanks to random guy on reddit!
+      #       # https://www.reddit.com/r/NixOS/comments/1bqzg78/pass_specialargs_into_extraspecialargs_when_using/
+      #       home-manager.extraSpecialArgs = specialArgs;
+      #     }
+      #     nix-index-database.nixosModules.nix-index
+      #     sops-nix.nixosModules.sops
+      #     stylix.nixosModules.stylix
+      #   ];
+      #   specialArgs = { inherit inputs; };
+      # };
+      # workpcdx = nixpkgs.lib.nixosSystem rec {
+      #   inherit system;
+      #   modules = [
+      #     ./config/linux-desktop/hosts/workpcdx/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager.useGlobalPkgs = true;
+      #       home-manager.useUserPackages = true;
+      #       home-manager.users.stommydx = {
+      #         imports = [
+      #           ./profiles/homeManager/devops-desktop
+      #         ];
+      #       };
+      #       home-manager.extraSpecialArgs = specialArgs;
+      #     }
+      #     nix-index-database.nixosModules.nix-index
+      #     sops-nix.nixosModules.sops
+      #     stylix.nixosModules.stylix
+      #   ];
+      #   specialArgs = { inherit inputs; };
+      # };
+      # winpcdx = nixpkgs.lib.nixosSystem {
+      #   inherit system;
+      #   modules = [
+      #     nixos-wsl.nixosModules.default
+      #     ./config/wsl/hosts/winpcdx/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager.useGlobalPkgs = true;
+      #       home-manager.useUserPackages = true;
+      #       home-manager.users.stommydx = {
+      #         imports = [
+      #           ./config/wsl/home.nix
+      #           nixvim.homeManagerModules.nixvim
+      #         ];
+      #       };
+      #     }
+      #     nix-index-database.nixosModules.nix-index
+      #     sops-nix.nixosModules.sops
+      #   ];
+      # };
+      # sysspcdx = nixpkgs.lib.nixosSystem {
+      #   inherit system;
+      #   modules = [
+      #     nixos-wsl.nixosModules.default
+      #     ./config/wsl/hosts/sysspcdx/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager.useGlobalPkgs = true;
+      #       home-manager.useUserPackages = true;
+      #       home-manager.users.stommydx = {
+      #         imports = [
+      #           ./config/wsl/home.nix
+      #           nixvim.homeManagerModules.nixvim
+      #         ];
+      #       };
+      #     }
+      #     nix-index-database.nixosModules.nix-index
+      #     sops-nix.nixosModules.sops
+      #   ];
+      #   specialArgs = { inherit inputs; };
+      # };
+      # bastiondx = nixpkgs.lib.nixosSystem {
+      #   inherit system;
+      #   modules = [
+      #     "${nixpkgs}/nixos/modules/virtualisation/proxmox-lxc.nix"
+      #     ./config/linux/hosts/bastiondx/configuration.nix
+      #   ];
+      # };
+      # };
       darwinConfigurations = {
         macbookdx = darwin.lib.darwinSystem {
           modules = [
@@ -194,20 +205,20 @@
         }) homeManagerHosts
       );
       packages.x86_64-linux = {
-        iso = nixos-generators.nixosGenerate {
-          inherit system;
-          modules = [
-            ./config/linux/configuration.minimal.nix
-          ];
-          format = "install-iso";
-        };
-        bastiondx = nixos-generators.nixosGenerate {
-          inherit system;
-          modules = [
-            ./config/linux/hosts/bastiondx/configuration.nix
-          ];
-          format = "proxmox-lxc";
-        };
+        # iso = nixos-generators.nixosGenerate {
+        #   inherit system;
+        #   modules = [
+        #     ./config/linux/configuration.minimal.nix
+        #   ];
+        #   format = "install-iso";
+        # };
+        # bastiondx = nixos-generators.nixosGenerate {
+        #   inherit system;
+        #   modules = [
+        #     ./config/linux/hosts/bastiondx/configuration.nix
+        #   ];
+        #   format = "proxmox-lxc";
+        # };
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       checks.x86_64-linux = builtins.mapAttrs (

@@ -14,7 +14,7 @@
   };
 
   hardware.bluetooth.enable = true;
-  hardware.cpu.amd.updateMicrocode = true;
+  hardware.cpu.intel.updateMicrocode = true;
 
   # services.fprintd.enable = true; # temporarily disabled due to build failure
 
