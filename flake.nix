@@ -59,6 +59,7 @@
       stylix,
     }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
     in
     {
@@ -181,8 +182,6 @@
           modules = [
             ./config/linux/hosts/syoi/home.nix
             ./profiles/homeManager/devops
-            nix-index-database.hmModules.nix-index
-            nixvim.homeManagerModules.nixvim
           ];
           extraSpecialArgs = { inherit inputs; };
         };
@@ -190,8 +189,6 @@
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
             ./profiles/homeManager/devops
-            nix-index-database.hmModules.nix-index
-            nixvim.homeManagerModules.nixvim
           ];
           extraSpecialArgs = { inherit inputs; };
         };
@@ -213,5 +210,6 @@
         };
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      checks.x86_64-linux = builtins.mapAttrs (host: homeConfiguration: homeConfiguration.activationPackage) outputs.homeConfigurations;
     };
 }
