@@ -19,7 +19,7 @@
   home-manager.useUserPackages = true;
   home-manager.users.stommydx = {
     imports = [
-      ./profiles/homeManager/ops
+      ../../../profiles/homeManager/ops
     ];
   };
   home-manager.extraSpecialArgs = { inherit inputs; };

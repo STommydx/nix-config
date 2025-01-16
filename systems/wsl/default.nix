@@ -20,6 +20,9 @@
   wsl.enable = true;
   wsl.defaultUser = "stommydx";
 
+  # no mounted disks for containers
+  services.btrfs.autoScrub.enable = false;
+
   # resolv.conf is managed by WSL (wsl.wslConf.network.generateResolvConf)
   services.resolved.enable = lib.mkForce false;
 

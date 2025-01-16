@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
 
@@ -79,7 +79,7 @@
   };
 
   # BTRFS file maintenance
-  services.btrfs.autoScrub.enable = true;
+  services.btrfs.autoScrub.enable = lib.mkDefault true;
 
   # enable SSH service for remote access
   services.openssh.enable = true;
