@@ -1,4 +1,9 @@
-{ config, pkgs, lib,... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -79,28 +84,27 @@
     };
   };
 
-
   programs.thefuck.enable = true;
-    programs.tmux = {
-      enable = true;
-      mouse = true;
-      plugins = with pkgs.tmuxPlugins; [
-        power-theme
-        sensible
-        yank
-      ];
-    };
-    programs.zsh = {
-      enable = true;
-      dotDir = lib.removePrefix config.home.homeDirectory "${config.xdg.configHome}/zsh";
-      history.path = "${config.xdg.stateHome}/zsh/history";
-      autosuggestion.enable = true;
-      historySubstringSearch.enable = true;
-      syntaxHighlighting.enable = true;
-    };
+  programs.tmux = {
+    enable = true;
+    mouse = true;
+    plugins = with pkgs.tmuxPlugins; [
+      power-theme
+      sensible
+      yank
+    ];
+  };
+  programs.zsh = {
+    enable = true;
+    dotDir = lib.removePrefix config.home.homeDirectory "${config.xdg.configHome}/zsh";
+    history.path = "${config.xdg.stateHome}/zsh/history";
+    autosuggestion.enable = true;
+    historySubstringSearch.enable = true;
+    syntaxHighlighting.enable = true;
+  };
 
-    services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
-      enable = true;
-      pinentryPackage = pkgs.pinentry-curses;
-    };
+  services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
 }

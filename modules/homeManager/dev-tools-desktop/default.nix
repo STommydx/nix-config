@@ -6,7 +6,6 @@
     ./vscode.nix
   ];
 
-
   # Set PATH for JetBrains tools
   home.sessionPath = [
     "${config.xdg.dataHome}/JetBrains/Toolbox/scripts"

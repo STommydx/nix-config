@@ -61,6 +61,10 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
+      homeManagerHosts = [
+        "devdx"
+        "syoi"
+      ];
     in
     {
       nixosConfigurations = {
@@ -176,23 +180,19 @@
           ];
         };
       };
-      homeConfigurations = {
-        syoi = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            ./config/linux/hosts/syoi/home.nix
-            ./profiles/homeManager/devops
-          ];
-          extraSpecialArgs = { inherit inputs; };
-        };
-        devdx = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            ./profiles/homeManager/devops
-          ];
-          extraSpecialArgs = { inherit inputs; };
-        };
-      };
+      homeConfigurations = builtins.listToAttrs (builtins.map
+        (host:
+          {
+            name = host;
+            value = home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages.${system};
+              modules = [
+                ./hosts/homeManager/${host}
+              ];
+              extraSpecialArgs = { inherit inputs; };
+            };
+          }
+        ) homeManagerHosts);
       packages.x86_64-linux = {
         iso = nixos-generators.nixosGenerate {
           inherit system;
@@ -210,6 +210,8 @@
         };
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      checks.x86_64-linux = builtins.mapAttrs (host: homeConfiguration: homeConfiguration.activationPackage) outputs.homeConfigurations;
+      checks.x86_64-linux = builtins.mapAttrs (
+        host: homeConfiguration: homeConfiguration.activationPackage
+      ) outputs.homeConfigurations;
     };
 }
