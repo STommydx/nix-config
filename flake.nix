@@ -184,7 +184,7 @@
             nix-index-database.hmModules.nix-index
             nixvim.homeManagerModules.nixvim
           ];
-          specialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
         };
         devdx = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
@@ -193,7 +193,7 @@
             nix-index-database.hmModules.nix-index
             nixvim.homeManagerModules.nixvim
           ];
-          specialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
         };
       };
       packages.x86_64-linux = {
