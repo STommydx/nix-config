@@ -62,6 +62,7 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       homeManagerHosts = [
+        "CLEA-DELL-001" # company machine
         "devdx"
         "syoi"
       ];
@@ -180,19 +181,18 @@
           ];
         };
       };
-      homeConfigurations = builtins.listToAttrs (builtins.map
-        (host:
-          {
-            name = host;
-            value = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages.${system};
-              modules = [
-                ./hosts/homeManager/${host}
-              ];
-              extraSpecialArgs = { inherit inputs; };
-            };
-          }
-        ) homeManagerHosts);
+      homeConfigurations = builtins.listToAttrs (
+        builtins.map (host: {
+          name = host;
+          value = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages.${system};
+            modules = [
+              ./hosts/homeManager/${host}
+            ];
+            extraSpecialArgs = { inherit inputs; };
+          };
+        }) homeManagerHosts
+      );
       packages.x86_64-linux = {
         iso = nixos-generators.nixosGenerate {
           inherit system;

@@ -162,9 +162,9 @@ with lib.hm.gvariant;
     pbpaste = "wl-paste";
   };
 
-  # GNOME extensions installed in user environment
   home.packages =
     with pkgs;
+    # GNOME extensions installed in user environment
     (with gnomeExtensions; [
       appindicator
       arcmenu
@@ -172,7 +172,9 @@ with lib.hm.gvariant;
       dash-to-dock
       forge
       gsconnect
-    ]);
+    ]) ++ [
+      papirus-icon-theme # install icon theme as it might not be installed globally
+    ];
 
   # GNOME Terminal configuration
   # deprecated in favor of ghostty
