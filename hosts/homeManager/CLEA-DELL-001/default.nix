@@ -21,7 +21,7 @@
 
   # temporary local configuration as global config is not available
   stylix = {
-    image = config.lib.stylix.pixel "base02";
+    image = ./assets/clea-wallpaper-4k-dark.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
     polarity = "dark";
     cursor = {
