@@ -6,7 +6,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "stommydx"; # TODO: make it a module option
-  home.homeDirectory = if pkgs.stdenv.isLinux then /home/stommydx else /Users/stommydx;
+  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/stommydx" else /Users/stommydx;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
