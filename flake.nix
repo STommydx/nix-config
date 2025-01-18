@@ -149,15 +149,21 @@
 
       formatter = eachSystem (system: treefmtEval.${system}.config.build.wrapper);
 
-      # checks for darwin hosts
-      checks.aarch64-darwin = builtins.mapAttrs (
-        host: darwinConfiguration: darwinConfiguration.system
-      ) outputs.darwinConfigurations;
+      checks =
+        eachSystem (system: {
+          formatting = treefmtEval.${system}.config.build.check self;
+        })
+        // {
+          # checks for darwin hosts
+          aarch64-darwin = builtins.mapAttrs (
+            host: darwinConfiguration: darwinConfiguration.system
+          ) outputs.darwinConfigurations;
 
-      # checks for home-manager hosts
-      checks.x86_64-linux = builtins.mapAttrs (
-        host: homeConfiguration: homeConfiguration.activationPackage
-      ) outputs.homeConfigurations;
+          # checks for home-manager hosts
+          x86_64-linux = builtins.mapAttrs (
+            host: homeConfiguration: homeConfiguration.activationPackage
+          ) outputs.homeConfigurations;
+        };
 
     };
 }
