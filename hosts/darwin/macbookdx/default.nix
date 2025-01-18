@@ -13,8 +13,7 @@
   home-manager.useUserPackages = true;
   home-manager.users.stommydx = {
     imports = [
-      # ../../../profiles/homeManager/alltheway-desktop
-      ../../../config/mac/home.nix
+      ../../../profiles/homeManager/devops
     ];
   };
   home-manager.extraSpecialArgs = { inherit inputs; };
