@@ -43,6 +43,11 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -50,10 +55,8 @@
       self,
       darwin,
       home-manager,
-      nix-index-database,
-      nixos-generators,
       nixpkgs,
-      nixvim,
+      treefmt-nix,
       ...
     }@inputs:
     let
@@ -81,6 +84,9 @@
         "devdx"
         "syoi"
       ];
+      treefmtEval = eachSystem (
+        system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
     in
     {
 
@@ -141,7 +147,7 @@
         # };
       };
 
-      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = eachSystem (system: treefmtEval.${system}.config.build.wrapper);
 
       # checks for darwin hosts
       checks.aarch64-darwin = builtins.mapAttrs (

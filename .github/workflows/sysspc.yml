@@ -7,20 +7,20 @@ jobs:
     permissions:
       contents: write
     steps:
-    - name: Maximize build space
-      run: |
-        sudo rm -rf /usr/share/dotnet
-        sudo rm -rf /usr/local/lib/android
-        sudo rm -rf /opt/ghc
-        sudo rm -rf /opt/hostedtoolcache/CodeQL
-    - uses: actions/checkout@v3
-    - uses: DeterminateSystems/nix-installer-action@v12
-    - uses: DeterminateSystems/magic-nix-cache-action@v7
-    - name: Build Nix Configuration
-      run: nix build .#nixosConfigurations.sysspcdx.config.system.build.tarballBuilder
-    - name: Run Tarball Builder
-      run: sudo result/bin/nixos-wsl-tarball-builder
-    - uses: actions/upload-artifact@v4
-      with:
-        name: nixos-wsl
-        path: nixos-wsl.tar.gz
+      - name: Maximize build space
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+      - uses: actions/checkout@v3
+      - uses: DeterminateSystems/nix-installer-action@v12
+      - uses: DeterminateSystems/magic-nix-cache-action@v7
+      - name: Build Nix Configuration
+        run: nix build .#nixosConfigurations.sysspcdx.config.system.build.tarballBuilder
+      - name: Run Tarball Builder
+        run: sudo result/bin/nixos-wsl-tarball-builder
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nixos-wsl
+          path: nixos-wsl.tar.gz
