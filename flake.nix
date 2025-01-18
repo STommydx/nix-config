@@ -58,13 +58,23 @@
     }@inputs:
     let
       inherit (self) outputs;
-      system = "x86_64-linux";
+      inherit (nixpkgs) lib;
+      defaultSystems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
+      eachSystem = lib.genAttrs defaultSystems;
       nixosHosts = [
         "desktopdx"
         "workpcdx"
         "winpcdx"
         "sysspcdx"
         "bastiondx"
+      ];
+      darwinHosts = [
+        "macbookdx"
       ];
       homeManagerHosts = [
         "CLEA-DELL-001" # company machine
@@ -73,6 +83,7 @@
       ];
     in
     {
+
       nixosConfigurations = builtins.listToAttrs (
         builtins.map (host: {
           name = host;
@@ -83,37 +94,36 @@
           };
         }) nixosHosts
       );
-      darwinConfigurations = {
-        macbookdx = darwin.lib.darwinSystem {
-          modules = [
-            ./config/mac/hosts/macbookdx/configuration.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.stommydx = {
-                imports = [
-                  ./config/mac/home.nix
-                  nixvim.homeManagerModules.nixvim
-                ];
-              };
-            }
-            nix-index-database.darwinModules.nix-index
-          ];
-        };
-      };
-      homeConfigurations = builtins.listToAttrs (
+
+      darwinConfigurations = builtins.listToAttrs (
         builtins.map (host: {
           name = host;
-          value = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.${system};
+          value = darwin.lib.darwinSystem {
             modules = [
-              ./hosts/homeManager/${host}
+              ./hosts/darwin/${host}
             ];
-            extraSpecialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs; };
           };
-        }) homeManagerHosts
+        }) darwinHosts
       );
+
+      homeConfigurations =
+        let
+          system = "x86_64-linux";
+        in
+        builtins.listToAttrs (
+          builtins.map (host: {
+            name = host;
+            value = home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages.${system};
+              modules = [
+                ./hosts/homeManager/${host}
+              ];
+              extraSpecialArgs = { inherit inputs; };
+            };
+          }) homeManagerHosts
+        );
+
       packages.x86_64-linux = {
         # iso = nixos-generators.nixosGenerate {
         #   inherit system;
@@ -130,9 +140,18 @@
         #   format = "proxmox-lxc";
         # };
       };
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+
+      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      # checks for darwin hosts
+      checks.aarch64-darwin = builtins.mapAttrs (
+        host: darwinConfiguration: darwinConfiguration.system
+      ) outputs.darwinConfigurations;
+
+      # checks for home-manager hosts
       checks.x86_64-linux = builtins.mapAttrs (
         host: homeConfiguration: homeConfiguration.activationPackage
       ) outputs.homeConfigurations;
+
     };
 }
