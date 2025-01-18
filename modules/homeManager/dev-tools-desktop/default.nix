@@ -4,6 +4,7 @@
 
   imports = [
     ./vscode.nix
+    ./zed.nix
   ];
 
   # Set PATH for JetBrains tools

@@ -1,17 +1,10 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
 {
-
-  home.packages = with pkgs; [
-    nil # make nil available in zed editor
-    nixd # make nixd available in zed editor
-    nixfmt-rfc-style
-  ];
 
   # cat alternative, colorize code outputs
   programs.bat.enable = true;

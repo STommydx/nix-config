@@ -28,5 +28,6 @@
     targets.ghostty.enable = false;
     targets.vscode.enable = false;
     targets.nixvim.enable = false;
+    targets.zed.enable = false;
   };
 }
