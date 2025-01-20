@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -18,6 +17,26 @@
 
   # TODO: Move this to appropriate place
   nixpkgs.config.allowUnfree = true;
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "dev.clea.internal" = {
+        hostname = "10.11.3.22";
+        user = "system";
+      };
+    };
+  };
+
+  programs.zed-editor = {
+    userSettings = {
+      ssh_connections = [
+        {
+          host = "dev.clea.internal";
+        }
+      ];
+    };
+  };
 
   # temporary local configuration as global config is not available
   stylix = {
