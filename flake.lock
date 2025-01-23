@@ -1,5 +1,17 @@
 {
   "nodes": {
+    "authorized-keys": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-mXNP0d+1uCWPISTPi9TxQBVygzi1GZKVgIgKb7w2OSA=",
+        "type": "file",
+        "url": "https://github.com/STommydx.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/STommydx.keys"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -531,6 +543,59 @@
         "type": "github"
       }
     },
+    "nixos-images": {
+      "inputs": {
+        "nixos-stable": "nixos-stable",
+        "nixos-unstable": "nixos-unstable"
+      },
+      "locked": {
+        "lastModified": 1737595231,
+        "narHash": "sha256-gyeutYxhg5mv+RnCJkL28PIiqaxJQTlbZ5iXqJMYK6g=",
+        "owner": "nix-community",
+        "repo": "nixos-images",
+        "rev": "8e5f537e01aed6bce77dc53f4a2921f30a617faf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixos-images",
+        "type": "github"
+      }
+    },
+    "nixos-stable": {
+      "locked": {
+        "lastModified": 1737404927,
+        "narHash": "sha256-e1WgPJpIYbOuokjgylcsuoEUCB4Jl2rQXa2LUD6XAG8=",
+        "ref": "nixos-24.11",
+        "rev": "ae584d90cbd0396a422289ee3efb1f1c9d141dc3",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      },
+      "original": {
+        "ref": "nixos-24.11",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      }
+    },
+    "nixos-unstable": {
+      "locked": {
+        "lastModified": 1737525964,
+        "narHash": "sha256-3wFonKmNRWKq1himW9N3TllbeGIHFACI5vmLpk6moF8=",
+        "ref": "nixpkgs-unstable",
+        "rev": "5757bbb8bd7c0630a0cc4bb19c47e588db30b97c",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      },
+      "original": {
+        "ref": "nixpkgs-unstable",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -622,10 +687,12 @@
     },
     "root": {
       "inputs": {
+        "authorized-keys": "authorized-keys",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixos-generators": "nixos-generators",
+        "nixos-images": "nixos-images",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

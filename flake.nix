@@ -29,6 +29,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # for QoL improvements in installer ISO
+    nixos-images.url = "github:nix-community/nixos-images";
+
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +51,11 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    authorized-keys = {
+      url = "https://github.com/STommydx.keys";
+      flake = false;
+    };
   };
 
   outputs =
@@ -56,6 +64,7 @@
       darwin,
       home-manager,
       nixpkgs,
+      nixos-generators,
       treefmt-nix,
       ...
     }@inputs:
@@ -131,13 +140,14 @@
         );
 
       packages.x86_64-linux = {
-        # iso = nixos-generators.nixosGenerate {
-        #   inherit system;
-        #   modules = [
-        #     ./config/linux/configuration.minimal.nix
-        #   ];
-        #   format = "install-iso";
-        # };
+        installer-iso = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/nixos/installer-iso
+          ];
+          specialArgs = { inherit inputs; };
+          format = "install-iso";
+        };
         # bastiondx = nixos-generators.nixosGenerate {
         #   inherit system;
         #   modules = [
