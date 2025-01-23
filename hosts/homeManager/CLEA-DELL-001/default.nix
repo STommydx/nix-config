@@ -15,6 +15,10 @@
   home.username = lib.mkForce "thomasli";
   home.homeDirectory = lib.mkForce "/home/thomasli";
 
+  home.packages = with pkgs; [
+    blender
+  ];
+
   # TODO: Move this to appropriate place
   nixpkgs.config.allowUnfree = true;
 
