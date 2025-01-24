@@ -17,6 +17,7 @@
       "html"
       "log"
       "nix"
+      "proto"
       "sql"
       "templ"
       "terraform"
