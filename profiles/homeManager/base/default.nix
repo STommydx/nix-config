@@ -1,0 +1,9 @@
+{ ... }:
+
+{
+
+  imports = [
+    ../../../modules/homeManager/base
+  ];
+
+}
