@@ -34,8 +34,12 @@
       laai = "pull";
     };
     ignores = [
+      # ignore (usually) sensitive env files
       ".env"
       ".env.*"
+      # editor settings should not be committed unless explicitly stated
+      ".vscode/"
+      ".zed/"
     ];
     userName = "Tommy Li";
     userEmail = "dev@stdx.space";
