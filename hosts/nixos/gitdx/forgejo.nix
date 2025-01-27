@@ -45,6 +45,7 @@
       enable = true;
       user = "git";
       group = "git";
+      port = 6379;
     };
   };
   sops.secrets = {

@@ -19,6 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    deploy-rs.url = "github:serokell/deploy-rs";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -69,6 +71,7 @@
       darwin,
       home-manager,
       nixpkgs,
+      deploy-rs,
       nixos-generators,
       treefmt-nix,
       ...
@@ -161,6 +164,18 @@
         #   ];
         #   format = "proxmox-lxc";
         # };
+      };
+
+      deploy.nodes = {
+        gitdx = {
+          hostname = "10.100.59.123";
+          profiles.system = {
+            sshUser = "stommydx";
+            user = "root";
+            interactiveSudo = true;
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.gitdx;
+          };
+        };
       };
 
       formatter = eachSystem (system: treefmtEval.${system}.config.build.wrapper);
