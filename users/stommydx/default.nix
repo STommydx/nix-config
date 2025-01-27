@@ -1,4 +1,4 @@
-{ config, ... }:
+{ inputs, config, ... }:
 
 {
 
@@ -18,6 +18,7 @@
       "networkmanager"
     ];
     hashedPasswordFile = config.sops.secrets.password.path;
+    openssh.authorizedKeys.keyFiles = [ inputs.authorized-keys ];
   };
 
 }

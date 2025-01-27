@@ -2,3 +2,5 @@ creation_rules:
   - key_groups:
       - pgp:
           - C9230708DD20DB6A887C9B80577E858EDCFECA83
+        age:
+          - age1tjsxxzmn55zm7kv90a6nnmfelsxa69p0p6jz8amd7t3cueq6qgzq0xu6vv

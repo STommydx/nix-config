@@ -16,11 +16,11 @@
     settings = {
       cache = {
         TYPE = "redis";
-        CONN_STR = "redis://${config.services.redis.servers.forgejo.unixSocket}/0";
+        CONN_STR = "redis://localhost:${toString config.services.redis.servers.forgejo.port}/0";
       };
       queue = {
         TYPE = "redis";
-        CONN_STR = "redis://${config.services.redis.servers.forgejo.unixSocket}/0";
+        CONN_STR = "redis://localhost:${toString config.services.redis.servers.forgejo.port}/0";
       };
       server = {
         DOMAIN = "git.stommydx.net";
@@ -45,13 +45,11 @@
       enable = true;
       user = "git";
       group = "git";
-      port = 0; # disable TCP, use UNIX socket instead
     };
   };
   sops.secrets = {
     r2-access-key = {
       sopsFile = ./secrets/r2.json;
-      key = "access_key";
       format = "json";
       owner = "git";
       group = "git";
@@ -59,7 +57,6 @@
     };
     r2-secret-key = {
       sopsFile = ./secrets/r2.json;
-      key = "secret_key";
       format = "json";
       owner = "git";
       group = "git";
@@ -67,7 +64,6 @@
     };
     r2-endpoint = {
       sopsFile = ./secrets/r2.json;
-      key = "endpoint";
       format = "json";
       owner = "git";
       group = "git";

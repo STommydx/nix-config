@@ -21,6 +21,9 @@
     plugins = lib.mkOverride 99 [ ];
   };
 
+  # disable avahi in favor of systemd-resolved mDNS
+  services.avahi.enable = false;
+
   # use resolved for managing DNS
   services.resolved = {
     enable = true;
