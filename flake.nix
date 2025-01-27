@@ -182,6 +182,7 @@
 
       checks =
         eachSystem (system: {
+          deploy = deploy-rs.lib.${system}.deployChecks self.deploy;
           formatting = treefmtEval.${system}.config.build.check self;
         })
         // {
