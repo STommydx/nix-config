@@ -36,6 +36,13 @@
           "ctrl-x" = "editor::Cut";
         };
       }
+      {
+        # dismiss completion without exiting to normal mode
+        context = "Editor && mode == full && inline_completion";
+        bindings = {
+          "ctrl-escape" = "editor::Cancel"; # alt-escape collides with DE keybinding
+        };
+      }
     ];
     userSettings = {
       buffer_font_size = 14;
