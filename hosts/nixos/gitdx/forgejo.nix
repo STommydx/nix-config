@@ -7,6 +7,11 @@
       type = "sqlite3";
     };
     secrets = {
+      mailer = {
+        SMTP_ADDR = config.sops.secrets.smtp-host.path;
+        USER = config.sops.secrets.smtp-username.path;
+        PASSWD = config.sops.secrets.smtp-password.path;
+      };
       storage = {
         MINIO_ENDPOINT = config.sops.secrets.r2-endpoint.path;
         MINIO_ACCESS_KEY_ID = config.sops.secrets.r2-access-key.path;
@@ -17,6 +22,12 @@
       cache = {
         TYPE = "redis";
         CONN_STR = "redis://localhost:${toString config.services.redis.servers.forgejo.port}/0";
+      };
+      mailer = {
+        ENABLED = true;
+        PROTOCOL = "smtps";
+        SMTP_PORT = 465;
+        FROM = "noreply+forgejo@notifications.stdx.space";
       };
       queue = {
         TYPE = "redis";
@@ -65,6 +76,27 @@
     };
     r2-endpoint = {
       sopsFile = ./secrets/r2.json;
+      format = "json";
+      owner = "git";
+      group = "git";
+      restartUnits = [ "forgejo.service" ];
+    };
+    smtp-host = {
+      sopsFile = ./secrets/smtp.json;
+      format = "json";
+      owner = "git";
+      group = "git";
+      restartUnits = [ "forgejo.service" ];
+    };
+    smtp-username = {
+      sopsFile = ./secrets/smtp.json;
+      format = "json";
+      owner = "git";
+      group = "git";
+      restartUnits = [ "forgejo.service" ];
+    };
+    smtp-password = {
+      sopsFile = ./secrets/smtp.json;
       format = "json";
       owner = "git";
       group = "git";
