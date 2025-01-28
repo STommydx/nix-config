@@ -48,6 +48,9 @@
       "git.syoi.org" = {
         proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname ssh.syoi.org";
       };
+      "git.stommydx.net" = {
+        proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname git-ssh.stommydx.net";
+      };
     };
   };
 
