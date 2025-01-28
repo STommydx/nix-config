@@ -60,7 +60,19 @@
         };
       };
       lsp = {
-        nixd.initialization_options.formatting.command = [ "nixfmt" ];
+        nil.initialization_options = {
+          formatting.command = [ "nixfmt" ];
+        };
+        nixd.initialization_options = {
+          formatting.command = [ "nixfmt" ];
+          # setting up expressions for completion
+          # this is not working unfortunately
+          nixpkgs.expr = "import (builtins.getFlake \"${../../..}\").inputs.nixpkgs { }";
+          options = {
+            nixos.expr = "(builtins.getFlake \"${../../..}\").nixosConfigurations.desktopdx.options";
+            home-manager.expr = "(builtins.getFlake \"${../../..}\").nixosConfigurations.desktopdx.options.home-manager.users.type.getSubOptions [ ]";
+          };
+        };
       };
       theme = {
         mode = "dark";
