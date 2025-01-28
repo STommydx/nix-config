@@ -3,7 +3,6 @@
 {
 
   home.packages = with pkgs; [
-    nil # make nil available in zed editor
     nixd # make nixd available in zed editor
     nixfmt-rfc-style
   ];
@@ -53,10 +52,15 @@
         "C++" = {
           hard_tabs = true;
         };
+        "Nix" = {
+          language_servers = [
+            "nixd"
+            "!nil"
+          ]; # use nixd only
+        };
       };
       lsp = {
         nixd.initialization_options.formatting.command = [ "nixfmt" ];
-        nil.initialization_options.formatting.command = [ "nixfmt" ];
       };
       theme = {
         mode = "dark";
