@@ -8,6 +8,7 @@
     ../../../users/stommydx
     ./disk-config.nix
     ./hardware-configuration.nix
+    ./backup.nix
     ./forgejo.nix
     ./ingress.nix
     ./litestream.nix
