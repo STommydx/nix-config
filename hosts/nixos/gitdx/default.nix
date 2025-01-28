@@ -9,6 +9,7 @@
     ./disk-config.nix
     ./hardware-configuration.nix
     ./forgejo.nix
+    ./litestream.nix
   ];
 
   networking.hostName = "gitdx";

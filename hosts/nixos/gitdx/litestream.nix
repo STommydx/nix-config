@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   services.litestream = {
@@ -39,7 +39,11 @@
   };
 
   systemd.services.litestream.serviceConfig = {
-    User = "git";
-    Group = "git";
+    User = lib.mkForce "git";
+    Group = lib.mkForce "git";
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "litestream-0.3.13"
+  ];
 }
