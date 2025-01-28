@@ -114,7 +114,7 @@
           value = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [ ./hosts/nixos/${host} ];
-            specialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs outputs; };
           };
         }) nixosHosts
       );
@@ -126,7 +126,7 @@
             modules = [
               ./hosts/darwin/${host}
             ];
-            specialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs outputs; };
           };
         }) darwinHosts
       );
@@ -143,7 +143,7 @@
               modules = [
                 ./hosts/homeManager/${host}
               ];
-              extraSpecialArgs = { inherit inputs; };
+              extraSpecialArgs = { inherit inputs outputs; };
             };
           }) homeManagerHosts
         );
@@ -154,7 +154,7 @@
           modules = [
             ./hosts/nixos/installer-iso
           ];
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs outputs; };
           format = "install-iso";
         };
         # bastiondx = nixos-generators.nixosGenerate {

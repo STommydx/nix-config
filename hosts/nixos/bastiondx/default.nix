@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   lib,
   pkgs,
   ...
@@ -22,7 +23,7 @@
       ../../../profiles/homeManager/ops
     ];
   };
-  home-manager.extraSpecialArgs = { inherit inputs; };
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   networking.hostName = "winpcdx";
 

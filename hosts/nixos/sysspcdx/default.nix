@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, outputs, ... }:
 
 {
 
@@ -17,7 +17,7 @@
       ../../../profiles/homeManager/devops
     ];
   };
-  home-manager.extraSpecialArgs = { inherit inputs; };
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   networking.hostName = "sysspcdx";
 }

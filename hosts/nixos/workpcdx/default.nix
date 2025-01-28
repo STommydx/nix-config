@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -17,7 +22,7 @@
       ../../../profiles/homeManager/devops-desktop
     ];
   };
-  home-manager.extraSpecialArgs = { inherit inputs; };
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   environment.systemPackages = with pkgs; [
     cfssl # for signing certificates on CLI
