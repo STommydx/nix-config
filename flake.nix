@@ -178,6 +178,8 @@
         };
       };
 
+      nixosModules.opengist = import ./modules/nixos/opengist;
+
       formatter = eachSystem (system: treefmtEval.${system}.config.build.wrapper);
 
       checks =
