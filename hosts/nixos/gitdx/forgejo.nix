@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   services.forgejo = {
@@ -12,10 +17,19 @@
         USER = config.sops.secrets.smtp-username.path;
         PASSWD = config.sops.secrets.smtp-password.path;
       };
+      security = {
+        # override with pre-generated secret to make it stateless
+        SECRET_KEY = lib.mkForce config.sops.secrets.forgejo-secret-key.path;
+        INTERNAL_TOKEN = lib.mkForce config.sops.secrets.forgejo-internal-token.path;
+      };
       storage = {
         MINIO_ENDPOINT = config.sops.secrets.r2-endpoint.path;
         MINIO_ACCESS_KEY_ID = config.sops.secrets.r2-access-key.path;
         MINIO_SECRET_ACCESS_KEY = config.sops.secrets.r2-secret-key.path;
+      };
+      oauth2 = {
+        # override with pre-generated secret to make it stateless
+        JWT_SECRET = lib.mkForce config.sops.secrets.forgejo-oauth2-jwt-secret.path;
       };
     };
     settings = {
@@ -60,6 +74,27 @@
     };
   };
   sops.secrets = {
+    forgejo-secret-key = {
+      sopsFile = ./secrets/forgejo.json;
+      format = "json";
+      owner = "git";
+      group = "git";
+      restartUnits = [ "forgejo.service" ];
+    };
+    forgejo-internal-token = {
+      sopsFile = ./secrets/forgejo.json;
+      format = "json";
+      owner = "git";
+      group = "git";
+      restartUnits = [ "forgejo.service" ];
+    };
+    forgejo-oauth2-jwt-secret = {
+      sopsFile = ./secrets/forgejo.json;
+      format = "json";
+      owner = "git";
+      group = "git";
+      restartUnits = [ "forgejo.service" ];
+    };
     r2-access-key = {
       sopsFile = ./secrets/r2.json;
       format = "json";
