@@ -12,6 +12,7 @@
     ./forgejo.nix
     ./ingress.nix
     ./litestream.nix
+    ./opengist.nix
   ];
 
   networking.hostName = "gitdx";

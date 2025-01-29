@@ -54,6 +54,53 @@ in
         description = "The port on which the HTTP server should listen.";
       };
 
+      database = mkOption {
+        type = types.submodule {
+          options = {
+            type = mkOption {
+              type = types.enum [
+                "sqlite"
+                "mysql"
+                "postgres"
+              ];
+              example = "mysql";
+              default = "sqlite";
+              description = "Database engine to use.";
+            };
+            path = mkOption {
+              type = types.str;
+              default = "${cfg.stateDir}/opengist.db";
+              defaultText = literalExpression ''"${cfg.stateDir}/opengist.db"'';
+              description = "Path to the SQLite database file.";
+            };
+          };
+        };
+        default = { };
+        description = "Database configuration.";
+      };
+
+      ssh = mkOption {
+        type = types.submodule {
+          options = {
+            enable = mkEnableOption "builtin SSH";
+            host = mkOption {
+              type = types.str;
+              default = "0.0.0.0";
+              description = "The host on which the SSH server should bind.";
+            };
+            port = mkOption {
+              type = types.port;
+              default = 2222;
+              description = "The port on which the SSH server should listen.";
+            };
+          };
+        };
+        default = { };
+        description = ''
+          SSH server settings.
+        '';
+      };
+
       environmentFile = mkOption {
         type = lib.types.nullOr lib.types.path;
         default = null;
@@ -82,14 +129,19 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    services.opengist.settings = {
-      opengist-home = cfg.stateDir;
-      http = {
-        host = cfg.host;
-        port = cfg.port;
-      };
-      ssh.keygen-executable = lib.getExe' cfg.sshPackage "ssh-keygen";
-    };
+    services.opengist.settings =
+      {
+        db-uri = mkIf (cfg.database.type == "sqlite") "file:${cfg.database.path}";
+        opengist-home = cfg.stateDir;
+        "http.host" = cfg.host;
+        "http.port" = cfg.port;
+      }
+      // (lib.optionalAttrs cfg.ssh.enable {
+        "ssh.git-enabled" = true;
+        "ssh.host" = cfg.ssh.host;
+        "ssh.port" = cfg.ssh.port;
+        "ssh.keygen-executable" = lib.getExe' cfg.sshPackage "ssh-keygen";
+      });
 
     systemd.tmpfiles.rules = [
       "d '${cfg.stateDir}' 0750 ${cfg.user} ${cfg.group} - -"

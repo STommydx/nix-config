@@ -3,6 +3,7 @@
 {
   services.restic.backups = {
     forgejo-repo = {
+      initialize = true;
       environmentFile = config.sops.templates.restic-env.path;
       passwordFile = config.sops.secrets.restic-password.path;
       paths = [
@@ -11,7 +12,22 @@
       pruneOpts = [
         "--keep-within 30d"
       ];
-      repositoryFile = config.sops.templates.restic-repository.path;
+      repositoryFile = config.sops.templates.restic-repository-forgejo.path;
+      timerConfig = {
+        OnCalendar = "*-*-* *:0/5:00";
+      };
+    };
+    opengist-repo = {
+      initialize = true;
+      environmentFile = config.sops.templates.restic-env.path;
+      passwordFile = config.sops.secrets.restic-password.path;
+      paths = [
+        "${config.services.opengist.stateDir}/repos"
+      ];
+      pruneOpts = [
+        "--keep-within 30d"
+      ];
+      repositoryFile = config.sops.templates.restic-repository-opengist.path;
       timerConfig = {
         OnCalendar = "*-*-* *:0/5:00";
       };
@@ -26,8 +42,11 @@
       };
     };
     templates = {
-      restic-repository = {
+      restic-repository-forgejo = {
         content = "s3:https://${config.sops.placeholder.r2-endpoint}/forgejo-repo";
+      };
+      restic-repository-opengist = {
+        content = "s3:https://${config.sops.placeholder.r2-endpoint}/opengist-repo";
       };
       restic-env = {
         content = ''

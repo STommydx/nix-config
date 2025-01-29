@@ -19,6 +19,17 @@
             }
           ];
         }
+        {
+          path = config.services.opengist.database.path;
+          replicas = [
+            {
+              type = "s3";
+              endpoint = "$LITESTREAM_S3_ENDPOINT";
+              bucket = "opengist-litestream";
+              force-path-style = true;
+            }
+          ];
+        }
       ];
     };
   };

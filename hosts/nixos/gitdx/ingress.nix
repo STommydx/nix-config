@@ -6,8 +6,11 @@
     tunnels = {
       gitdx-tunnel = {
         ingress = {
-          "git.stommydx.net" = "http://localhost:3000";
+          "git.stommydx.net" =
+            "http://localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}";
+          "gist.stommydx.net" = "http://localhost:${toString config.services.opengist.port}";
           "git-ssh.stommydx.net" = "ssh://localhost:22";
+          "gist-ssh.stommydx.net" = "ssh://localhost:${toString config.services.opengist.ssh.port}";
         };
         default = "http_status:404";
         credentialsFile = config.sops.secrets.tunnel-credentials.path;
