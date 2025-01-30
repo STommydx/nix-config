@@ -51,6 +51,9 @@
       "git.stommydx.net" = {
         proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname git-ssh.stommydx.net";
       };
+      "gist.stommydx.net" = {
+        proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname gist-ssh.stommydx.net";
+      };
     };
   };
 

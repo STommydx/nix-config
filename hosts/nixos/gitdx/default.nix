@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 
 {
   imports = [
@@ -21,6 +21,7 @@
     description = "System user for managing git related services";
     group = "git";
     isSystemUser = true;
+    home = config.services.forgejo.stateDir;
   };
   users.groups.git = { };
 
