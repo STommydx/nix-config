@@ -84,6 +84,7 @@
         env = {
           TERM = "xterm-256color";
         };
+        font_family = "MesloLGM Nerd Font";
       };
       ui_font_size = 16;
       vim_mode = true;

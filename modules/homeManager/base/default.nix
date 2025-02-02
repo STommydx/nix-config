@@ -60,34 +60,45 @@
   # Terminal Prompt
   programs.starship = {
     enable = true;
-    settings = {
-      format = "$os$all";
-      right_format = "$status$cmd_duration$time";
-      directory = {
-        before_repo_root_style = "dimmed cyan";
-        repo_root_style = "bold cyan";
-        fish_style_pwd_dir_length = 2;
-      };
-      line_break = {
-        disabled = true;
-      };
-      status = {
-        disabled = false;
-      };
-      time = {
-        disabled = false;
-      };
-      os = {
-        disabled = false;
-        symbols = {
-          Android = "[](fg:#48B157)  ";
-          Fedora = "[](fg:#3C6EB4)  ";
-          Macos = "[](fg:#A2AAAD)  ";
-          NixOS = "[](fg:#5277C3)  ";
-          Ubuntu = "[](fg:#E95420)  ";
+    settings =
+      lib.attrsets.recursiveUpdate
+        (lib.importTOML (
+          pkgs.fetchurl {
+            # preset from https://starship.rs/presets/nerd-font
+            url = "https://starship.rs/presets/toml/nerd-font-symbols.toml";
+            hash = "sha256-TxRSP/2bLkRB6AQCHf3JxbGWL2nRe/IfePdyZ8laYq4=";
+          }
+        ))
+        {
+          format = "$os$all";
+          right_format = "$status$cmd_duration$time";
+          directory = {
+            before_repo_root_style = "dimmed cyan";
+            repo_root_style = "bold cyan";
+            fish_style_pwd_dir_length = 2;
+          };
+          line_break = {
+            disabled = true;
+          };
+          status = {
+            disabled = false;
+          };
+          time = {
+            disabled = false;
+          };
+          os = {
+            disabled = false;
+            format = "[$symbol]($style) ";
+            # use colored version for common OSes
+            symbols = {
+              Android = "[](fg:#48B157) ";
+              Fedora = "[](fg:#3C6EB4) ";
+              Macos = "[](fg:#A2AAAD) ";
+              NixOS = "[](fg:#5277C3) ";
+              Ubuntu = "[](fg:#E95420) ";
+            };
+          };
         };
-      };
-    };
   };
 
   programs.thefuck.enable = true;
