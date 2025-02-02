@@ -6,6 +6,10 @@
 
 {
 
+  home.sessionPath = [
+    "${config.xdg.dataHome}/go/bin" # Go binaries
+  ];
+
   # cat alternative, colorize code outputs
   programs.bat.enable = true;
 
