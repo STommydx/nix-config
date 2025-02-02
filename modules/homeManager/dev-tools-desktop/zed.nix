@@ -49,18 +49,18 @@
         # enable transparency for zed, color based on tokyo night
         # https://github.com/zed-industries/zed/issues/5040
         "background.appearance" = "transparent";
-        "background" = "#1a1b2600";
+        "background" = "#1a1b26d0";
         "border.variant" = "#101014a0";
         "editor.active_line.background" = "#1e202ea0";
-        "editor.background" = "#1a1b26d0";
-        "editor.gutter.background" = "#1a1b26d0";
+        "editor.background" = "#1a1b2680";
+        "editor.gutter.background" = "#1a1b2680";
         "ghost_element.background" = "#00000000";
-        "panel.background" = "#16161ea0";
+        "panel.background" = "#16161e00";
         "status_bar.background" = "#16161ee0";
-        "tab.active_background" = "#414868a0";
-        "tab.inactive_background" = "#16161ea0";
-        "tab_bar.background" = "#16161ed0";
-        "terminal.background" = "#16161ea0";
+        "tab.active_background" = "#41486880";
+        "tab.inactive_background" = "#16161e80";
+        "tab_bar.background" = "#16161e80";
+        "terminal.background" = "#16161e80";
         "title_bar.background" = "#16161ee0";
         "title_bar.inactive_background" = "#16161ee0";
         "toolbar.background" = "#16161ed0";
