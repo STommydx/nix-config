@@ -50,17 +50,19 @@
         # https://github.com/zed-industries/zed/issues/5040
         "background.appearance" = "transparent";
         "background" = "#1a1b2600";
-        "editor.active_line.background" = "#1e202ed0";
+        "border.variant" = "#101014a0";
+        "editor.active_line.background" = "#1e202ea0";
         "editor.background" = "#1a1b26d0";
         "editor.gutter.background" = "#1a1b26d0";
+        "ghost_element.background" = "#00000000";
         "panel.background" = "#16161ea0";
-        "status_bar.background" = "#16161ed0";
-        "tab.active_background" = "#414868d0";
-        "tab.inactive_background" = "#16161ed0";
+        "status_bar.background" = "#16161ee0";
+        "tab.active_background" = "#414868a0";
+        "tab.inactive_background" = "#16161ea0";
         "tab_bar.background" = "#16161ed0";
         "terminal.background" = "#16161ea0";
-        "title_bar.background" = "#16161ed0";
-        "title_bar.inactive_background" = "#16161ed0";
+        "title_bar.background" = "#16161ee0";
+        "title_bar.inactive_background" = "#16161ee0";
         "toolbar.background" = "#16161ed0";
       };
       features = {
