@@ -109,7 +109,12 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
       blur = true;
       enable-all = false;
-      whitelist = [ "com.mitchellh.ghostty" ];
+      # windows found using Alt-F2, then `lg`
+      # https://github.com/aunetx/blur-my-shell/issues/424
+      whitelist = [
+        "com.mitchellh.ghostty"
+        "dev.zed.Zed"
+      ];
     };
     "org/gnome/shell/extensions/forge" = {
       focus-border-toggle = false;
