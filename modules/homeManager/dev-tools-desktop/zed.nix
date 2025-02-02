@@ -29,7 +29,7 @@
         bindings."ctrl-v" = "editor::Paste";
       }
       {
-        context = "vim_mode == visual";
+        context = "vim_mode == insert || vim_mode == visual";
         bindings = {
           "ctrl-c" = "editor::Copy";
           "ctrl-x" = "editor::Cut";
