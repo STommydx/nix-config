@@ -48,6 +48,7 @@
       features = {
         inline_completion_provider = "supermaven";
       };
+      format_on_save = "on"; # explicitly enable formatting on save
       languages = {
         "C++" = {
           hard_tabs = true;
