@@ -13,6 +13,7 @@
     ../../../users/stommydx
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
+    ./disk-config.nix
     ./backup.nix
   ];
 
@@ -38,18 +39,6 @@
     usbutils
     ventoy
   ];
-
-  # nixos-generate-config doesn't detect mount options automatically
-  # TODO: replace this with disko configuration
-  fileSystems = {
-    "/".options = [ "compress=zstd:1" ];
-    "/home".options = [ "compress=zstd:1" ];
-    "/nix".options = [
-      "compress=zstd:1"
-      "noatime"
-    ];
-    "/data".options = [ "compress=zstd:1" ];
-  };
 
   networking.hostName = "desktopdx";
 
