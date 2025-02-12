@@ -28,6 +28,7 @@
     targets.ghostty.enable = false;
     targets.vscode.enable = false;
     targets.nixvim.enable = false;
+    targets.qt.enable = false; # stylix does not support adwaita yet
     targets.zed.enable = false;
   };
 }

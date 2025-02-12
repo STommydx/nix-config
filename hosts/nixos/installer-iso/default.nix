@@ -44,4 +44,10 @@
     inputs.authorized-keys
   ];
 
+  # nixos-images uses `config.system.nixos.version` for state version which
+  # will include commit hash in latest version (e.g. 25.05.20250210.64e75cd)
+  # as stateVersion only accept format "YY.MM", this is used to override the
+  # setting before it is fixed upstream
+  system.stateVersion = lib.mkForce "25.05";
+
 }
