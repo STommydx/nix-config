@@ -38,6 +38,9 @@
         {
           host = "dev.clea.internal";
         }
+        {
+          host = "makcpu1.cse.ust.hk";
+        }
       ];
     };
   };
