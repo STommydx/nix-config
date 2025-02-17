@@ -66,7 +66,7 @@
         "toolbar.background" = "#16161ed0";
       };
       features = {
-        inline_completion_provider = "supermaven";
+        edit_prediction_provider = "zed";
       };
       format_on_save = "on"; # explicitly enable formatting on save
       languages = {
