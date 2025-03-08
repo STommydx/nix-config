@@ -14,7 +14,7 @@
       ];
       repositoryFile = config.sops.templates.restic-repository-forgejo.path;
       timerConfig = {
-        OnCalendar = "*-*-* *:0/5:00";
+        OnCalendar = "*-*-* *:0/30:00";
       };
     };
     opengist-repo = {
@@ -29,7 +29,7 @@
       ];
       repositoryFile = config.sops.templates.restic-repository-opengist.path;
       timerConfig = {
-        OnCalendar = "*-*-* *:0/5:00";
+        OnCalendar = "*-*-* *:0/30:00";
       };
     };
   };
