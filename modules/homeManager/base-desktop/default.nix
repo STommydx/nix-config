@@ -23,6 +23,7 @@
     settings = {
       background-opacity = 0.8;
       background-blur-radius = 20; # as recommended by author
+      font-family = "MesloLGM Nerd Font";
       theme = "tokyonight";
     };
   };
