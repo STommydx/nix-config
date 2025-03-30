@@ -21,7 +21,5 @@
     sopsFile = ./secrets/cloudflare-tunnel.json;
     format = "json";
     key = ""; # https://github.com/Mic92/sops-nix?tab=readme-ov-file#emit-plain-file-for-yaml-and-json-formats
-    owner = config.services.cloudflared.user;
-    group = config.services.cloudflared.group;
   };
 }
