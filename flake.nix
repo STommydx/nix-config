@@ -89,6 +89,7 @@
       nixosHosts = [
         "desktopdx"
         "gitdx"
+        "guardiandx"
         "workpcdx"
         "winpcdx"
         "sysspcdx"
@@ -169,12 +170,21 @@
 
       deploy.nodes = {
         gitdx = {
-          hostname = "10.100.59.123";
+          hostname = "10.101.151.229";
           profiles.system = {
             sshUser = "stommydx";
             user = "root";
             interactiveSudo = true;
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.gitdx;
+          };
+        };
+        guardiandx = {
+          hostname = "10.101.255.22";
+          profiles.system = {
+            sshUser = "stommydx";
+            user = "root";
+            interactiveSudo = true;
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.guardiandx;
           };
         };
       };
