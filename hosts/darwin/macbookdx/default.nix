@@ -38,6 +38,9 @@
       "ory/tap/hydra"
       "ory/tap/kratos"
     ];
+    casks = [
+      "google-chrome"
+    ];
     masApps = {
       "Windows App" = 1295203466;
     };
