@@ -6,7 +6,6 @@
     bat # cat alternative, colorize code outputs
     black # Python code formatter
     cargo
-    clang-tools
     cmake
     ctop
     docker-client
