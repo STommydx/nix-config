@@ -2,6 +2,10 @@
 
 {
 
+  environment.extraInit = ''
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  '';
+
   environment.systemPackages = with pkgs; [
     _1password-cli # password manager
     btop # process monitor
