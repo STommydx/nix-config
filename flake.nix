@@ -100,10 +100,12 @@
       ];
       homeManagerHosts = [
         "CLEA-DELL-001" # company machine
-        "CLEA-MAC-001" # company machine
         "devdx"
         "makcpu1" # GPU dev machine @ HKUST
         "syoi"
+      ];
+      homeManagerDarwinHosts = [
+        "CLEA-MAC-001" # company machine
       ];
       treefmtEval = eachSystem (
         system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
@@ -135,20 +137,39 @@
       );
 
       homeConfigurations =
-        let
-          system = "x86_64-linux";
-        in
-        builtins.listToAttrs (
-          builtins.map (host: {
-            name = host;
-            value = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages.${system};
-              modules = [
-                ./hosts/homeManager/${host}
-              ];
-              extraSpecialArgs = { inherit inputs outputs; };
-            };
-          }) homeManagerHosts
+        (
+          let
+            system = "x86_64-linux";
+          in
+          builtins.listToAttrs (
+            builtins.map (host: {
+              name = host;
+              value = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.${system};
+                modules = [
+                  ./hosts/homeManager/${host}
+                ];
+                extraSpecialArgs = { inherit inputs outputs; };
+              };
+            }) homeManagerHosts
+          )
+        )
+        // (
+          let
+            system = "aarch64-darwin";
+          in
+          builtins.listToAttrs (
+            builtins.map (host: {
+              name = host;
+              value = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.${system};
+                modules = [
+                  ./hosts/homeManager/${host}
+                ];
+                extraSpecialArgs = { inherit inputs outputs; };
+              };
+            }) homeManagerDarwinHosts
+          )
         );
 
       packages.x86_64-linux = {
@@ -206,9 +227,12 @@
           ) outputs.darwinConfigurations;
 
           # checks for home-manager hosts
-          x86_64-linux = builtins.mapAttrs (
-            host: homeConfiguration: homeConfiguration.activationPackage
-          ) outputs.homeConfigurations;
+          x86_64-linux = builtins.listToAttrs (
+            builtins.map (host: {
+              name = host;
+              value = outputs.homeConfigurations.${host}.activationPackage;
+            }) homeManagerHosts
+          );
         };
 
     };

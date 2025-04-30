@@ -66,7 +66,7 @@
           pkgs.fetchurl {
             # preset from https://starship.rs/presets/nerd-font
             url = "https://starship.rs/presets/toml/nerd-font-symbols.toml";
-            hash = "sha256-TxRSP/2bLkRB6AQCHf3JxbGWL2nRe/IfePdyZ8laYq4=";
+            hash = "sha256-eVWWFuMC6fGTQAtLSVg++G7Gw9wU4VO9rQCVxXzE2xc=";
           }
         ))
         {
