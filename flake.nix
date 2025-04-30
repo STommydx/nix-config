@@ -100,6 +100,7 @@
       ];
       homeManagerHosts = [
         "CLEA-DELL-001" # company machine
+        "CLEA-MAC-001" # company machine
         "devdx"
         "makcpu1" # GPU dev machine @ HKUST
         "syoi"
