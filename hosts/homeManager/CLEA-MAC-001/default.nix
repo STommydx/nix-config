@@ -1,7 +1,5 @@
 {
-  inputs,
   lib,
-  pkgs,
   ...
 }:
 
@@ -9,12 +7,11 @@
 
   imports = [
     ../../../profiles/homeManager/devops
+    ../../../modules/homeManager/dev-tools-desktop/zed.nix
   ];
 
   home.username = lib.mkForce "thomasli";
   home.homeDirectory = lib.mkForce "/Users/thomasli";
-
-  home.packages = with pkgs; [ ];
 
   # TODO: Move this to appropriate place
   nixpkgs.config.allowUnfree = true;
