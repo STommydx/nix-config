@@ -36,6 +36,7 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
   system.defaults = {
+    NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
     NSGlobalDomain.InitialKeyRepeat = 25;
     NSGlobalDomain.KeyRepeat = 2;
     dock.autohide = true;
