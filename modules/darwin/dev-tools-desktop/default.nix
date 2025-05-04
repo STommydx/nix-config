@@ -28,9 +28,9 @@
     casks = [
       "atomicjar/tap/testcontainers-desktop"
       "beekeeper-studio"
+      "google-chrome" # extra chrome based browser for web development
       "insomnia"
       "jetbrains-toolbox"
-      "microsoft-edge" # extra chrome based browser for web development
       "orbstack"
       "visual-studio-code"
       "zed"

@@ -8,6 +8,9 @@
   ];
 
   homebrew = {
+    brews = [
+      "cocoapods"
+    ];
     casks = [
       "flutter"
     ];

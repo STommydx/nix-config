@@ -18,36 +18,10 @@
   };
   home-manager.extraSpecialArgs = { inherit inputs; };
 
-  # packages used in workplace
-  environment.systemPackages = with pkgs; [
-    cfssl
-    goreleaser
-    minio-client
-    scrcpy
-    temporal-cli
-    wander
-  ];
-
   homebrew = {
-    brews = [
-      "hashicorp/tap/consul"
-      "hashicorp/tap/consul-template"
-      "hashicorp/tap/nomad"
-      "hashicorp/tap/packer"
-      "hashicorp/tap/vault"
-      "ory/tap/hydra"
-      "ory/tap/kratos"
-    ];
-    casks = [
-      "google-chrome"
-    ];
     masApps = {
       "Windows App" = 1295203466;
     };
-    taps = [
-      "hashicorp/tap"
-      "ory/tap"
-    ];
   };
 
   networking.hostName = "macbookdx";
