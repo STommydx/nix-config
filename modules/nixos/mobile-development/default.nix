@@ -3,6 +3,8 @@
 {
 
   environment.systemPackages = with pkgs; [
+    android-studio
+    flutter
     scrcpy
   ];
 

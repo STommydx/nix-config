@@ -43,7 +43,9 @@
   networking.hostName = "desktopdx";
 
   users.users.stommydx.extraGroups = [
+    "adbusers"
     "docker"
+    "kvm"
     "libvirtd"
   ];
 
