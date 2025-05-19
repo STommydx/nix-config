@@ -37,7 +37,7 @@
     remmina
     transmission_4-gtk
     usbutils
-    ventoy
+    # ventoy # https://github.com/NixOS/nixpkgs/issues/404663
   ];
 
   networking.hostName = "desktopdx";

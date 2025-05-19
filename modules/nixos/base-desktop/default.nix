@@ -45,8 +45,8 @@
       type = "ibus";
       ibus.engines = with pkgs.ibus-engines; [
         mozc
-        table
-        table-chinese
+        # table # https://github.com/NixOS/nixpkgs/issues/408662
+        # table-chinese
       ];
     };
     supportedLocales = [
