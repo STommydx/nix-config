@@ -30,7 +30,7 @@
   # Temporary allow beekeeper-studio until it is updated
   # Electron version 31 is EOL
   nixpkgs.config.permittedInsecurePackages = [
-    "beekeeper-studio-5.1.5"
+    "beekeeper-studio-5.2.9"
   ];
 
 }

@@ -7,7 +7,7 @@
   home.username = lib.mkForce "thomasli";
   home.homeDirectory = lib.mkForce "/homes/thomasli";
 
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     eval "$(/2tssd/thomasli/miniconda3/bin/conda shell.bash hook)"
   '';
 

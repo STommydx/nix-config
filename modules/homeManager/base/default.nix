@@ -122,6 +122,6 @@
 
   services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry.package = pkgs.pinentry-curses;
   };
 }
