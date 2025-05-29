@@ -48,7 +48,7 @@
       "experimental.theme_overrides" = {
         # enable transparency for zed, color based on tokyo night
         # https://github.com/zed-industries/zed/issues/5040
-        "background.appearance" = "transparent";
+        "background.appearance" = "blurred";
         "background" = "#1a1b26d0";
         "border.variant" = "#101014a0";
         "editor.active_line.background" = "#1e202ea0";
