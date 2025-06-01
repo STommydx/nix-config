@@ -26,6 +26,7 @@
 
   networking.hostName = "macbookdx";
 
+  system.primaryUser = "stommydx";
   users.users.stommydx = {
     # weird behaviour home-manager does not pick up home directory from hm config
     home = /Users/stommydx;
