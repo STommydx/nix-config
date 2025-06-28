@@ -40,10 +40,11 @@
     ];
   };
 
-  programs.nautilus-open-any-terminal = {
-    enable = true;
-    terminal = "ghostty";
-  };
+  # disabled due to "Open in Terminal" feature already provided by other packages
+  # programs.nautilus-open-any-terminal = {
+  #   enable = true;
+  #   terminal = "ghostty";
+  # };
 
   # theming for non GTK apps
   qt = {
