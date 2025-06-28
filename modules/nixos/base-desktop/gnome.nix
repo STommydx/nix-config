@@ -56,8 +56,8 @@
   services.gnome.gnome-browser-connector.enable = true;
 
   # enable GNOME services
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
 
   # Enable GNOME Remote Desktop
   # https://github.com/NixOS/nixpkgs/issues/361163

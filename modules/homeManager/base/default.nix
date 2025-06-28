@@ -101,7 +101,9 @@
         };
   };
 
-  programs.thefuck.enable = true;
+  # nixpkgs: 'thefuck' has been removed due to lack of maintenance upstream and incompatible with python 3.12+.
+  # pay-respects is used instead as a replacement as suggested by nixpkgs maintainers.
+  programs.pay-respects.enable = true;
   programs.tmux = {
     enable = true;
     mouse = true;
