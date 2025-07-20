@@ -8,7 +8,7 @@
     pandoc
     pinta
     spotify
-    xournalpp
+    # xournalpp # disabled temporarily due to build failure
     yt-dlp
   ];
 }
