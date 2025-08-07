@@ -54,6 +54,10 @@
       "gist.stommydx.net" = {
         proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname gist-ssh.stommydx.net";
       };
+      "claude.narwhl.internal" = {
+        hostname = "100.121.61.2";
+        user = "system";
+      };
     };
   };
 
