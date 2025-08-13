@@ -26,7 +26,6 @@
 
   # Machine specific package for development and other purposes
   environment.systemPackages = with pkgs; [
-    fly
   ];
 
   networking.hostName = "macbookdx";
