@@ -12,14 +12,13 @@
 
   services.opengist = {
     enable = true;
-    settings =
-      {
-        external-url = "https://gist.stommydx.net";
-      }
-      // lib.mapAttrs' (key: value: lib.nameValuePair "gitea.${key}" value) {
-        url = "https://git.stommydx.net";
-        name = "Forgejo";
-      };
+    settings = {
+      external-url = "https://gist.stommydx.net";
+    }
+    // lib.mapAttrs' (key: value: lib.nameValuePair "gitea.${key}" value) {
+      url = "https://git.stommydx.net";
+      name = "Forgejo";
+    };
     environmentFile = config.sops.templates.opengist-env.path;
     ssh.enable = true;
     user = "git";

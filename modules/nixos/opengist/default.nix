@@ -129,19 +129,18 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    services.opengist.settings =
-      {
-        db-uri = mkIf (cfg.database.type == "sqlite") "file:${cfg.database.path}";
-        opengist-home = cfg.stateDir;
-        "http.host" = cfg.host;
-        "http.port" = cfg.port;
-      }
-      // (lib.optionalAttrs cfg.ssh.enable {
-        "ssh.git-enabled" = true;
-        "ssh.host" = cfg.ssh.host;
-        "ssh.port" = cfg.ssh.port;
-        "ssh.keygen-executable" = lib.getExe' cfg.sshPackage "ssh-keygen";
-      });
+    services.opengist.settings = {
+      db-uri = mkIf (cfg.database.type == "sqlite") "file:${cfg.database.path}";
+      opengist-home = cfg.stateDir;
+      "http.host" = cfg.host;
+      "http.port" = cfg.port;
+    }
+    // (lib.optionalAttrs cfg.ssh.enable {
+      "ssh.git-enabled" = true;
+      "ssh.host" = cfg.ssh.host;
+      "ssh.port" = cfg.ssh.port;
+      "ssh.keygen-executable" = lib.getExe' cfg.sshPackage "ssh-keygen";
+    });
 
     systemd.tmpfiles.rules = [
       "d '${cfg.stateDir}' 0750 ${cfg.user} ${cfg.group} - -"
