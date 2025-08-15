@@ -20,7 +20,7 @@
     enable = true;
     matchBlocks = {
       "dev.clea.internal" = {
-        hostname = "10.11.3.22";
+        hostname = "100.98.47.75";
         user = "system";
       };
     };
