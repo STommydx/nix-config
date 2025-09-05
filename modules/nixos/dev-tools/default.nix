@@ -11,6 +11,7 @@
     ctop
     gcc
     gdb
+    gemini-cli # vibe coding
     gh # GitHub CLI
     gnumake
     go
