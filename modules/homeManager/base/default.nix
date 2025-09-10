@@ -68,11 +68,9 @@
     settings =
       lib.attrsets.recursiveUpdate
         (lib.importTOML (
-          pkgs.fetchurl {
-            # preset from https://starship.rs/presets/nerd-font
-            url = "https://starship.rs/presets/toml/nerd-font-symbols.toml";
-            hash = "sha256-eVWWFuMC6fGTQAtLSVg++G7Gw9wU4VO9rQCVxXzE2xc=";
-          }
+          pkgs.runCommandLocal "nerd-font-symbols-preset" {} ''
+            ${pkgs.starship}/bin/starship preset nerd-font-symbols > $out
+          ''
         ))
         {
           format = "$os$all";
