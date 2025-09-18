@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   ...
 }:
 
@@ -69,7 +68,7 @@
 
   programs.go = {
     enable = true;
-    goPath = lib.removePrefix config.home.homeDirectory "${config.xdg.dataHome}/go"; # Follow XDG spec
+    env.GOPATH = "${config.xdg.dataHome}/go"; # Follow XDG spec
   };
 
   # Git TUI
