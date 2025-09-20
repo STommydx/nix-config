@@ -9,7 +9,7 @@
 
   imports = [
     ../../../profiles/homeManager/devops-desktop
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
   ];
 
   home.username = lib.mkForce "thomasli";
