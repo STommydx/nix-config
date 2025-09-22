@@ -2,8 +2,8 @@
 
 {
 
+  # use homebrew for GUI tools
   environment.systemPackages = with pkgs; [
-    vscode
   ];
 
   fonts.packages = with pkgs; [

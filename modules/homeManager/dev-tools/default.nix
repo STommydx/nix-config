@@ -5,6 +5,10 @@
 
 {
 
+  imports = [
+    ./vibe.nix
+  ];
+
   home.sessionPath = [
     "${config.xdg.dataHome}/go/bin" # Go binaries
   ];

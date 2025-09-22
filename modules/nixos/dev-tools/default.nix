@@ -2,6 +2,10 @@
 
 {
 
+  imports = [
+    ./vibe.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     bat # cat alternative, colorize code outputs
     black # Python code formatter
@@ -11,7 +15,6 @@
     ctop
     gcc
     gdb
-    gemini-cli # vibe coding
     gh # GitHub CLI
     gnumake
     go

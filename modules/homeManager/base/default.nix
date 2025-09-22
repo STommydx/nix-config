@@ -68,7 +68,7 @@
     settings =
       lib.attrsets.recursiveUpdate
         (lib.importTOML (
-          pkgs.runCommandLocal "nerd-font-symbols-preset" {} ''
+          pkgs.runCommandLocal "nerd-font-symbols-preset" { } ''
             ${pkgs.starship}/bin/starship preset nerd-font-symbols > $out
           ''
         ))
