@@ -4,6 +4,7 @@
 
   # use homebrew for GUI tools
   environment.systemPackages = with pkgs; [
+    nixd # make nixd available in zed editor
   ];
 
   fonts.packages = with pkgs; [
