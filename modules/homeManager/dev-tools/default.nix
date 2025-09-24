@@ -47,10 +47,6 @@
       # editor settings should not be committed unless explicitly stated
       ".vscode/"
       ".zed/"
-      # LLM context files and memory, should be explicitly committed
-      "CLAUDE.md"
-      "GEMINI.md"
-      "QWEN.md"
     ];
     userName = "Tommy Li";
     userEmail = "dev@stdx.space";
