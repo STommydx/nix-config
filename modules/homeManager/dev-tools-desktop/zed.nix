@@ -9,6 +9,7 @@
 
   programs.zed-editor = {
     enable = true;
+    package = null;
     extensions = [
       "dockerfile"
       "git-firefly"
