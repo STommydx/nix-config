@@ -47,10 +47,13 @@
   # };
 
   # theming for non GTK apps
+  # temporarily changed to qt5ct styling due to build failure of qgnomeplatform
+  # https://github.com/NixOS/nixpkgs/issues/449595
   qt = {
     enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
+    # platformTheme = "gnome";
+    platformTheme = "qt5ct";
+    # style = "adwaita-dark";
   };
 
   services.dbus.packages = [ pkgs.gcr ]; # for gpg agent setup with gnome

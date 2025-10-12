@@ -7,11 +7,13 @@
     rocmPackages.rocminfo
   ];
 
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-    rocmOverrideGfx = "11.0.0"; # TODO: make this configurable via options
-  };
+  # Temporarily disabled due to hipblaslt build failure
+  # https://github.com/NixOS/nixpkgs/issues/449880
+  # services.ollama = {
+  #   enable = true;
+  #   acceleration = "rocm";
+  #   rocmOverrideGfx = "11.0.0"; # TODO: make this configurable via options
+  # };
 
   # Add rule for using rocm in deep learning libraries
   # https://nixos.wiki/wiki/AMD_GPU
