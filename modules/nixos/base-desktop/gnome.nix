@@ -10,7 +10,7 @@
   environment.systemPackages =
     with pkgs;
     [
-      # gnome-extension-manager disabled temporarily due to https://github.com/NixOS/nixpkgs/issues/368664
+      gnome-extension-manager
       gnome-tweaks
       wl-clipboard # command line clipboard tool
     ]
@@ -47,13 +47,10 @@
   # };
 
   # theming for non GTK apps
-  # temporarily changed to qt5ct styling due to build failure of qgnomeplatform
-  # https://github.com/NixOS/nixpkgs/issues/449595
   qt = {
     enable = true;
-    # platformTheme = "gnome";
-    platformTheme = "qt5ct";
-    # style = "adwaita-dark";
+    platformTheme = "gnome";
+    style = "adwaita-dark";
   };
 
   services.dbus.packages = [ pkgs.gcr ]; # for gpg agent setup with gnome
