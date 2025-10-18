@@ -34,6 +34,7 @@
     ))
     rustc
     treefmt
+    uv
     xh # command line HTTP client, easier to use than curl
   ];
 
