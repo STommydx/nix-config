@@ -1,6 +1,9 @@
 { config, ... }:
 
 {
+
+  home.preferXdgDirectories = true;
+
   # Force applications to compliant to XDG directories standard
 
   home.sessionVariables = {
