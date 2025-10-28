@@ -16,6 +16,12 @@
   # cat alternative, colorize code outputs
   programs.bat.enable = true;
 
+  # coloring for diff outputs
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
   # per directory ENV loading
   programs.direnv = {
     enable = true;
@@ -27,18 +33,30 @@
 
   programs.git = {
     enable = true;
-    aliases = {
-      # Alias recommendations from various sites
-      # https://www.atlassian.com/git/tutorials/git-alias
-      # https://betterprogramming.pub/8-amazing-aliases-to-make-you-more-productive-with-git-3be35d1b7e51
-      alias = "config --get-regexp ^alias\\."; # show all available alias
-      br = "branch";
-      ci = "commit";
-      co = "checkout";
-      st = "status";
-      # support cantonese!
-      teoi = "push"; # home row ftw! :D
-      laai = "pull";
+    settings = {
+      alias = {
+        # Alias recommendations from various sites
+        # https://www.atlassian.com/git/tutorials/git-alias
+        # https://betterprogramming.pub/8-amazing-aliases-to-make-you-more-productive-with-git-3be35d1b7e51
+        alias = "config --get-regexp ^alias\\."; # show all available alias
+        br = "branch";
+        ci = "commit";
+        co = "checkout";
+        st = "status";
+        # support cantonese!
+        teoi = "push"; # home row ftw! :D
+        laai = "pull";
+      };
+      user.name = "Tommy Li";
+      user.email = "dev@stdx.space";
+      init = {
+        defaultBranch = "main"; # modern convention
+      };
+      push = {
+        autoSetupRemote = "true";
+      };
+      # https://youtu.be/aolI_Rz0ZqY?t=901
+      rerere.enabled = true;
     };
     ignores = [
       # ignore (usually) sensitive env files
@@ -48,21 +66,8 @@
       ".vscode/"
       ".zed/"
     ];
-    userName = "Tommy Li";
-    userEmail = "dev@stdx.space";
     signing = {
       key = "577E858EDCFECA83";
-    };
-    delta.enable = true;
-    extraConfig = {
-      init = {
-        defaultBranch = "main"; # modern convention
-      };
-      push = {
-        autoSetupRemote = "true";
-      };
-      # https://youtu.be/aolI_Rz0ZqY?t=901
-      rerere.enabled = true;
     };
   };
 

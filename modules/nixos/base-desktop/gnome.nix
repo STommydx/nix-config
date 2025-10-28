@@ -49,7 +49,8 @@
   # theming for non GTK apps
   qt = {
     enable = true;
-    platformTheme = "gnome";
+    platformTheme = "qt5ct";
+    # platformTheme = "gnome"; # temporarily disabled due to https://github.com/NixOS/nixpkgs/issues/454910
     style = "adwaita-dark";
   };
 
