@@ -62,6 +62,7 @@
       # ignore (usually) sensitive env files
       ".env"
       ".env.*"
+      ".envrc"
       # editor settings should not be committed unless explicitly stated
       ".vscode/"
       ".zed/"
