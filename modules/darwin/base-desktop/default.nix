@@ -16,6 +16,7 @@
     casks = [
       "1password" # password manager
       "adobe-acrobat-reader" # pdf reader
+      "fastmail" # email client
       "firefox" # web browser
       "ghostty" # terminal for command line access
       "jordanbaird-ice" # hidden tray icons
