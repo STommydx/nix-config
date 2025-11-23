@@ -21,7 +21,7 @@
   ];
 
   # disable unneeded Tor service
-  hidden-ssh-announce.enable = lib.mkForce false;
+  tor-ssh.enable = lib.mkForce false;
 
   # additional packages for debugging and fixing installation
   programs.git.enable = true;

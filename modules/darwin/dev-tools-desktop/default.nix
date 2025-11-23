@@ -15,7 +15,7 @@
     source-sans
     source-serif
     roboto
-    ubuntu_font_family
+    ubuntu-classic
     # Nerd Fonts for icons
     nerd-fonts._0xproto
     nerd-fonts.droid-sans-mono

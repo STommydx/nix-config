@@ -115,19 +115,27 @@ nix flake show
 
 1. Always run `nix flake check` before committing changes
 2. Test specific configurations before deployment:
+
+```bash
    # For NixOS hosts:
    nixos-rebuild build --flake ".#<hostname>"
    # For Home Manager hosts:
    home-manager build --flake ".#<hostname>"
    # For Darwin hosts:
    darwin-rebuild build --flake ".#<hostname>"
+```
+
 3. Apply configurations only after successful testing:
+
+```bash
    # For NixOS hosts:
    sudo nixos-rebuild switch --flake ".#<hostname>"
    # For Home Manager hosts:
    home-manager switch --flake ".#<hostname>"
    # For Darwin hosts:
    darwin-rebuild switch --flake ".#<hostname>"
+```
+
 4. Avoid building in production during development sessions
 
 ## Host Configurations
@@ -171,12 +179,15 @@ nix flake show
 4. Add host to the appropriate list in `flake.nix`
 5. Test with `nix flake check`
 6. Build and test configuration:
+
+```bash
    # For NixOS hosts:
    nixos-rebuild build --flake ".#<hostname>"
    # For Home Manager hosts:
    home-manager build --flake ".#<hostname>"
    # For Darwin hosts:
    darwin-rebuild build --flake ".#<hostname>"
+```
 
 ### Updating Configurations
 
@@ -200,6 +211,7 @@ nix flake show
 ### Remote Deployment
 
 Remote deployments are configured using deploy-rs for:
+
 - gitdx (10.101.151.229)
 - guardiandx (10.101.255.22)
 
@@ -218,10 +230,10 @@ deploy .#gitdx
 deploy .#gitdx.system
 ```
 
-
 #### Deployment Configuration
 
 Each remote node is configured in `flake.nix` with:
+
 - Hostname or IP address
 - SSH user for connecting
 - Target user for deployment (often root)
@@ -278,12 +290,16 @@ Note: Ensure `dotfiles/p10k.conf.d/.p10k.zsh` is in `LF` instead of `CRLF` when 
 
 1. Use `nix flake check` to validate configuration syntax
 2. Use platform-specific build commands with --verbose for detailed output:
+
+```bash
    # For NixOS hosts:
    nixos-rebuild build --flake ".#<hostname>" --verbose
    # For Home Manager hosts:
    home-manager build --flake ".#<hostname>" --verbose
    # For Darwin hosts:
    darwin-rebuild build --flake ".#<hostname>" --verbose
+```
+
 3. Check journalctl for service-specific errors
 4. Use `nix repl` to debug Nix expressions
 

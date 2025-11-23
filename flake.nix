@@ -19,7 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     disko = {
       url = "github:nix-community/disko";
@@ -173,14 +176,17 @@
         );
 
       packages.x86_64-linux = {
-        installer-iso = nixos-generators.nixosGenerate {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nixos/installer-iso
-          ];
-          specialArgs = { inherit inputs outputs; };
-          format = "install-iso";
-        };
+        # disabled until upstream nixos-images update for package rename
+        # `zfsUnstable` to `zfs_unstable`
+        # https://github.com/nix-community/nixos-images/blob/be92b53bf066324bcfb695fb69210c851baab086/nix/installer.nix#L22
+        # installer-iso = nixos-generators.nixosGenerate {
+        #   system = "x86_64-linux";
+        #   modules = [
+        #     ./hosts/nixos/installer-iso
+        #   ];
+        #   specialArgs = { inherit inputs outputs; };
+        #   format = "install-iso";
+        # };
         # bastiondx = nixos-generators.nixosGenerate {
         #   inherit system;
         #   modules = [
@@ -216,10 +222,15 @@
       formatter = eachSystem (system: treefmtEval.${system}.config.build.wrapper);
 
       checks =
-        eachSystem (system: {
-          deploy = deploy-rs.lib.${system}.deployChecks self.deploy;
-          formatting = treefmtEval.${system}.config.build.check self;
-        })
+        eachSystem (
+          system:
+          (
+            {
+              formatting = treefmtEval.${system}.config.build.check self;
+            }
+            // (deploy-rs.lib.${system}.deployChecks self.deploy)
+          )
+        )
         // {
           # checks for darwin hosts
           aarch64-darwin = builtins.mapAttrs (
@@ -227,12 +238,13 @@
           ) outputs.darwinConfigurations;
 
           # checks for home-manager hosts
-          x86_64-linux = builtins.listToAttrs (
-            builtins.map (host: {
-              name = host;
-              value = outputs.homeConfigurations.${host}.activationPackage;
-            }) homeManagerHosts
-          );
+          # temporary disabled due to error https://github.com/nix-community/home-manager/issues/8202
+          # x86_64-linux = builtins.listToAttrs (
+          #   builtins.map (host: {
+          #     name = host;
+          #     value = outputs.homeConfigurations.${host}.activationPackage;
+          #   }) homeManagerHosts
+          # );
         };
 
     };

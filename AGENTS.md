@@ -63,17 +63,20 @@ deploy --skip-checksums
 ## Key Concepts
 
 ### Modular Architecture
+
 - **Modules**: Reusable components that encapsulate specific functionality
 - **Profiles**: Combinations of modules for specific use cases (devops, alltheway-desktop, etc.)
 - **Hosts**: Machine-specific configurations that import relevant profiles
 - **Systems**: Hardware-specific configurations
 
 ### Platform Support
+
 - **NixOS**: Full system configurations for bare-metal and virtual machines
 - **Darwin**: macOS configurations using nix-darwin
 - **Home Manager**: User environment configurations that can be standalone or integrated
 
 ### Managed Systems
+
 - Personal desktops and laptops
 - Work machines
 - Servers (Git server, DNS server, bastion host)
@@ -83,18 +86,21 @@ deploy --skip-checksums
 ## Working with This Repository
 
 ### Making Changes
+
 1. Understand the modular structure before making changes
 2. Check if a change should be made in a module, profile, or host-specific file
 3. Test changes with `nix flake check` before committing
 4. Consider impact across different platforms and systems
 
 ### Common Tasks
+
 - **Adding a new package**: Add to the appropriate module based on functionality
 - **Configuring a new service**: Create or modify the relevant module
 - **Adding a new host**: Create a new host configuration and import appropriate profiles
 - **Modifying user settings**: Update the user configuration or relevant Home Manager profile
 
 ### Testing
+
 - Use `nix flake check` to validate configurations
 - Test specific configurations with `nix build .#<hostname>`
 - For Home Manager configurations: `home-manager switch --flake ".#<hostname>"`
@@ -102,16 +108,19 @@ deploy --skip-checksums
 ## Important Notes
 
 ### Secret Management
+
 - Secrets are managed using sops-nix
 - Never commit actual secrets to the repository
 - Only age public keys should be in `.sops.yaml`
 
 ### Deployment
+
 - Remote deployments are configured using deploy-rs
 - Currently configured for gitdx and guardiandx hosts
 - Deployments require proper SSH access and authentication
 
 ### System-Specific Considerations
+
 - NixOS systems include full system configuration
 - Darwin systems work alongside existing macOS configuration
 - Home Manager can be used standalone or with NixOS/Darwin

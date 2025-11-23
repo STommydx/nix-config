@@ -9,7 +9,7 @@
     signal-desktop
     telegram-desktop
     thunderbird # email client
-    whatsapp-for-linux # whatsapp client
+    wasistlos # whatsapp client
     zoom-us # video conference
   ];
 }
