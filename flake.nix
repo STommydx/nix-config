@@ -238,13 +238,12 @@
           ) outputs.darwinConfigurations;
 
           # checks for home-manager hosts
-          # temporary disabled due to error https://github.com/nix-community/home-manager/issues/8202
-          # x86_64-linux = builtins.listToAttrs (
-          #   builtins.map (host: {
-          #     name = host;
-          #     value = outputs.homeConfigurations.${host}.activationPackage;
-          #   }) homeManagerHosts
-          # );
+          x86_64-linux = builtins.listToAttrs (
+            builtins.map (host: {
+              name = host;
+              value = outputs.homeConfigurations.${host}.activationPackage;
+            }) homeManagerHosts
+          );
         };
 
     };
