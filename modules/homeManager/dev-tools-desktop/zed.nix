@@ -49,8 +49,11 @@
       "experimental.theme_overrides" = {
         # enable transparency for zed, color based on tokyo night
         # https://github.com/zed-industries/zed/issues/5040
+        # decreased opacity until application blur if fixed in HDR
+        # https://github.com/aunetx/blur-my-shell/issues/727
         "background.appearance" = "blurred";
-        "background" = "#1a1b26d0";
+        # "background" = "#1a1b26d0";
+        "background" = "#1a1b26f0";
         "border.variant" = "#101014a0";
         "editor.active_line.background" = "#1e202ea0";
         "editor.background" = "#1a1b2680";
@@ -62,8 +65,10 @@
         "tab.inactive_background" = "#16161e80";
         "tab_bar.background" = "#16161e80";
         "terminal.background" = "#16161e80";
-        "title_bar.background" = "#16161ee0";
-        "title_bar.inactive_background" = "#16161ee0";
+        # "title_bar.background" = "#16161ee0";
+        "title_bar.background" = "#16161ef0";
+        # "title_bar.inactive_background" = "#16161ee0";
+        "title_bar.inactive_background" = "#16161ef0";
         "toolbar.background" = "#16161ed0";
       };
       features = {

@@ -107,7 +107,10 @@ with lib.hm.gvariant;
       show-activities-button = true; # for a nice workspace indicator in GNOME 45+
     };
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      blur = true;
+      # disabled until HDR compatibility is fixed
+      # https://github.com/aunetx/blur-my-shell/issues/727
+      # blur = true;
+      blur = false;
       enable-all = false;
       # windows found using Alt-F2, then `lg`
       # https://github.com/aunetx/blur-my-shell/issues/424
