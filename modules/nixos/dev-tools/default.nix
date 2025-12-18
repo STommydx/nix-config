@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     bat # cat alternative, colorize code outputs
     black # Python code formatter
+    bun
     cargo
     clang-tools
     cmake
