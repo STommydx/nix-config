@@ -4,7 +4,7 @@
 
   home.packages = with pkgs; [
     nixd # make nixd available in zed editor
-    nixfmt-rfc-style
+    nixfmt
   ];
 
   programs.zed-editor = {

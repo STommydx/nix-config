@@ -4,10 +4,9 @@
 
   environment.systemPackages = with pkgs; [
     android-studio
+    android-tools
     flutter
     scrcpy
   ];
-
-  programs.adb.enable = true;
 
 }

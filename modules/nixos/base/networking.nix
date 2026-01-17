@@ -27,7 +27,7 @@
   # use resolved for managing DNS
   services.resolved = {
     enable = true;
-    extraConfig = "MulticastDNS=yes";
+    settings.Resolve.MulticastDNS = "yes";
   };
 
   # enable Tailscale mesh VPN by default
