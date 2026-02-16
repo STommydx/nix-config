@@ -6,12 +6,16 @@
 {
   # settings for vibe coding tools
   home.sessionVariables = {
-    # Claude Code with Z.ai
-    # https://docs.z.ai/devpack/tool/claude
-    ANTHROPIC_BASE_URL = "https://api.z.ai/api/anthropic";
-    ANTHROPIC_DEFAULT_SONNET_MODEL = "GLM-4.7";
-    ANTHROPIC_DEFAULT_OPUS_MODEL = "GLM-4.7";
-    ANTHROPIC_DEFAULT_HAIKU_MODEL = "GLM-4.5-Air";
+    # Claude Code with MiniMax
+    # https://platform.minimax.io/docs/coding-plan/claude-code
+    ANTHROPIC_BASE_URL = "https://api.minimax.io/anthropic";
+    API_TIMEOUT_MS = "3000000";
+    CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC = 1;
+    ANTHROPIC_MODEL = "MiniMax-M2.5";
+    ANTHROPIC_SMALL_FAST_MODEL = "MiniMax-M2.5";
+    ANTHROPIC_DEFAULT_SONNET_MODEL = "MiniMax-M2.5";
+    ANTHROPIC_DEFAULT_OPUS_MODEL = "MiniMax-M2.5";
+    ANTHROPIC_DEFAULT_HAIKU_MODEL = "MiniMax-M2.5";
     CLAUDE_CONFIG_DIR = "${config.xdg.configHome}/claude"; # https://github.com/anthropics/claude-code/issues/1455
   };
 
