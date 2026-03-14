@@ -19,7 +19,7 @@
       "fastmail" # email client
       "firefox" # web browser
       "ghostty" # terminal for command line access
-      "jordanbaird-ice" # hidden tray icons
+      "thaw" # hidden tray icons
       "keka" # zip utility
       "macfuse" # user level file system mounting
       "maccy" # clipboard manager
