@@ -22,6 +22,7 @@
     restic
     sops # managing secrets
     valkey # for valkey-cli to manage Redis and Valkey instances
+    yq # YAML query and manipulation
   ];
 
   # Nix index for searching packages
