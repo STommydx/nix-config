@@ -16,7 +16,7 @@
     duf
     iperf # network speed testing
     minio-client
-    neofetch # :D
+    fastfetch # :D
     opentofu # Terraform witho shxt license
     rclone
     restic
