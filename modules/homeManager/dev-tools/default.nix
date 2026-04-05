@@ -69,6 +69,7 @@
     ];
     signing = {
       key = "577E858EDCFECA83";
+      format = "openpgp"; # preserve legacy default (changed in home-manager 25.05)
     };
   };
 

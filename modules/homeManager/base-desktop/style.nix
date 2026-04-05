@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   # TODO: intellegently import stylix only on home manager only configurations
@@ -32,4 +32,8 @@
     targets.qt.enable = false; # stylix does not support adwaita yet
     targets.zed.enable = false;
   };
+
+  # Explicitly preserve gtk4 theme inheritance from gtk.theme (legacy behavior)
+  # gtk.gtk4.theme default changed in home-manager 26.05
+  gtk.gtk4.theme = config.gtk.theme;
 }

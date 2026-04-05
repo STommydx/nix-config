@@ -23,7 +23,7 @@
     just # command runner, like make
     lazygit # TUI for git
     nodejs
-    nodePackages.pnpm
+    pnpm
     pipx
     pre-commit
     protobuf
