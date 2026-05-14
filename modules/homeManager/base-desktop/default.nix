@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -15,7 +15,10 @@
   home.file.".face".source = ./assets/propic.jpg;
 
   # Firefox settings are managed by online sync
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
+  };
 
   # ghostty Terminal settings
   programs.ghostty = {

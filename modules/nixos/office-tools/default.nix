@@ -10,7 +10,7 @@
     signal-desktop
     telegram-desktop
     thunderbird # email client
-    wasistlos # whatsapp client
+    karere # whatsapp client
     zoom-us # video conference
   ];
 }
