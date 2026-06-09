@@ -14,6 +14,21 @@
     enable = true;
 
     settings = {
+      provider = {
+        lmstudio = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "LM Studio (local)";
+          options = {
+            baseURL = "http://127.0.0.1:1234/v1";
+          };
+          models = {
+            "google/gemma-4-12b-qat" = {
+              name = "Gemma 4 12B QAT (local)";
+            };
+          };
+        };
+      };
+
       permission = {
         "*" = "ask";
         read = "allow";
