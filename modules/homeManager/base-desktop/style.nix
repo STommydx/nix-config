@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   # TODO: intellegently import stylix only on home manager only configurations
@@ -33,7 +33,4 @@
     targets.zed.enable = false;
   };
 
-  # Explicitly preserve gtk4 theme inheritance from gtk.theme (legacy behavior)
-  # gtk.gtk4.theme default changed in home-manager 26.05
-  gtk.gtk4.theme = config.gtk.theme;
 }

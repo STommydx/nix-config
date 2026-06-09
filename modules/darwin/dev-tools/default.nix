@@ -23,7 +23,6 @@
     lazygit # TUI for git
     nodejs
     pnpm
-    pipx
     pre-commit
     protobuf
     (python3.withPackages (
