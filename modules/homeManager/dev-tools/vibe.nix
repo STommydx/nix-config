@@ -17,6 +17,7 @@
     ANTHROPIC_DEFAULT_OPUS_MODEL = "MiniMax-M2.5";
     ANTHROPIC_DEFAULT_HAIKU_MODEL = "MiniMax-M2.5";
     CLAUDE_CONFIG_DIR = "${config.xdg.configHome}/claude"; # https://github.com/anthropics/claude-code/issues/1455
+    OPENCODE_ENABLE_EXA = 1;
   };
 
   programs.opencode = {
