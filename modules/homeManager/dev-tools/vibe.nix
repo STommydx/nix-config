@@ -19,22 +19,6 @@
     CLAUDE_CONFIG_DIR = "${config.xdg.configHome}/claude"; # https://github.com/anthropics/claude-code/issues/1455
   };
 
-  programs.codex = {
-    enable = true;
-    package = null;
-
-    settings = {
-      model_providers.z_ai = {
-        name = "z.ai - GLM Coding Plan";
-        base_url = "https://api.z.ai/api/coding/paas/v4";
-        env_key = "Z_AI_API_KEY";
-      };
-
-      model = "GLM-4.7";
-      model_provider = "z_ai";
-    };
-  };
-
   programs.opencode = {
     enable = true;
 
