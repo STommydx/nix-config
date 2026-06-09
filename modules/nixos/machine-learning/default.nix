@@ -8,6 +8,10 @@
     lmstudio
   ];
 
+  environment.variables = {
+    HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+  };
+
   # Add rule for using rocm in deep learning libraries
   # https://nixos.wiki/wiki/AMD_GPU
   systemd.tmpfiles.rules = [
