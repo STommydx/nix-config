@@ -141,6 +141,16 @@ deploy --skip-checksums
 4. Test specific configurations before deployment
 5. Use deploy-rs for remote deployments where configured
 
+### Commit Conventions
+
+Use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification with a body:
+
+```
+<type>: <summary>
+
+<bullet-point body describing the changes>
+```
+
 ## Getting Help
 
 - Refer to existing modules and profiles for examples
