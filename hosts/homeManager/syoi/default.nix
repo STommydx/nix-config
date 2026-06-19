@@ -6,10 +6,10 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks = {
+    settings = {
       "syoi.github.com" = {
-        hostname = "github.com";
-        identityFile = "~/.ssh/id_syoi";
+        HostName = "github.com";
+        IdentityFile = "~/.ssh/id_syoi";
       };
     };
   };

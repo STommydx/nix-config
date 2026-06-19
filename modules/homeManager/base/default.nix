@@ -42,22 +42,22 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "ssh.syoi.org" = {
-        proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname %h";
+        ProxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname %h";
       };
       "git.syoi.org" = {
-        proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname ssh.syoi.org";
+        ProxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname ssh.syoi.org";
       };
       "git.stommydx.net" = {
-        proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname git-ssh.stommydx.net";
+        ProxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname git-ssh.stommydx.net";
       };
       "gist.stommydx.net" = {
-        proxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname gist-ssh.stommydx.net";
+        ProxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname gist-ssh.stommydx.net";
       };
       "claude.narwhl.internal" = {
-        hostname = "100.121.61.2";
-        user = "system";
+        HostName = "100.121.61.2";
+        User = "system";
       };
     };
   };

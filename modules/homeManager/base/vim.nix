@@ -8,6 +8,7 @@
 
   programs.nixvim = {
     enable = true;
+    nixpkgs.source = pkgs.path; # suppress follows pin mismatch warning
     colorschemes.tokyonight = {
       enable = true;
       settings.style = "night";

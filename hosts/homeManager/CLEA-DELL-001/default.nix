@@ -24,10 +24,10 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks = {
+    settings = {
       "dev.clea.internal" = {
-        hostname = "10.11.3.22";
-        user = "system";
+        HostName = "10.11.3.22";
+        User = "system";
       };
     };
   };
