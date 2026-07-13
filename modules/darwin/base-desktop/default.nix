@@ -19,6 +19,7 @@
       "fastmail" # email client
       "firefox" # web browser
       "ghostty" # terminal for command line access
+      "google-gemini" # AI assistant
       "thaw" # hidden tray icons
       "keka" # zip utility
       "macfuse" # user level file system mounting
