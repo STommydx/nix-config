@@ -18,6 +18,7 @@
     p7zip # unzip archives
     tealdeer # tldr in Rust, respect XDG specs
     unixtools.watch
+    unzip # extract ZIP archives
     wget # file download utility
   ];
 

@@ -22,6 +22,7 @@
     netcat # debugging network connections
     p7zip # unzip archives
     tealdeer # tldr in Rust, respect XDG specs
+    unzip # extract ZIP archives
     wget # file download utility
   ];
 
