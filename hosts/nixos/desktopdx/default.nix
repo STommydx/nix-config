@@ -30,6 +30,8 @@
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   boot.plymouth.enable = true;
+  # Linux 6.18.42 resulted in a kernel panic; the NTFS driver requires Linux 7.1+.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "ntfs" ]; # enable ntfs support for windows partition mounting
 
   # Some random tools/programs, not sure which module they belong to...

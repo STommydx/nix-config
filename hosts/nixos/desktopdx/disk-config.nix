@@ -56,7 +56,7 @@
 
   fileSystems."/media/windisk" = {
     device = "/dev/disk/by-uuid/96C2577AC2575D95";
-    fsType = "lowntfs-3g";
+    fsType = "ntfs";
     # options recommendend in https://github.com/ValveSoftware/Proton/wiki/Using-a-NTFS-disk-with-Linux-and-Windows
     options = [ "uid=1000,gid=1000,rw,user,exec,umask=000" ];
   };
