@@ -13,6 +13,18 @@
     "${config.xdg.dataHome}/go/bin" # Go binaries
   ];
 
+  programs.bun = {
+    enable = true;
+    package = null;
+    settings = {
+      install = {
+        globalDir = "${config.xdg.dataHome}/bun/install/global";
+        globalBinDir = config.xdg.binHome;
+        cache.dir = "${config.xdg.cacheHome}/bun/install/cache";
+      };
+    };
+  };
+
   # cat alternative, colorize code outputs
   programs.bat.enable = true;
 

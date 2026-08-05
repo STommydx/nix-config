@@ -13,7 +13,7 @@
   ];
 
   home.sessionPath = [
-    "${config.home.homeDirectory}/.local/bin" # add local binaries to PATH
+    config.xdg.binHome # add local binaries to PATH
   ];
 
   # ls alternative, colorize output
