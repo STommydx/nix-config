@@ -4,7 +4,7 @@
   # Office software
   environment.systemPackages = with pkgs; [
     # element-desktop
-    fastmail-desktop # email client
+    # fastmail-desktop # disabled until https://github.com/NixOS/nixpkgs/pull/544808 is merged
     libreoffice # office suite
     qpdf # command line pdf manipulation tool
     signal-desktop
