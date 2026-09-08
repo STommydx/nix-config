@@ -54,7 +54,7 @@
     style = "adwaita-dark";
   };
 
-  services.dbus.packages = [ pkgs.gcr ]; # for gpg agent setup with gnome
+  services.dbus.packages = [ pkgs.gcr_4 ]; # for gpg agent setup with gnome
   services.gnome.gnome-browser-connector.enable = true;
 
   # enable GNOME services
