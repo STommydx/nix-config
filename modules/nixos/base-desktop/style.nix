@@ -49,6 +49,8 @@
 
     targets.qt.enable = false; # temporarily disabled to prevent qgnomeplatform being installed
     targets.chromium.enable = false;
+    # Avoid rebuilding Inkscape and Papers against Stylix-patched GTKSourceView.
+    targets.gtksourceview.enable = false;
   };
 
 }
