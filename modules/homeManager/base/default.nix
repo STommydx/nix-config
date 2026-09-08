@@ -125,7 +125,7 @@
     syntaxHighlighting.enable = true;
   };
 
-  services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
+  services.gpg-agent = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
     pinentry.package = pkgs.pinentry-curses;
   };

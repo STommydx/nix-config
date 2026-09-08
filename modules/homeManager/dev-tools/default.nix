@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   ...
 }:
@@ -15,7 +16,7 @@
 
   programs.bun = {
     enable = true;
-    package = null;
+    package = pkgs.bun;
     settings = {
       install = {
         globalDir = "${config.xdg.dataHome}/bun/install/global";

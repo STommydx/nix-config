@@ -22,7 +22,6 @@
 
   hardware.logitech.wireless = {
     enable = true;
-    enableGraphical = true;
   };
 
   # Driving wheels
@@ -35,6 +34,9 @@
 
   # Linux gaming optimizations
   programs.gamemode.enable = true;
+
+  # Logitech device configuration
+  programs.solaar.enable = true;
 
   programs.steam = {
     enable = true;
