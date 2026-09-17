@@ -58,6 +58,7 @@
       "claude.narwhl.internal" = {
         HostName = "100.121.61.2";
         User = "system";
+        ProxyCommand = "${pkgs.netcat}/bin/nc -X 5 -x 127.0.0.1:1055 %h %p";
       };
     };
   };
