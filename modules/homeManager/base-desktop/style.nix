@@ -31,6 +31,8 @@
     targets.swaylock.enable = false; # https://github.com/danth/stylix/issues/843
     targets.qt.enable = false; # stylix does not support adwaita yet
     targets.zed.enable = false;
+    # Stylix still writes Home Manager's deprecated `programs.rofi.font` option.
+    targets.rofi.enable = false;
   };
 
 }

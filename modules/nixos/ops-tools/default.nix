@@ -15,7 +15,6 @@
     deploy-rs # for deploying nixos configurations
     duf
     iperf # network speed testing
-    minio-client
     fastfetch # :D
     opentofu # Terraform witho shxt license
     rclone

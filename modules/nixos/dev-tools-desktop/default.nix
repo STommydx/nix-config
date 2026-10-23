@@ -27,10 +27,9 @@
     nerd-fonts.ubuntu-sans
   ];
 
-  # Temporary allow beekeeper-studio until it is updated
-  # Electron version 39 is EOL
+  # Temporarily allow the current Nixpkgs Beekeeper Studio release despite its EOL Electron.
   nixpkgs.config.permittedInsecurePackages = [
-    "beekeeper-studio-6.0.5"
+    "beekeeper-studio-6.1.4"
   ];
 
 }
