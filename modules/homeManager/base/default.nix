@@ -10,6 +10,7 @@
     ./hm.nix
     ./vim.nix
     ./xdg.nix
+    ./claude-tunnel.nix
   ];
 
   home.sessionPath = [
@@ -54,15 +55,6 @@
       };
       "gist.stommydx.net" = {
         ProxyCommand = "${pkgs.cloudflared}/bin/cloudflared access ssh --hostname gist-ssh.stommydx.net";
-      };
-      "claude.narwhl.internal" = {
-        HostName = "100.121.61.2";
-        User = "system";
-        ProxyCommand = "${pkgs.netcat}/bin/nc -X 5 -x 127.0.0.1:1055 %h %p";
-        DynamicForward = "127.0.0.1:41080";
-        ControlMaster = "auto";
-        ControlPath = "~/.ssh/cm-%C";
-        ControlPersist = "10m";
       };
     };
   };
